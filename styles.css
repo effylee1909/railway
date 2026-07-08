@@ -616,6 +616,10 @@ input[type="range"] {
   stroke: rgba(255, 107, 97, 0.86);
 }
 
+.scenario-view .route-line {
+  opacity: 0.45;
+}
+
 .layout-text {
   fill: var(--text);
   font-size: 13px;

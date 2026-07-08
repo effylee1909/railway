@@ -20,6 +20,10 @@
             <span>系統地圖</span>
             <small>System Map</small>
           </button>
+          <button class="nav-item" data-module="scenario">
+            <span>案例模式</span>
+            <small>Point Detection Failure</small>
+          </button>
           <button class="nav-item" data-module="blocks">
             <span>閉塞</span>
             <small>Block Sections</small>
@@ -161,6 +165,15 @@
                 <g id="commissioning-board"></g>
               </g>
 
+              <g class="diagram-layer scenario-view hidden">
+                <line class="rail" x1="75" y1="235" x2="925" y2="235" />
+                <line class="rail rail-secondary" x1="75" y1="265" x2="925" y2="265" />
+                <line class="switch-rail" x1="342" y1="235" x2="545" y2="320" />
+                <line class="rail" x1="545" y1="320" x2="900" y2="320" />
+                <line class="rail rail-secondary" x1="545" y1="350" x2="900" y2="350" />
+                <g id="scenario-board"></g>
+              </g>
+
               <g class="diagram-layer crossing-view hidden">
                 <line class="rail" x1="90" y1="225" x2="910" y2="225" />
                 <line class="rail rail-secondary" x1="90" y1="255" x2="910" y2="255" />
@@ -209,6 +222,30 @@
                   <li>實線表示軌道或受控設備的位置。</li>
                   <li>虛線表示資料、命令或監控訊號的連線。</li>
                   <li>設備標籤同時保留中文與英文，方便面試時講解。</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="module-panel" id="panel-scenario">
+              <h3>案例模式 / Scenario Mode</h3>
+              <p>
+                這個案例示範道岔不到位如何從現場轉轍器一路影響聯鎖、告警維護與測試驗收流程。
+              </p>
+              <label class="slider-label" for="scenario-step">
+                案例步驟 / Scenario Step
+                <span id="scenario-step-value">轉轍器命令</span>
+              </label>
+              <input id="scenario-step" type="range" min="0" max="4" value="0" />
+              <div class="button-row">
+                <button class="action-button" id="scenario-prev" type="button">上一步</button>
+                <button class="action-button primary" id="scenario-next" type="button">下一步</button>
+              </div>
+              <div class="flow-panel" aria-live="polite">
+                <span class="insight-label">事件解讀 / Event Trace</span>
+                <ol id="scenario-actions">
+                  <li>聯鎖命令轉轍器轉到 Reverse。</li>
+                  <li>等待現場設備回報位置偵測。</li>
+                  <li>此時尚未允許開放進路。</li>
                 </ol>
               </div>
             </div>

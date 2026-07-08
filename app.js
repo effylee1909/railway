@@ -3,6 +3,10 @@ const modules = {
     title: "系統地圖 / System Map",
     term: "設備位置",
   },
+  scenario: {
+    title: "案例模式 / Point Detection Failure",
+    term: "道岔不到位",
+  },
   blocks: {
     title: "閉塞區間 / Block Sections",
     term: "閉塞區間",
@@ -398,6 +402,38 @@ const knowledgeNotes = {
       },
     ],
   },
+  scenario: {
+    title: "案例模式 / Point Detection Failure",
+    cards: [
+      {
+        zh: "事件鏈",
+        en: "Event Chain",
+        points: [
+          "道岔不到位不是單一設備問題，會連動聯鎖、告警與驗收。",
+          "案例模式把現場異常轉成可追蹤的因果流程。",
+          "面試展示時可用它說明你理解系統關聯，而不是只背名詞。",
+        ],
+      },
+      {
+        zh: "安全反應",
+        en: "Safe Response",
+        points: [
+          "位置未證實時，聯鎖要拒絕進路。",
+          "告警面板要指出影響範圍與嚴重度。",
+          "測試驗收需記錄缺失、修正與復測證據。",
+        ],
+      },
+      {
+        zh: "跨模組理解",
+        en: "Cross-module Learning",
+        points: [
+          "轉轍器負責現場動作與回報。",
+          "聯鎖負責判斷是否允許行車。",
+          "維護與驗收流程負責處置、追蹤與交付判斷。",
+        ],
+      },
+    ],
+  },
 };
 
 const blockNames = ["A", "B", "C", "D", "E"];
@@ -410,6 +446,7 @@ let activeModule = "layout";
 let pointPosition = "normal";
 let alarmScenario = "point";
 let commissioningStage = 2;
+let scenarioStep = 0;
 
 const moduleTitle = document.querySelector("#module-title");
 const selectedTerm = document.querySelector("#selected-term");
@@ -443,6 +480,9 @@ const commissioningStageSlider = document.querySelector("#commissioning-stage");
 const commissioningStageValue = document.querySelector("#commissioning-stage-value");
 const commissioningIssue = document.querySelector("#commissioning-issue");
 const commissioningActions = document.querySelector("#commissioning-actions");
+const scenarioStepSlider = document.querySelector("#scenario-step");
+const scenarioStepValue = document.querySelector("#scenario-step-value");
+const scenarioActions = document.querySelector("#scenario-actions");
 const etcsFlow = document.querySelector("#etcs-flow");
 
 function svgEl(tag, attrs = {}) {
@@ -897,6 +937,88 @@ function renderCommissioning() {
   setStatus(issueFound ? "缺失待復測" : "測試進行中", issueFound ? "red" : "yellow");
 }
 
+function renderScenario() {
+  const board = document.querySelector("#scenario-board");
+  board.replaceChildren();
+
+  const steps = [
+    {
+      title: "轉轍器命令",
+      status: "等待回報",
+      tone: "yellow",
+      actions: ["聯鎖命令轉轍器轉到 Reverse。", "等待現場設備回報位置偵測。", "此時尚未允許開放進路。"],
+    },
+    {
+      title: "位置未證實",
+      status: "偵測失敗",
+      tone: "red",
+      actions: ["轉轍器未回報 Reverse 到位。", "Point Detection 不成立。", "系統必須把道岔視為不安全狀態。"],
+    },
+    {
+      title: "聯鎖拒絕進路",
+      status: "進路拒絕",
+      tone: "red",
+      actions: ["聯鎖檢查到道岔位置未證實。", "進路無法鎖定，號誌維持紅燈。", "列車不得進入該受控路徑。"],
+    },
+    {
+      title: "告警維護介入",
+      status: "重大告警",
+      tone: "red",
+      actions: ["告警面板顯示 Point Detection Failure。", "維護人員確認影響範圍與設備位置。", "相關進路維持封鎖或降級操作。"],
+    },
+    {
+      title: "缺失復測",
+      status: "待復測",
+      tone: "yellow",
+      actions: ["修正轉轍器或偵測回路後進行復測。", "重新執行 I/O 與聯鎖邏輯測試。", "復測通過後才可進入試運轉或交付。"],
+    },
+  ];
+  const step = steps[scenarioStep];
+  scenarioStepValue.textContent = step.title;
+  scenarioStepSlider.value = scenarioStep;
+
+  board.append(
+    svgEl("path", { class: "route-line blocked", d: "M 115 235 L 342 235 L 545 320 L 875 320" }),
+    svgEl("rect", { class: "layout-device trackside", x: 250, y: 92, width: 145, height: 60, rx: 8 }),
+    svgEl("text", { class: "layout-text", x: 265, y: 119 }),
+    svgEl("text", { class: "layout-subtext", x: 265, y: 140 }),
+    svgEl("rect", { class: "layout-device station", x: 455, y: 92, width: 120, height: 60, rx: 8 }),
+    svgEl("text", { class: "layout-text", x: 480, y: 119 }),
+    svgEl("text", { class: "layout-subtext", x: 477, y: 140 }),
+    svgEl("rect", { class: "layout-device control", x: 640, y: 92, width: 140, height: 60, rx: 8 }),
+    svgEl("text", { class: "layout-text", x: 660, y: 119 }),
+    svgEl("text", { class: "layout-subtext", x: 660, y: 140 }),
+    svgEl("rect", { class: "layout-device control", x: 410, y: 302, width: 180, height: 58, rx: 8 }),
+    svgEl("text", { class: "layout-text", x: 430, y: 328 }),
+    svgEl("text", { class: "layout-subtext", x: 430, y: 348 }),
+    svgEl("path", { class: scenarioStep >= 1 ? "occupied-cable" : "layout-link", d: "M 395 122 L 455 122" }),
+    svgEl("path", { class: scenarioStep >= 3 ? "occupied-cable" : "layout-control-link", d: "M 575 122 L 640 122" }),
+    svgEl("path", { class: scenarioStep >= 4 ? "layout-control-link" : "layout-link", d: "M 710 152 C 670 220, 590 252, 500 302" }),
+    svgEl("rect", { class: `alarm-row ${step.tone}`, x: 250, y: 380, width: 530, height: 42, rx: 8 }),
+    svgEl("text", { class: "layout-text", x: 270, y: 406 })
+  );
+  board.children[2].textContent = "轉轍器";
+  board.children[3].textContent = scenarioStep >= 1 ? "No Detection" : "Command Reverse";
+  board.children[5].textContent = "聯鎖";
+  board.children[6].textContent = scenarioStep >= 2 ? "Route Denied" : "Checking";
+  board.children[8].textContent = "告警維護";
+  board.children[9].textContent = scenarioStep >= 3 ? "Critical Alarm" : "Monitoring";
+  board.children[11].textContent = "測試驗收";
+  board.children[12].textContent = scenarioStep >= 4 ? "Retest Required" : "Evidence";
+  board.lastChild.textContent = `${step.title} / ${step.status}`;
+
+  drawSignal(board, 112, 150, scenarioStep >= 2 ? "red" : "yellow", "Home");
+  drawTrain(board, 760, 320, "Blocked");
+
+  scenarioActions.replaceChildren();
+  step.actions.forEach((action) => {
+    const item = document.createElement("li");
+    item.textContent = action;
+    scenarioActions.append(item);
+  });
+  setStatus(step.status, step.tone);
+}
+
 function renderEtcs() {
   const equipmentGroup = document.querySelector("#etcs-equipment");
   const trainGroup = document.querySelector("#etcs-train");
@@ -1092,6 +1214,7 @@ function renderCrossing() {
 
 function renderCurrentConcept() {
   if (activeModule === "layout") renderLayout();
+  if (activeModule === "scenario") renderScenario();
   if (activeModule === "blocks") renderBlocks();
   if (activeModule === "interlocking") renderInterlocking();
   if (activeModule === "point") renderPoint();
@@ -1196,6 +1319,21 @@ commissioningStageSlider.addEventListener("input", (event) => {
 });
 
 commissioningIssue.addEventListener("change", renderCommissioning);
+
+scenarioStepSlider.addEventListener("input", (event) => {
+  scenarioStep = Number(event.target.value);
+  renderScenario();
+});
+
+document.querySelector("#scenario-prev").addEventListener("click", () => {
+  scenarioStep = Math.max(0, scenarioStep - 1);
+  renderScenario();
+});
+
+document.querySelector("#scenario-next").addEventListener("click", () => {
+  scenarioStep = Math.min(4, scenarioStep + 1);
+  renderScenario();
+});
 
 document.querySelectorAll("[data-level]").forEach((button) => {
   button.addEventListener("click", () => {
