@@ -535,8 +535,8 @@ function drawLayoutDevice(parent, x, y, width, height, type, title, subtitle) {
 function drawBalise(parent, x, y) {
   parent.append(
     svgEl("polygon", { class: "balise", points: `${x},${y} ${x + 44},${y} ${x + 30},${y + 28} ${x - 14},${y + 28}` }),
-    svgEl("text", { class: "layout-text", x: x - 34, y: y + 52 }),
-    svgEl("text", { class: "layout-subtext", x: x - 16, y: y + 68 })
+    svgEl("text", { class: "layout-text", x: x + 58, y: y + 14 }),
+    svgEl("text", { class: "layout-subtext", x: x + 58, y: y + 32 })
   );
   parent.children[parent.children.length - 2].textContent = "應答器";
   parent.children[parent.children.length - 1].textContent = "Balise";
@@ -631,41 +631,40 @@ function renderLayout() {
   layoutGroup.children[5].textContent = "Block C";
 
   layoutGroup.append(
-    svgEl("path", { class: "layout-link", d: "M 168 182 L 168 118 L 214 118" }),
-    svgEl("path", { class: "layout-link", d: "M 380 182 L 380 118 L 422 118" }),
-    svgEl("path", { class: "layout-link", d: "M 342 235 L 342 82 L 426 82" }),
-    svgEl("path", { class: "layout-link", d: "M 724 180 L 724 132 L 802 132" }),
-    svgEl("path", { class: "layout-control-link", d: "M 536 78 C 570 44, 620 42, 660 62" }),
-    svgEl("path", { class: "layout-control-link", d: "M 742 72 C 768 48, 826 48, 866 70" }),
-    svgEl("path", { class: "layout-control-link", d: "M 660 96 C 612 138, 552 148, 486 154" }),
-    svgEl("path", { class: "layout-link", d: "M 804 190 L 804 150 L 752 150" })
+    svgEl("path", { class: "layout-link", d: "M 192 188 L 192 122 L 212 122" }),
+    svgEl("path", { class: "layout-link", d: "M 410 188 L 410 122 L 430 122" }),
+    svgEl("path", { class: "layout-link", d: "M 348 235 L 348 386 L 380 386" }),
+    svgEl("path", { class: "layout-link", d: "M 620 235 L 620 386 L 646 386" }),
+    svgEl("path", { class: "layout-link", d: "M 724 188 L 724 154 L 804 154" }),
+    svgEl("path", { class: "layout-link", d: "M 596 278 L 596 324 L 564 324" }),
+    svgEl("path", { class: "layout-control-link", d: "M 548 96 C 594 64, 634 64, 674 84" }),
+    svgEl("path", { class: "layout-control-link", d: "M 790 82 C 820 58, 852 58, 884 82" }),
+    svgEl("path", { class: "layout-control-link", d: "M 690 138 C 638 164, 574 168, 516 148" })
   );
 
   drawSignal(layoutGroup, 116, 142, "green", "S1");
   drawSignal(layoutGroup, 298, 142, "yellow", "S2");
   drawSignal(layoutGroup, 478, 142, "red", "S3");
 
-  drawLayoutDevice(layoutGroup, 210, 92, 130, 54, "trackside", "軌道電路", "Track Circuit");
-  drawLayoutDevice(layoutGroup, 414, 92, 120, 54, "trackside", "計軸器", "Axle Counter");
-  drawLayoutDevice(layoutGroup, 424, 42, 105, 48, "station", "聯鎖", "Interlocking");
-  drawLayoutDevice(layoutGroup, 318, 300, 124, 52, "trackside", "轉轍器", "Point Machine");
-  drawLayoutDevice(layoutGroup, 662, 34, 116, 54, "control", "CTC", "Control Center");
-  drawLayoutDevice(layoutGroup, 646, 112, 130, 52, "control", "告警維護", "Alarm / Maint.");
-  drawLayoutDevice(layoutGroup, 150, 342, 134, 52, "control", "測試驗收", "Commissioning");
-  drawLayoutDevice(layoutGroup, 860, 42, 96, 50, "control", "RBC", "Radio Block");
-  drawLayoutDevice(layoutGroup, 800, 118, 128, 54, "trackside", "平交道", "Level Crossing");
-  drawLayoutDevice(layoutGroup, 606, 342, 132, 52, "onboard", "車上 ATP", "Onboard ATP");
-  drawBalise(layoutGroup, 574, 278);
+  drawLayoutDevice(layoutGroup, 212, 88, 150, 56, "trackside", "軌道電路", "Track Circuit");
+  drawLayoutDevice(layoutGroup, 430, 88, 146, 56, "trackside", "計軸器", "Axle Counter");
+  drawLayoutDevice(layoutGroup, 430, 28, 136, 52, "station", "聯鎖", "Interlocking");
+  drawLayoutDevice(layoutGroup, 380, 362, 152, 54, "trackside", "轉轍器", "Point Machine");
+  drawLayoutDevice(layoutGroup, 674, 52, 142, 56, "control", "CTC", "Control Center");
+  drawLayoutDevice(layoutGroup, 650, 124, 154, 56, "control", "告警維護", "Alarm / Maint.");
+  drawLayoutDevice(layoutGroup, 118, 362, 160, 54, "control", "測試驗收", "Commissioning");
+  drawLayoutDevice(layoutGroup, 884, 52, 104, 56, "control", "RBC", "Radio Block");
+  drawLayoutDevice(layoutGroup, 804, 124, 160, 56, "trackside", "平交道", "Level Crossing");
+  drawLayoutDevice(layoutGroup, 646, 362, 150, 54, "onboard", "車上 ATP", "Onboard ATP");
+  drawBalise(layoutGroup, 540, 282);
   drawTrain(layoutGroup, 665, 244, "Train");
 
   layoutGroup.append(
     svgEl("line", { class: "barrier closed", x1: 672, y1: 220, x2: 750, y2: 220 }),
     svgEl("line", { class: "barrier closed", x1: 698, y1: 286, x2: 776, y2: 286 }),
     svgEl("circle", { class: "sensor-dot", cx: 438, cy: 235, r: 10 }),
-    svgEl("circle", { class: "sensor-dot", cx: 568, cy: 235, r: 10 }),
-    svgEl("text", { class: "diagram-label", x: 98, y: 385 })
+    svgEl("circle", { class: "sensor-dot", cx: 568, cy: 235, r: 10 })
   );
-  layoutGroup.lastChild.textContent = "Trackside / Station / Control / Onboard equipment on one railway layout";
 }
 
 function renderInterlocking() {
