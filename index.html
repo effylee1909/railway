@@ -16,7 +16,11 @@
         </div>
 
         <nav class="module-nav" aria-label="Modules">
-          <button class="nav-item active" data-module="layout">
+          <button class="nav-item active" data-module="learning">
+            <span>學習地圖</span>
+            <small>Learning Map</small>
+          </button>
+          <button class="nav-item" data-module="layout">
             <span>系統地圖</span>
             <small>System Map</small>
           </button>
@@ -78,16 +82,16 @@
         <header class="workspace-header">
           <div>
             <p class="eyebrow">Taiwan Railway Signaling Upgrade Study</p>
-            <h2 id="module-title">系統地圖 / System Map</h2>
+            <h2 id="module-title">學習地圖 / Learning Map</h2>
           </div>
           <div class="status-strip" aria-label="Current system status">
             <div>
               <span id="route-status-dot" class="status-dot green"></span>
-              <strong id="system-status">總覽模式</strong>
+              <strong id="system-status">學習路徑</strong>
               <small>System State</small>
             </div>
             <div>
-              <strong id="selected-term">設備位置</strong>
+              <strong id="selected-term">學習順序</strong>
               <small>Selected Term</small>
             </div>
           </div>
@@ -191,7 +195,11 @@
                 <path id="radio-wave" class="radio-wave hidden" d="M 500 90 C 575 135, 610 165, 680 216" />
               </g>
 
-              <g class="diagram-layer layout-view">
+              <g class="diagram-layer learning-view">
+                <g id="learning-map"></g>
+              </g>
+
+              <g class="diagram-layer layout-view hidden">
                 <line class="rail" x1="70" y1="235" x2="930" y2="235" />
                 <line class="rail rail-secondary" x1="70" y1="265" x2="930" y2="265" />
                 <line class="switch-rail" x1="342" y1="235" x2="515" y2="318" />
@@ -205,7 +213,49 @@
           </div>
 
           <div class="control-panel">
-            <div class="module-panel active" id="panel-layout">
+            <div class="module-panel active" id="panel-learning">
+              <h3>學習地圖 / Learning Map</h3>
+              <p>
+                這條路線把 handbook 的大架構收斂成作品導覽：先理解鐵道專案，再進入號誌核心，最後接到文件、測試與案例。
+              </p>
+              <div class="learning-actions" aria-label="Learning path shortcuts">
+                <button class="learning-jump" type="button" data-jump-module="layout">
+                  <span>01</span>
+                  <strong>系統總覽</strong>
+                  <small>先知道設備放在哪裡</small>
+                </button>
+                <button class="learning-jump" type="button" data-jump-module="detection">
+                  <span>02</span>
+                  <strong>列車偵測</strong>
+                  <small>理解系統如何知道列車位置</small>
+                </button>
+                <button class="learning-jump" type="button" data-jump-module="interlocking">
+                  <span>03</span>
+                  <strong>聯鎖邏輯</strong>
+                  <small>看懂安全條件如何被檢查</small>
+                </button>
+                <button class="learning-jump" type="button" data-jump-module="protection">
+                  <span>04</span>
+                  <strong>列車控制</strong>
+                  <small>連到 ATP、ATS、CTC、ETCS</small>
+                </button>
+                <button class="learning-jump" type="button" data-jump-module="commissioning">
+                  <span>05</span>
+                  <strong>測試驗收</strong>
+                  <small>把知識接回專案交付流程</small>
+                </button>
+              </div>
+              <div class="flow-panel">
+                <span class="insight-label">展示方式 / Interview Story</span>
+                <ol>
+                  <li>先用 Learning Map 說明你如何拆解鐵道專案知識。</li>
+                  <li>再進入 System Map，把抽象名詞放回現場位置。</li>
+                  <li>最後用案例模式說明故障如何影響聯鎖、告警與驗收。</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="module-panel" id="panel-layout">
               <h3>系統地圖 / System Map</h3>
               <p>
                 這張總覽圖把號誌設備放回軌道現場：哪些在軌旁、哪些在車站設備室、哪些在控制中心或列車上。

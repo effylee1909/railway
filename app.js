@@ -1,4 +1,8 @@
 const modules = {
+  learning: {
+    title: "學習地圖 / Learning Map",
+    term: "學習順序",
+  },
   layout: {
     title: "系統地圖 / System Map",
     term: "設備位置",
@@ -50,6 +54,38 @@ const modules = {
 };
 
 const knowledgeNotes = {
+  learning: {
+    title: "學習地圖 / Learning Map",
+    cards: [
+      {
+        zh: "作品敘事",
+        en: "Portfolio Story",
+        points: [
+          "用 handbook 的架構建立學習順序，而不是把名詞零散堆在頁面上。",
+          "先從鐵道專案總覽進入，再聚焦到號誌系統與測試驗收。",
+          "面試展示時可說明你如何把工作現場看過的內容轉成可學習模型。",
+        ],
+      },
+      {
+        zh: "核心路線",
+        en: "Core Path",
+        points: [
+          "系統總覽：先知道設備在軌旁、車站、控制中心或車上。",
+          "號誌核心：列車偵測、轉轍器、聯鎖、閉塞構成安全邏輯。",
+          "專案交付：告警維護、測試驗收與案例模式把知識接回實務。",
+        ],
+      },
+      {
+        zh: "下一層擴充",
+        en: "Next Layer",
+        points: [
+          "Document Map 可承接 SRS、ICD、FD、Test Procedure。",
+          "Testing Flow 可細分 FAT、SAT、SIT、Trial Run、Handover。",
+          "Glossary 可把 handbook 中英文名詞變成可搜尋工具。",
+        ],
+      },
+    ],
+  },
   blocks: {
     title: "閉塞 / Block Sections",
     cards: [
@@ -442,7 +478,7 @@ let selectedRoute = "A";
 let activeEtcsLevel = "1";
 let detectionType = "track-circuit";
 let ctcMode = "normal";
-let activeModule = "layout";
+let activeModule = "learning";
 let pointPosition = "normal";
 let alarmScenario = "point";
 let commissioningStage = 2;
@@ -564,6 +600,111 @@ function renderKnowledge(moduleName) {
     article.append(zh, en, list);
     knowledgeGrid.append(article);
   });
+}
+
+function renderLearningMap() {
+  const mapGroup = document.querySelector("#learning-map");
+  mapGroup.replaceChildren();
+  mapGroup.setAttribute("transform", "translate(0 -170)");
+
+  const steps = [
+    {
+      number: "01",
+      title: "鐵道專案總覽",
+      subtitle: "Railway Project",
+      x: 82,
+      y: 46,
+      width: 164,
+      type: "foundation",
+    },
+    {
+      number: "02",
+      title: "系統總覽",
+      subtitle: "System Map",
+      x: 290,
+      y: 46,
+      width: 150,
+      type: "system",
+      target: "layout",
+    },
+    {
+      number: "03",
+      title: "號誌核心",
+      subtitle: "Signalling Core",
+      x: 484,
+      y: 46,
+      width: 170,
+      type: "signaling",
+      target: "detection",
+    },
+    {
+      number: "04",
+      title: "行車控制",
+      subtitle: "Train Control",
+      x: 698,
+      y: 46,
+      width: 160,
+      type: "control",
+      target: "protection",
+    },
+    {
+      number: "05",
+      title: "測試驗收",
+      subtitle: "Commissioning",
+      x: 390,
+      y: 314,
+      width: 170,
+      type: "delivery",
+      target: "commissioning",
+    },
+  ];
+
+  mapGroup.append(
+    svgEl("path", { class: "learning-route", d: "M 246 80 L 290 80" }),
+    svgEl("path", { class: "learning-route", d: "M 440 80 L 484 80" }),
+    svgEl("path", { class: "learning-route", d: "M 654 80 L 698 80" }),
+    svgEl("path", { class: "learning-route", d: "M 778 112 C 752 208, 638 312, 560 341" }),
+    svgEl("path", { class: "learning-route muted", d: "M 390 341 C 276 306, 190 218, 164 118" }),
+    svgEl("text", { class: "learning-caption", x: 84, y: 390 }),
+    svgEl("text", { class: "learning-caption", x: 84, y: 412 })
+  );
+  mapGroup.children[5].textContent = "Recommended path: project context -> signalling core -> train control -> testing and handover";
+  mapGroup.children[6].textContent = "Use this map as the opening story, then jump into each simulator for details.";
+
+  steps.forEach((step) => {
+    const group = svgEl("g", { class: `learning-node ${step.type}` });
+    group.append(
+      svgEl("rect", { x: step.x, y: step.y, width: step.width, height: 74, rx: 8 }),
+      svgEl("circle", { cx: step.x + 24, cy: step.y + 24, r: 15 }),
+      svgEl("text", { class: "learning-number", x: step.x + 17, y: step.y + 30 }),
+      svgEl("text", { class: "learning-title", x: step.x + 50, y: step.y + 29 }),
+      svgEl("text", { class: "learning-subtitle", x: step.x + 50, y: step.y + 52 })
+    );
+    group.children[2].textContent = step.number;
+    group.children[3].textContent = step.title;
+    group.children[4].textContent = step.subtitle;
+    mapGroup.append(group);
+  });
+
+  const coreItems = [
+    ["列車偵測", "Train Detection", 212, 190],
+    ["轉轍器", "Point Machine", 356, 216],
+    ["聯鎖", "Interlocking", 500, 190],
+    ["閉塞", "Block Sections", 644, 216],
+  ];
+  coreItems.forEach(([title, subtitle, x, y]) => {
+    const group = svgEl("g", { class: "learning-chip" });
+    group.append(
+      svgEl("rect", { x, y, width: 118, height: 52, rx: 8 }),
+      svgEl("text", { class: "layout-text", x: x + 10, y: y + 22 }),
+      svgEl("text", { class: "layout-subtext", x: x + 10, y: y + 40 })
+    );
+    group.children[1].textContent = title;
+    group.children[2].textContent = subtitle;
+    mapGroup.append(group);
+  });
+
+  setStatus("學習路徑", "green");
 }
 
 function renderBlocks() {
@@ -1212,6 +1353,7 @@ function renderCrossing() {
 }
 
 function renderCurrentConcept() {
+  if (activeModule === "learning") renderLearningMap();
   if (activeModule === "layout") renderLayout();
   if (activeModule === "scenario") renderScenario();
   if (activeModule === "blocks") renderBlocks();
@@ -1244,6 +1386,10 @@ function switchModule(moduleName) {
 
 document.querySelectorAll(".nav-item").forEach((button) => {
   button.addEventListener("click", () => switchModule(button.dataset.module));
+});
+
+document.querySelectorAll("[data-jump-module]").forEach((button) => {
+  button.addEventListener("click", () => switchModule(button.dataset.jumpModule));
 });
 
 trainSlider.addEventListener("input", (event) => {
@@ -1343,4 +1489,4 @@ document.querySelectorAll("[data-level]").forEach((button) => {
 });
 
 renderKnowledge(activeModule);
-renderLayout();
+renderLearningMap();

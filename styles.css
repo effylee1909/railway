@@ -632,6 +632,161 @@ input[type="range"] {
   font-weight: 760;
 }
 
+.learning-route {
+  fill: none;
+  stroke: rgba(102, 217, 232, 0.78);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 12 10;
+}
+
+.learning-route.muted {
+  stroke: rgba(94, 226, 141, 0.36);
+  stroke-width: 4;
+}
+
+.learning-node rect {
+  stroke-width: 2;
+}
+
+.learning-node.foundation rect {
+  fill: rgba(94, 226, 141, 0.12);
+  stroke: rgba(94, 226, 141, 0.78);
+}
+
+.learning-node.system rect {
+  fill: rgba(102, 217, 232, 0.12);
+  stroke: rgba(102, 217, 232, 0.82);
+}
+
+.learning-node.signaling rect {
+  fill: rgba(122, 168, 255, 0.13);
+  stroke: rgba(122, 168, 255, 0.85);
+}
+
+.learning-node.control rect {
+  fill: rgba(255, 211, 90, 0.13);
+  stroke: rgba(255, 211, 90, 0.82);
+}
+
+.learning-node.delivery rect {
+  fill: rgba(255, 255, 255, 0.075);
+  stroke: rgba(255, 255, 255, 0.28);
+}
+
+.learning-node circle {
+  fill: #0d1714;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.learning-node.foundation {
+  color: var(--green);
+}
+
+.learning-node.system {
+  color: var(--cyan);
+}
+
+.learning-node.signaling {
+  color: var(--blue);
+}
+
+.learning-node.control {
+  color: var(--yellow);
+}
+
+.learning-node.delivery {
+  color: var(--steel);
+}
+
+.learning-number,
+.learning-title {
+  fill: var(--text);
+  font-weight: 900;
+}
+
+.learning-number {
+  font-size: 13px;
+}
+
+.learning-title {
+  font-size: 17px;
+}
+
+.learning-subtitle,
+.learning-caption {
+  fill: var(--muted);
+  font-weight: 760;
+}
+
+.learning-subtitle {
+  font-size: 13px;
+}
+
+.learning-caption {
+  font-size: 15px;
+}
+
+.learning-chip rect {
+  fill: rgba(255, 255, 255, 0.045);
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 2;
+}
+
+.learning-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.learning-jump {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 2px 12px;
+  align-items: center;
+  min-height: 62px;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.045);
+  cursor: pointer;
+}
+
+.learning-jump:hover {
+  border-color: rgba(102, 217, 232, 0.7);
+  background: rgba(102, 217, 232, 0.09);
+}
+
+.learning-jump span {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(102, 217, 232, 0.58);
+  border-radius: 50%;
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.learning-jump strong,
+.learning-jump small {
+  display: block;
+}
+
+.learning-jump strong {
+  font-size: 15px;
+}
+
+.learning-jump small {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
 .speed-arc {
   fill: none;
   stroke: var(--green);
