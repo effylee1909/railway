@@ -231,6 +231,13 @@ input {
   min-height: 520px;
 }
 
+.rail-diagram text {
+  font-family:
+    Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui,
+    sans-serif;
+  letter-spacing: 0;
+}
+
 .rail,
 .rail-secondary,
 .switch-rail {
