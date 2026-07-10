@@ -82,26 +82,106 @@ input {
 
 .module-nav {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .nav-item,
 .action-button,
-.segment {
+.segment,
+.nav-branch summary {
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text);
   background: var(--panel-2);
   cursor: pointer;
 }
 
+.nav-branch {
+  position: relative;
+}
+
+.nav-branch summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 10px;
+  align-items: center;
+  min-height: 62px;
+  padding: 13px 14px;
+  border-radius: 8px;
+  list-style: none;
+}
+
+.nav-branch summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-branch summary::after {
+  content: "+";
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(102, 217, 232, 0.36);
+  border-radius: 50%;
+  color: var(--cyan);
+  font-weight: 900;
+}
+
+.nav-branch[open] summary::after {
+  content: "-";
+}
+
+.nav-branch summary span {
+  font-weight: 900;
+}
+
+.nav-branch summary small {
+  color: var(--muted);
+}
+
+.nav-branch.active-branch summary {
+  border-color: rgba(102, 217, 232, 0.52);
+  background: #122a28;
+}
+
+.nav-children {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  margin: 8px 0 0 16px;
+  padding-left: 17px;
+}
+
+.nav-children::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 18px;
+  left: 0;
+  width: 1px;
+  background: rgba(102, 217, 232, 0.28);
+}
+
 .nav-item {
+  position: relative;
   display: grid;
   gap: 4px;
   width: 100%;
-  min-height: 70px;
-  padding: 14px;
+  min-height: 58px;
+  padding: 12px 13px;
   text-align: left;
   border-radius: 8px;
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: -17px;
+  width: 17px;
+  height: 1px;
+  background: rgba(102, 217, 232, 0.28);
 }
 
 .nav-item span {

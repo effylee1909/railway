@@ -1618,11 +1618,20 @@ function renderCurrentConcept() {
   if (activeModule === "etcs") renderEtcs();
 }
 
-function switchModule(moduleName) {
-  activeModule = moduleName;
+function updateNavigationState(moduleName) {
   document.querySelectorAll(".nav-item").forEach((button) => {
     button.classList.toggle("active", button.dataset.module === moduleName);
   });
+  document.querySelectorAll(".nav-branch").forEach((branch) => {
+    const hasActiveItem = Boolean(branch.querySelector(`.nav-item[data-module="${moduleName}"]`));
+    branch.classList.toggle("active-branch", hasActiveItem);
+    if (hasActiveItem) branch.open = true;
+  });
+}
+
+function switchModule(moduleName) {
+  activeModule = moduleName;
+  updateNavigationState(moduleName);
   document.querySelectorAll(".diagram-layer").forEach((layer) => layer.classList.add("hidden"));
   document.querySelectorAll(".module-panel").forEach((panel) => panel.classList.remove("active"));
   const viewClass = activeModule === "blocks" ? "blocks" : activeModule;
@@ -1734,6 +1743,7 @@ document.querySelectorAll("[data-level]").forEach((button) => {
   });
 });
 
+updateNavigationState(activeModule);
 renderKnowledge(activeModule);
 renderHandbookItems();
 document.querySelectorAll("[data-jump-module]").forEach((button) => {

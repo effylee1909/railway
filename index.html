@@ -15,59 +15,94 @@
           <p>用互動模擬理解鐵道號誌系統的核心邏輯。</p>
         </div>
 
-        <nav class="module-nav" aria-label="Modules">
-          <button class="nav-item active" data-module="learning">
-            <span>學習地圖</span>
-            <small>Learning Map</small>
-          </button>
-          <button class="nav-item" data-module="layout">
-            <span>系統地圖</span>
-            <small>System Map</small>
-          </button>
-          <button class="nav-item" data-module="scenario">
-            <span>案例模式</span>
-            <small>Point Detection Failure</small>
-          </button>
-          <button class="nav-item" data-module="blocks">
-            <span>閉塞</span>
-            <small>Block Sections</small>
-          </button>
-          <button class="nav-item" data-module="interlocking">
-            <span>聯鎖</span>
-            <small>Interlocking</small>
-          </button>
-          <button class="nav-item" data-module="point">
-            <span>轉轍器</span>
-            <small>Point Machine</small>
-          </button>
-          <button class="nav-item" data-module="detection">
-            <span>列車偵測</span>
-            <small>Track Circuit / Axle Counter</small>
-          </button>
-          <button class="nav-item" data-module="protection">
-            <span>列車防護</span>
-            <small>ATP / ATS</small>
-          </button>
-          <button class="nav-item" data-module="ctc">
-            <span>調度控制</span>
-            <small>CTC</small>
-          </button>
-          <button class="nav-item" data-module="alarm">
-            <span>告警維護</span>
-            <small>Alarm / Maintenance</small>
-          </button>
-          <button class="nav-item" data-module="commissioning">
-            <span>測試驗收</span>
-            <small>Testing / Commissioning</small>
-          </button>
-          <button class="nav-item" data-module="crossing">
-            <span>平交道</span>
-            <small>Level Crossing</small>
-          </button>
-          <button class="nav-item" data-module="etcs">
-            <span>列車控制</span>
-            <small>ETCS / ERTMS</small>
-          </button>
+        <nav class="module-nav mindmap-nav" aria-label="Modules">
+          <details class="nav-branch" open>
+            <summary>
+              <span>學習入口</span>
+              <small>Learning Entry</small>
+            </summary>
+            <div class="nav-children">
+              <button class="nav-item active" data-module="learning">
+                <span>學習地圖</span>
+                <small>Learning Map</small>
+              </button>
+              <button class="nav-item" data-module="layout">
+                <span>系統地圖</span>
+                <small>System Map</small>
+              </button>
+              <button class="nav-item" data-module="scenario">
+                <span>案例模式</span>
+                <small>Point Detection Failure</small>
+              </button>
+            </div>
+          </details>
+
+          <details class="nav-branch" open>
+            <summary>
+              <span>號誌核心</span>
+              <small>Signalling Core</small>
+            </summary>
+            <div class="nav-children">
+              <button class="nav-item" data-module="detection">
+                <span>列車偵測</span>
+                <small>Track Circuit / Axle Counter</small>
+              </button>
+              <button class="nav-item" data-module="point">
+                <span>轉轍器</span>
+                <small>Point Machine</small>
+              </button>
+              <button class="nav-item" data-module="interlocking">
+                <span>聯鎖</span>
+                <small>Interlocking</small>
+              </button>
+              <button class="nav-item" data-module="blocks">
+                <span>閉塞</span>
+                <small>Block Sections</small>
+              </button>
+              <button class="nav-item" data-module="crossing">
+                <span>平交道</span>
+                <small>Level Crossing</small>
+              </button>
+            </div>
+          </details>
+
+          <details class="nav-branch">
+            <summary>
+              <span>行車控制</span>
+              <small>Train Control</small>
+            </summary>
+            <div class="nav-children">
+              <button class="nav-item" data-module="protection">
+                <span>列車防護</span>
+                <small>ATP / ATS</small>
+              </button>
+              <button class="nav-item" data-module="ctc">
+                <span>調度控制</span>
+                <small>CTC</small>
+              </button>
+              <button class="nav-item" data-module="etcs">
+                <span>ETCS / ERTMS</span>
+                <small>列車控制</small>
+              </button>
+            </div>
+          </details>
+
+          <details class="nav-branch">
+            <summary>
+              <span>專案交付</span>
+              <small>Project Delivery</small>
+            </summary>
+            <div class="nav-children">
+              <button class="nav-item" data-module="alarm">
+                <span>告警維護</span>
+                <small>Alarm / Maintenance</small>
+              </button>
+              <button class="nav-item" data-module="commissioning">
+                <span>測試驗收</span>
+                <small>Testing / Commissioning</small>
+              </button>
+            </div>
+          </details>
         </nav>
 
         <section class="note-panel">
