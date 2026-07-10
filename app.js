@@ -529,8 +529,9 @@ function svgEl(tag, attrs = {}) {
 
 function fitSvgText(element, text, maxWidth, options = {}) {
   element.textContent = text;
-  element.setAttribute("textLength", maxWidth);
-  element.setAttribute("lengthAdjust", "spacingAndGlyphs");
+  element.removeAttribute("textLength");
+  element.removeAttribute("lengthAdjust");
+  if (maxWidth) element.setAttribute("data-max-width", maxWidth);
   if (options.x !== undefined) element.setAttribute("x", options.x);
   if (options.y !== undefined) element.setAttribute("y", options.y);
   if (options.center) {

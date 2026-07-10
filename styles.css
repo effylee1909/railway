@@ -231,13 +231,6 @@ input {
   min-height: 520px;
 }
 
-.rail-diagram text {
-  font-family:
-    Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui,
-    sans-serif;
-  letter-spacing: 0;
-}
-
 .rail,
 .rail-secondary,
 .switch-rail {
@@ -264,8 +257,8 @@ input {
 
 .diagram-label {
   fill: var(--muted);
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 760;
 }
 
 .block-zone {
@@ -281,8 +274,8 @@ input {
 
 .block-text {
   fill: var(--muted);
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 760;
 }
 
 .train-body {
@@ -629,13 +622,13 @@ input[type="range"] {
 
 .layout-text {
   fill: var(--text);
-  font-size: 22px;
-  font-weight: 900;
+  font-size: 18px;
+  font-weight: 760;
 }
 
 .layout-subtext {
   fill: var(--muted);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 760;
 }
 
@@ -710,15 +703,15 @@ input[type="range"] {
 .learning-number,
 .learning-title {
   fill: var(--text);
-  font-weight: 900;
+  font-weight: 760;
 }
 
 .learning-number {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .learning-title {
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .learning-subtitle,
@@ -728,11 +721,11 @@ input[type="range"] {
 }
 
 .learning-subtitle {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .learning-caption {
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .learning-chip rect {
