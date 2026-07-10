@@ -257,7 +257,7 @@ input {
 
 .diagram-label {
   fill: var(--muted);
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
 }
 
@@ -274,7 +274,7 @@ input {
 
 .block-text {
   fill: var(--muted);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 800;
 }
 
@@ -622,13 +622,13 @@ input[type="range"] {
 
 .layout-text {
   fill: var(--text);
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 900;
 }
 
 .layout-subtext {
   fill: var(--muted);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 760;
 }
 
@@ -707,11 +707,11 @@ input[type="range"] {
 }
 
 .learning-number {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .learning-title {
-  font-size: 17px;
+  font-size: 22px;
 }
 
 .learning-subtitle,
@@ -721,11 +721,11 @@ input[type="range"] {
 }
 
 .learning-subtitle {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .learning-caption {
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .learning-chip rect {

@@ -561,8 +561,8 @@ function drawSignal(parent, x, y, color, label) {
 function drawLayoutDevice(parent, x, y, width, height, type, title, subtitle) {
   parent.append(
     svgEl("rect", { class: `layout-device ${type}`, x, y, width, height, rx: 8 }),
-    svgEl("text", { class: "layout-text", x: x + 10, y: y + 22 }),
-    svgEl("text", { class: "layout-subtext", x: x + 10, y: y + 42 })
+    svgEl("text", { class: "layout-text", x: x + 14, y: y + 28 }),
+    svgEl("text", { class: "layout-subtext", x: x + 14, y: y + 54 })
   );
   parent.children[parent.children.length - 2].textContent = title;
   parent.children[parent.children.length - 1].textContent = subtitle;
@@ -572,7 +572,7 @@ function drawBalise(parent, x, y) {
   parent.append(
     svgEl("polygon", { class: "balise", points: `${x},${y} ${x + 44},${y} ${x + 30},${y + 28} ${x - 14},${y + 28}` }),
     svgEl("text", { class: "layout-text", x: x + 58, y: y + 14 }),
-    svgEl("text", { class: "layout-subtext", x: x + 58, y: y + 32 })
+    svgEl("text", { class: "layout-subtext", x: x + 58, y: y + 40 })
   );
   parent.children[parent.children.length - 2].textContent = "應答器";
   parent.children[parent.children.length - 1].textContent = "Balise";
@@ -614,16 +614,16 @@ function renderLearningMap() {
       subtitle: "Railway Project",
       x: 82,
       y: 46,
-      width: 164,
+      width: 182,
       type: "foundation",
     },
     {
       number: "02",
       title: "系統總覽",
       subtitle: "System Map",
-      x: 290,
+      x: 300,
       y: 46,
-      width: 150,
+      width: 166,
       type: "system",
       target: "layout",
     },
@@ -631,9 +631,9 @@ function renderLearningMap() {
       number: "03",
       title: "號誌核心",
       subtitle: "Signalling Core",
-      x: 484,
+      x: 510,
       y: 46,
-      width: 170,
+      width: 186,
       type: "signaling",
       target: "detection",
     },
@@ -641,9 +641,9 @@ function renderLearningMap() {
       number: "04",
       title: "行車控制",
       subtitle: "Train Control",
-      x: 698,
+      x: 740,
       y: 46,
-      width: 160,
+      width: 174,
       type: "control",
       target: "protection",
     },
@@ -653,20 +653,20 @@ function renderLearningMap() {
       subtitle: "Commissioning",
       x: 390,
       y: 314,
-      width: 170,
+      width: 188,
       type: "delivery",
       target: "commissioning",
     },
   ];
 
   mapGroup.append(
-    svgEl("path", { class: "learning-route", d: "M 246 80 L 290 80" }),
-    svgEl("path", { class: "learning-route", d: "M 440 80 L 484 80" }),
-    svgEl("path", { class: "learning-route", d: "M 654 80 L 698 80" }),
-    svgEl("path", { class: "learning-route", d: "M 778 112 C 752 208, 638 312, 560 341" }),
+    svgEl("path", { class: "learning-route", d: "M 264 80 L 300 80" }),
+    svgEl("path", { class: "learning-route", d: "M 466 80 L 510 80" }),
+    svgEl("path", { class: "learning-route", d: "M 696 80 L 740 80" }),
+    svgEl("path", { class: "learning-route", d: "M 828 112 C 784 212, 654 312, 578 341" }),
     svgEl("path", { class: "learning-route muted", d: "M 390 341 C 276 306, 190 218, 164 118" }),
-    svgEl("text", { class: "learning-caption", x: 84, y: 390 }),
-    svgEl("text", { class: "learning-caption", x: 84, y: 412 })
+    svgEl("text", { class: "learning-caption", x: 84, y: 410 }),
+    svgEl("text", { class: "learning-caption", x: 84, y: 432 })
   );
   mapGroup.children[5].textContent = "Recommended path: project context -> signalling core -> train control -> testing and handover";
   mapGroup.children[6].textContent = "Use this map as the opening story, then jump into each simulator for details.";
@@ -674,11 +674,11 @@ function renderLearningMap() {
   steps.forEach((step) => {
     const group = svgEl("g", { class: `learning-node ${step.type}` });
     group.append(
-      svgEl("rect", { x: step.x, y: step.y, width: step.width, height: 74, rx: 8 }),
+      svgEl("rect", { x: step.x, y: step.y, width: step.width, height: 82, rx: 8 }),
       svgEl("circle", { cx: step.x + 24, cy: step.y + 24, r: 15 }),
-      svgEl("text", { class: "learning-number", x: step.x + 17, y: step.y + 30 }),
-      svgEl("text", { class: "learning-title", x: step.x + 50, y: step.y + 29 }),
-      svgEl("text", { class: "learning-subtitle", x: step.x + 50, y: step.y + 52 })
+      svgEl("text", { class: "learning-number", x: step.x + 16, y: step.y + 31 }),
+      svgEl("text", { class: "learning-title", x: step.x + 50, y: step.y + 32 }),
+      svgEl("text", { class: "learning-subtitle", x: step.x + 50, y: step.y + 60 })
     );
     group.children[2].textContent = step.number;
     group.children[3].textContent = step.title;
@@ -687,17 +687,17 @@ function renderLearningMap() {
   });
 
   const coreItems = [
-    ["列車偵測", "Train Detection", 212, 190],
-    ["轉轍器", "Point Machine", 356, 216],
-    ["聯鎖", "Interlocking", 500, 190],
-    ["閉塞", "Block Sections", 644, 216],
+    ["列車偵測", "Train Detection", 196, 190],
+    ["轉轍器", "Point Machine", 352, 216],
+    ["聯鎖", "Interlocking", 508, 190],
+    ["閉塞", "Block Sections", 664, 216],
   ];
   coreItems.forEach(([title, subtitle, x, y]) => {
     const group = svgEl("g", { class: "learning-chip" });
     group.append(
-      svgEl("rect", { x, y, width: 118, height: 52, rx: 8 }),
-      svgEl("text", { class: "layout-text", x: x + 10, y: y + 22 }),
-      svgEl("text", { class: "layout-subtext", x: x + 10, y: y + 40 })
+      svgEl("rect", { x, y, width: 148, height: 66, rx: 8 }),
+      svgEl("text", { class: "layout-text", x: x + 14, y: y + 28 }),
+      svgEl("text", { class: "layout-subtext", x: x + 14, y: y + 54 })
     );
     group.children[1].textContent = title;
     group.children[2].textContent = subtitle;
@@ -787,16 +787,16 @@ function renderLayout() {
   drawSignal(layoutGroup, 298, 142, "yellow", "S2");
   drawSignal(layoutGroup, 478, 142, "red", "S3");
 
-  drawLayoutDevice(layoutGroup, 212, 88, 150, 56, "trackside", "軌道電路", "Track Circuit");
-  drawLayoutDevice(layoutGroup, 430, 88, 146, 56, "trackside", "計軸器", "Axle Counter");
-  drawLayoutDevice(layoutGroup, 430, 28, 136, 52, "station", "聯鎖", "Interlocking");
-  drawLayoutDevice(layoutGroup, 380, 362, 152, 54, "trackside", "轉轍器", "Point Machine");
-  drawLayoutDevice(layoutGroup, 674, 52, 142, 56, "control", "CTC", "Control Center");
-  drawLayoutDevice(layoutGroup, 650, 124, 154, 56, "control", "告警維護", "Alarm / Maint.");
-  drawLayoutDevice(layoutGroup, 118, 362, 160, 54, "control", "測試驗收", "Commissioning");
-  drawLayoutDevice(layoutGroup, 884, 52, 104, 56, "control", "RBC", "Radio Block");
-  drawLayoutDevice(layoutGroup, 804, 124, 160, 56, "trackside", "平交道", "Level Crossing");
-  drawLayoutDevice(layoutGroup, 646, 362, 150, 54, "onboard", "車上 ATP", "Onboard ATP");
+  drawLayoutDevice(layoutGroup, 204, 86, 166, 66, "trackside", "軌道電路", "Track Circuit");
+  drawLayoutDevice(layoutGroup, 422, 86, 164, 66, "trackside", "計軸器", "Axle Counter");
+  drawLayoutDevice(layoutGroup, 430, 18, 148, 62, "station", "聯鎖", "Interlocking");
+  drawLayoutDevice(layoutGroup, 376, 356, 166, 66, "trackside", "轉轍器", "Point Machine");
+  drawLayoutDevice(layoutGroup, 672, 48, 158, 66, "control", "CTC", "Control Center");
+  drawLayoutDevice(layoutGroup, 640, 124, 170, 66, "control", "告警維護", "Alarm / Maint.");
+  drawLayoutDevice(layoutGroup, 104, 356, 178, 66, "control", "測試驗收", "Commissioning");
+  drawLayoutDevice(layoutGroup, 872, 48, 118, 66, "control", "RBC", "Radio Block");
+  drawLayoutDevice(layoutGroup, 812, 124, 176, 66, "trackside", "平交道", "Level Crossing");
+  drawLayoutDevice(layoutGroup, 642, 356, 166, 66, "onboard", "車上 ATP", "Onboard ATP");
   drawBalise(layoutGroup, 540, 282);
   drawTrain(layoutGroup, 665, 244, "Train");
 
@@ -884,14 +884,14 @@ function renderPoint() {
 
   equipmentGroup.append(
     svgEl("path", { class: `route-line ${routeOkay ? "" : "blocked"}`, d: routePath }),
-    svgEl("rect", { class: "layout-device trackside", x: 320, y: 92, width: 145, height: 62, rx: 8 }),
-    svgEl("text", { class: "layout-text", x: 335, y: 119 }),
-    svgEl("text", { class: "layout-subtext", x: 335, y: 140 }),
-    svgEl("path", { class: "layout-link", d: "M 392 154 L 392 198" }),
-    svgEl("rect", { class: "layout-device station", x: 560, y: 92, width: 120, height: 62, rx: 8 }),
+    svgEl("rect", { class: "layout-device trackside", x: 304, y: 88, width: 176, height: 72, rx: 8 }),
+    svgEl("text", { class: "layout-text", x: 320, y: 119 }),
+    svgEl("text", { class: "layout-subtext", x: 320, y: 146 }),
+    svgEl("path", { class: "layout-link", d: "M 392 160 L 392 198" }),
+    svgEl("rect", { class: "layout-device station", x: 560, y: 88, width: 140, height: 72, rx: 8 }),
     svgEl("text", { class: "layout-text", x: 582, y: 119 }),
-    svgEl("text", { class: "layout-subtext", x: 578, y: 140 }),
-    svgEl("path", { class: "layout-control-link", d: "M 465 123 L 560 123" })
+    svgEl("text", { class: "layout-subtext", x: 578, y: 146 }),
+    svgEl("path", { class: "layout-control-link", d: "M 480 123 L 560 123" })
   );
   equipmentGroup.children[2].textContent = reverse ? "Reverse / 反位" : "Normal / 定位";
   equipmentGroup.children[3].textContent = "Point Machine";
@@ -999,36 +999,43 @@ function renderCommissioning() {
     {
       zh: "設計確認",
       en: "Design Review",
+      shortEn: "Design",
       actions: ["確認設計圖、點位表與測試案例一致。", "釐清號誌、道岔、偵測與控制中心介面。", "未釐清項目需先列入追蹤。"],
     },
     {
       zh: "現場檢查",
       en: "Site Inspection",
+      shortEn: "Site",
       actions: ["確認設備安裝位置、標籤與線路。", "檢查供電、接地、通訊與現場可接近性。", "現場狀態需符合測試前置條件。"],
     },
     {
       zh: "I/O 測試",
       en: "I/O Test",
+      shortEn: "I/O",
       actions: ["確認每個輸入與輸出點位對應正確。", "記錄測試結果、缺失與復測狀態。", "通過後才能進入聯鎖邏輯測試。"],
     },
     {
       zh: "聯鎖測試",
       en: "Logic Test",
+      shortEn: "Logic",
       actions: ["測正常進路、衝突進路與拒絕條件。", "確認道岔、號誌、軌道佔用條件互相一致。", "測試結果要能追溯到測試案例。"],
     },
     {
       zh: "故障情境",
       en: "Failure Test",
+      shortEn: "Failure",
       actions: ["模擬通訊中斷、道岔不到位與異常佔用。", "確認系統進入保守或降級狀態。", "告警、紀錄與現場處置流程都要被驗證。"],
     },
     {
       zh: "試運轉",
       en: "Trial Run",
+      shortEn: "Trial",
       actions: ["在接近營運條件下觀察系統穩定性。", "確認操作員、維護人員與現場流程銜接。", "持續追蹤殘留問題與改善項目。"],
     },
     {
       zh: "交付驗收",
       en: "Handover",
+      shortEn: "Handover",
       actions: ["彙整測試紀錄、缺失清單與復測證據。", "確認操作維護文件與教育訓練準備完成。", "完成簽核後才進入正式交付。"],
     },
   ];
@@ -1045,18 +1052,18 @@ function renderCommissioning() {
   board.children[1].textContent = "Testing Flow / 測試與驗收流程";
 
   stages.forEach((stage, index) => {
-    const x = 106 + index * 118;
+    const x = 92 + index * 122;
     const isActive = index === commissioningStage;
     const isDone = index < commissioningStage && !issueFound;
     const isBlocked = issueFound && index >= commissioningStage;
     const stateClass = isActive ? (issueFound ? "red" : "yellow") : isDone ? "green" : isBlocked ? "red" : "";
     board.append(
-      svgEl("rect", { class: `test-step ${stateClass}`, x, y: 150, width: 92, height: 92, rx: 8 }),
-      svgEl("text", { class: "layout-text", x: x + 12, y: 182 }),
-      svgEl("text", { class: "layout-subtext", x: x + 12, y: 204 })
+      svgEl("rect", { class: `test-step ${stateClass}`, x, y: 148, width: 106, height: 98, rx: 8 }),
+      svgEl("text", { class: "layout-text", x: x + 12, y: 181 }),
+      svgEl("text", { class: "layout-subtext", x: x + 12, y: 207 })
     );
     board.children[board.children.length - 2].textContent = stage.zh;
-    board.children[board.children.length - 1].textContent = stage.en;
+    board.children[board.children.length - 1].textContent = stage.shortEn;
   });
 
   board.append(
@@ -1119,18 +1126,18 @@ function renderScenario() {
 
   board.append(
     svgEl("path", { class: "route-line blocked", d: "M 115 235 L 342 235 L 545 320 L 875 320" }),
-    svgEl("rect", { class: "layout-device trackside", x: 250, y: 92, width: 145, height: 60, rx: 8 }),
-    svgEl("text", { class: "layout-text", x: 265, y: 119 }),
-    svgEl("text", { class: "layout-subtext", x: 265, y: 140 }),
-    svgEl("rect", { class: "layout-device station", x: 455, y: 92, width: 120, height: 60, rx: 8 }),
-    svgEl("text", { class: "layout-text", x: 480, y: 119 }),
-    svgEl("text", { class: "layout-subtext", x: 477, y: 140 }),
-    svgEl("rect", { class: "layout-device control", x: 640, y: 92, width: 140, height: 60, rx: 8 }),
-    svgEl("text", { class: "layout-text", x: 660, y: 119 }),
-    svgEl("text", { class: "layout-subtext", x: 660, y: 140 }),
-    svgEl("rect", { class: "layout-device control", x: 410, y: 302, width: 180, height: 58, rx: 8 }),
-    svgEl("text", { class: "layout-text", x: 430, y: 328 }),
-    svgEl("text", { class: "layout-subtext", x: 430, y: 348 }),
+    svgEl("rect", { class: "layout-device trackside", x: 238, y: 88, width: 168, height: 72, rx: 8 }),
+    svgEl("text", { class: "layout-text", x: 254, y: 119 }),
+    svgEl("text", { class: "layout-subtext", x: 254, y: 146 }),
+    svgEl("rect", { class: "layout-device station", x: 452, y: 88, width: 140, height: 72, rx: 8 }),
+    svgEl("text", { class: "layout-text", x: 476, y: 119 }),
+    svgEl("text", { class: "layout-subtext", x: 474, y: 146 }),
+    svgEl("rect", { class: "layout-device control", x: 634, y: 88, width: 166, height: 72, rx: 8 }),
+    svgEl("text", { class: "layout-text", x: 652, y: 119 }),
+    svgEl("text", { class: "layout-subtext", x: 652, y: 146 }),
+    svgEl("rect", { class: "layout-device control", x: 394, y: 298, width: 204, height: 66, rx: 8 }),
+    svgEl("text", { class: "layout-text", x: 414, y: 326 }),
+    svgEl("text", { class: "layout-subtext", x: 414, y: 352 }),
     svgEl("path", { class: scenarioStep >= 1 ? "occupied-cable" : "layout-link", d: "M 395 122 L 455 122" }),
     svgEl("path", { class: scenarioStep >= 3 ? "occupied-cable" : "layout-control-link", d: "M 575 122 L 640 122" }),
     svgEl("path", { class: scenarioStep >= 4 ? "layout-control-link" : "layout-link", d: "M 710 152 C 670 220, 590 252, 500 302" }),
