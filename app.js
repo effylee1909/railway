@@ -1,4 +1,12 @@
 const modules = {
+  "railway-systems": {
+    title: "Railway Systems / 鐵道系統",
+    term: "系統總覽",
+  },
+  turnout: {
+    title: "道岔 / Turnout / Points",
+    term: "道岔",
+  },
   learning: {
     title: "學習地圖 / Learning Map",
     term: "學習順序",
@@ -20,16 +28,20 @@ const modules = {
     term: "聯鎖",
   },
   point: {
-    title: "道岔與轉轍器 / Point Machine",
+    title: "Point Machine / 轉轍器",
     term: "轉轍器",
   },
   detection: {
     title: "列車偵測 / Train Detection",
     term: "列車偵測",
   },
-  protection: {
-    title: "列車防護 / ATP & ATS",
-    term: "列車自動防護",
+  atp: {
+    title: "列車自動防護 / Automatic Train Protection",
+    term: "ATP",
+  },
+  ats: {
+    title: "列車自動監督 / Automatic Train Supervision",
+    term: "ATS",
   },
   ctc: {
     title: "調度控制 / CTC",
@@ -54,6 +66,70 @@ const modules = {
 };
 
 const knowledgeNotes = {
+  "railway-systems": {
+    title: "Railway Systems / 鐵道系統",
+    cards: [
+      {
+        zh: "主要入口",
+        en: "Main Entry",
+        points: [
+          "這一層先把 handbook 中的六大系統放在同一個入口下。",
+          "目標是先建立系統邊界，再決定後續每一支要不要做成獨立模組。",
+          "目前先以總覽卡片呈現，後續再逐步補詳細內容頁。 ",
+        ],
+      },
+      {
+        zh: "六大系統",
+        en: "Six Domains",
+        points: [
+          "Infrastructure 對應軌道、車站、土建與機廠等現場空間。",
+          "Rolling Stock、Power Supply、Communication、Signalling、Operations Control 構成主要工程分工。",
+          "這些卡片是後續擴充 handbook 內容的基礎骨架。",
+        ],
+      },
+      {
+        zh: "擴充方式",
+        en: "Expansion Path",
+        points: [
+          "每張卡先保留 Coming Soon，避免現在就把細節塞太滿。",
+          "未來可以依 handbook 章節，逐張補名詞、設備、文件與案例。",
+          "Signalling 和 Operations Control 已有既有模組，可作為優先延伸對象。",
+        ],
+      },
+    ],
+  },
+  turnout: {
+    title: "道岔 / Turnout / Points",
+    cards: [
+      {
+        zh: "分歧結構",
+        en: "Branching Structure",
+        points: [
+          "道岔是軌道系統中的分歧結構，使列車能夠從一條軌道轉入另一條軌道。",
+          "它屬於基礎設施的一部分。",
+          "本頁只先建立結構定位，驅動與鎖定設備另外放在 Point Machine。",
+        ],
+      },
+      {
+        zh: "基礎設施",
+        en: "Infrastructure",
+        points: [
+          "它是軌道本體的一部分，與路線配置、股道分配與車站布置直接相關。",
+          "列車走直向或分歧股道，先取決於道岔幾何與鋪設位置。",
+          "這層概念和號誌控制設備要分開理解。",
+        ],
+      },
+      {
+        zh: "與號誌分工",
+        en: "Boundary with Signalling",
+        points: [
+          "Turnout / Points 指的是軌道本體與分歧構造。",
+          "Point Machine 指的是驅動、鎖定與位置偵測設備。",
+          "拆開後更容易理解 Infrastructure 與 Signalling 的責任邊界。",
+        ],
+      },
+    ],
+  },
   learning: {
     title: "學習地圖 / Learning Map",
     cards: [
@@ -93,9 +169,9 @@ const knowledgeNotes = {
         zh: "閉塞區間",
         en: "Block Section",
         points: [
-          "把路線切成一段一段的安全單元。",
-          "同一區間被佔用時，後方列車不能再進入。",
-          "號誌顏色通常反映前方一段或多段區間的狀態。",
+          "閉塞系統將鐵路劃分為多個可管理的區段，並利用列車偵測、號誌與行車規則維持安全列車間隔。",
+          "本頁採用簡化的固定閉塞（Fixed Block）示意模型，用於說明閉塞系統的基本概念。",
+          "實際鐵路系統會依不同號誌制式、行車規則及控制系統而有所差異。",
         ],
       },
       {
@@ -127,7 +203,7 @@ const knowledgeNotes = {
         points: [
           "進路是列車從起點到終點的一段受控路徑。",
           "建立進路前，系統要確認軌道區段可用。",
-          "進路建立後，相關道岔與號誌會被鎖定。",
+          "進路建立後，聯鎖會完成進路鎖定，並控制相關號誌顯示。",
         ],
       },
       {
@@ -143,7 +219,7 @@ const knowledgeNotes = {
         zh: "衝突防護",
         en: "Conflict Protection",
         points: [
-          "兩條進路如果會交叉、對向或共用同一區段，就不能同時開放。",
+          "兩條進路如果會交叉、對向或共用同一區段，就不能同時建立。",
           "聯鎖的核心價值是先拒絕不安全命令。",
           "這也是號誌系統最重要的 fail-safe 思維之一。",
         ],
@@ -183,22 +259,22 @@ const knowledgeNotes = {
     ],
   },
   point: {
-    title: "道岔與轉轍器 / Point Machine",
+    title: "Point Machine / 轉轍器",
     cards: [
       {
         zh: "轉轍器",
         en: "Point Machine",
         points: [
-          "負責實際扳動道岔尖軌到指定位置。",
+          "負責驅動道岔尖軌到指定位置。",
           "會回報 Normal 或 Reverse 等位置狀態。",
-          "若未到位，聯鎖不得開放相關進路。",
+          "若未到位，聯鎖不得允許建立相關進路。",
         ],
       },
       {
         zh: "位置偵測",
         en: "Point Detection",
         points: [
-          "系統要確認道岔實際位置符合命令。",
+          "系統要確認道岔位置符合命令。",
           "命令位置與偵測回報不一致時，必須視為不安全。",
           "這類狀態常會在測試與維護時被特別檢查。",
         ],
@@ -207,32 +283,23 @@ const knowledgeNotes = {
         zh: "鎖定",
         en: "Point Locking",
         points: [
-          "列車通過前，道岔需要被鎖在正確位置。",
+          "列車通過前，Point Machine 需要證實道岔已被鎖在正確位置。",
           "鎖定可避免列車壓過道岔時位置改變。",
           "聯鎖通常同時檢查位置、鎖定與進路衝突。",
         ],
       },
     ],
   },
-  protection: {
-    title: "列車防護 / ATP & ATS",
+  atp: {
+    title: "列車自動防護 / Automatic Train Protection",
     cards: [
       {
-        zh: "ATP",
-        en: "Automatic Train Protection",
+        zh: "速度監督",
+        en: "Speed Supervision",
         points: [
-          "監控列車速度是否超過允許值。",
-          "駕駛未及時反應時，系統可介入煞車。",
-          "它關心的是安全限制是否被突破。",
-        ],
-      },
-      {
-        zh: "ATS",
-        en: "Automatic Train Supervision",
-        points: [
-          "偏向營運監督與列車運行管理。",
-          "可協助掌握班距、延誤、告警與運行狀態。",
-          "它不像 ATP 那樣直接以煞車介入為核心。",
+          "ATP 持續監督列車的實際速度、允許速度、煞車曲線與可行駛距離。",
+          "當列車可能超過安全限制，且駕駛未及時採取動作時，系統會發出警告或介入煞車。",
+          "它關心的是列車是否即將突破安全邊界，而不是營運排點本身。",
         ],
       },
       {
@@ -244,6 +311,47 @@ const knowledgeNotes = {
           "超過限制時，警告與煞車介入會依系統邏輯發生。",
         ],
       },
+      {
+        zh: "煞車曲線",
+        en: "Brake Curve",
+        points: [
+          "系統不只看當下速度，也會估算列車是否來得及安全減速。",
+          "煞車曲線與可行駛距離會影響何時發出警告或介入。",
+          "這也是 ATP 與 ATS 在功能定位上的明確分界之一。",
+        ],
+      },
+    ],
+  },
+  ats: {
+    title: "列車自動監督 / Automatic Train Supervision",
+    cards: [
+      {
+        zh: "列車監督",
+        en: "Train Supervision",
+        points: [
+          "ATS 用於監督列車位置與運行狀態，並支援時刻表管理、列車追蹤、告警顯示與行車調度。",
+          "ATS 著重營運監督，不等同於 ATP 的安全防護功能。",
+          "它幫助調度與營運人員理解全線列車的狀態與節奏。",
+        ],
+      },
+      {
+        zh: "營運管理",
+        en: "Operations Management",
+        points: [
+          "常見功能包含時刻表管理、列車追蹤與延誤監看。",
+          "它可將多站、多列車的運行資訊整理成可操作的監督畫面。",
+          "目前頁面先建立分類與定位，後續再補更完整的情境互動。",
+        ],
+      },
+      {
+        zh: "後續擴充",
+        en: "Coming Soon",
+        points: [
+          "後續可加入班距監看、時刻表、列車追蹤與告警佇列。",
+          "也可再連接 CTC、OCC 或案例模式，形成完整的行車監督鏈。",
+          "本頁先完成 ATP / ATS 的分類拆分與功能界線。",
+        ],
+      },
     ],
   },
   ctc: {
@@ -253,18 +361,18 @@ const knowledgeNotes = {
         zh: "中央行車控制",
         en: "Centralized Traffic Control",
         points: [
-          "讓控制中心集中掌握多個車站與區間。",
-          "調度員可以看到列車位置、進路與設備狀態。",
-          "它把局部號誌狀態提升成全線營運視角。",
+          "CTC（Centralized Traffic Control）提供集中式列車監控與行車調度功能。",
+          "調度員可透過 CTC 監看列車位置、設備狀態與進路資訊，並依系統配置遠端下達控制命令。",
+          "它把局部號誌狀態提升成全線營運視角，但不是安全聯鎖本身。",
         ],
       },
       {
-        zh: "營運調整",
-        en: "Traffic Regulation",
+        zh: "與聯鎖分工",
+        en: "Role with Interlocking",
         points: [
-          "列車延誤時，需要調整會車、待避或發車順序。",
-          "CTC 提供狀態資訊，幫助調度員做決策。",
-          "重點不是單一設備，而是整體運行流暢度。",
+          "所有涉及行車安全的控制命令仍需經由 Interlocking（聯鎖系統）進行安全條件檢查。",
+          "CTC 負責監控與調度，不直接取代聯鎖的安全功能。",
+          "這也是 Dispatcher、CTC、Interlocking 與現場設備之間的基本分工。",
         ],
       },
       {
@@ -314,30 +422,39 @@ const knowledgeNotes = {
     title: "測試與驗收 / Testing & Commissioning",
     cards: [
       {
-        zh: "I/O 測試",
-        en: "Input / Output Test",
+        zh: "測試",
+        en: "Testing",
         points: [
-          "確認現場設備訊號與系統點位一一對應。",
-          "常見對象包含號誌、道岔、軌道區段與告警接點。",
-          "這是後續聯鎖邏輯測試前的基礎。",
+          "依照測試程序驗證設備、功能與系統是否符合設計需求。",
+          "FAT、SAT、SIT 都屬於 Testing 範圍。",
+          "重點是把設備測試、功能測試與系統整合測試做完整記錄。",
         ],
       },
       {
-        zh: "聯鎖邏輯測試",
-        en: "Interlocking Logic Test",
+        zh: "試運轉／啟用",
+        en: "Commissioning",
         points: [
-          "驗證進路、道岔、號誌與佔用條件是否符合設計。",
-          "不只測正常案例，也要測拒絕進路與衝突情境。",
-          "測試結果需要可追溯到測試案例與簽核紀錄。",
+          "完成設備安裝與整合後，透過試運轉確認系統已具備投入營運的能力。",
+          "這一階段更接近實際營運條件，而不只是單點測試。",
+          "它連接 Testing 的結果與後續驗收判斷。",
         ],
       },
       {
-        zh: "試運轉與交付",
-        en: "Trial Run / Handover",
+        zh: "驗收",
+        en: "Acceptance",
         points: [
-          "在接近實際營運的條件下確認系統穩定性。",
-          "缺失需完成修正與復測，才適合進入交付。",
-          "驗收不只是功能可用，也包含紀錄、文件與維護準備。",
+          "由業主依照合約及驗收標準確認工程成果是否符合要求。",
+          "驗收關注的不只是功能，也包含證據、標準與契約符合性。",
+          "若仍有缺失，通常需回到修正與復測流程。",
+        ],
+      },
+      {
+        zh: "交付",
+        en: "Handover",
+        points: [
+          "完成文件、設備、教育訓練及維護資料移交，正式交付業主。",
+          "這代表系統從工程實施階段轉入正式管理與維護。",
+          "交付完成後，文件與維護責任邊界也要清楚。",
         ],
       },
     ],
@@ -349,27 +466,27 @@ const knowledgeNotes = {
         zh: "接近偵測",
         en: "Approach Detection",
         points: [
-          "列車到達平交道前，系統要先偵測接近。",
-          "接近距離需保留警示與柵欄動作時間。",
-          "速度越高，需要越早啟動保護序列。",
+          "平交道保護系統通常利用列車接近資訊或列車偵測設備，依序啟動警鈴、閃光號誌及遮斷桿。",
+          "目的在於降低道路使用者與列車衝突的風險。",
+          "本頁內容為典型自動平交道概念示意，不代表所有系統皆相同。",
         ],
       },
       {
-        zh: "警示設備",
-        en: "Warning Devices",
+        zh: "與聯鎖整合",
+        en: "Integration with Interlocking",
         points: [
-          "常見設備包含閃光燈、警鈴與柵欄。",
-          "目標是阻止道路車輛進入列車路徑。",
-          "號誌系統要同時處理鐵路與道路的衝突風險。",
+          "部分平交道會與聯鎖系統整合。",
+          "只有當平交道已達到安全保護狀態時，相關進路或號誌才允許建立。",
+          "這代表道路保護狀態可能直接影響鐵路側的行車條件。",
         ],
       },
       {
-        zh: "解除條件",
-        en: "Release Condition",
+        zh: "典型流程",
+        en: "Typical Sequence",
         points: [
-          "列車完全通過後，平交道才可恢復開放。",
-          "解除通常依賴偵測點或區間清空邏輯。",
-          "不確定時應維持保護狀態，而非過早開放。",
+          "列車接近 -> 啟動警示設備 -> 遮斷桿下降 -> 列車通過 -> 解除警示 -> 遮斷桿升起。",
+          "不同國家、不同路線及不同平交道型式，其控制方式可能不同。",
+          "實際解除條件也可能依偵測點、區間清空或聯鎖條件而異。",
         ],
       },
     ],
@@ -381,27 +498,27 @@ const knowledgeNotes = {
         zh: "ETCS",
         en: "European Train Control System",
         points: [
-          "把行車許可與速度監控帶到車上設備。",
-          "不同 Level 使用不同的資訊傳輸方式。",
-          "核心仍是確保列車不超越允許範圍。",
+          "ETCS（European Train Control System）是 ERTMS 的核心列車控制系統，用於提供列車保護與行車授權。",
+          "Level 1 與 Level 2 的差別，核心在於資訊傳遞方式不同。",
+          "兩者都服務於車上保護與行車授權，但地面與車上的分工不同。",
         ],
       },
       {
-        zh: "行車許可",
-        en: "Movement Authority",
+        zh: "ETCS Level 1",
+        en: "ETCS Level 1",
         points: [
-          "定義列車可以前進到哪裡。",
-          "會依路線狀態、前車位置、進路條件更新。",
-          "車上設備用它來監控列車是否安全運行。",
+          "ETCS Level 1 主要利用 Eurobalise 將地面資訊傳送給列車。",
+          "列車通常在通過 Balise 時更新 Movement Authority 與相關行車資訊。",
+          "地面仍保留傳統號誌系統，Balise 負責傳遞資訊。",
         ],
       },
       {
-        zh: "RBC",
-        en: "Radio Block Center",
+        zh: "ETCS Level 2",
+        en: "ETCS Level 2",
         points: [
-          "在 ETCS Level 2 中負責計算並傳送行車許可。",
-          "透過無線與列車交換位置與授權資訊。",
-          "它屬於控制中心/後端層，不是軌旁小設備。",
+          "ETCS Level 2 由 Radio Block Centre（RBC）透過無線通訊持續向列車傳送 Movement Authority。",
+          "Eurobalise 主要提供位置校正與參考點，不再是主要資訊傳輸方式。",
+          "這讓資訊更新從固定點傳輸，轉為持續性的無線授權更新。",
         ],
       },
     ],
@@ -424,7 +541,7 @@ const knowledgeNotes = {
         points: [
           "聯鎖通常可視為車站設備室或控制邏輯核心。",
           "它連到道岔、號誌與軌道偵測設備。",
-          "進路能不能開放，主要由這一層做安全檢查。",
+          "能否建立進路、完成進路鎖定並控制號誌顯示，主要由這一層做安全檢查。",
         ],
       },
       {
@@ -464,13 +581,58 @@ const knowledgeNotes = {
         en: "Cross-module Learning",
         points: [
           "轉轍器負責現場動作與回報。",
-          "聯鎖負責判斷是否允許行車。",
+          "聯鎖負責判斷是否允許建立進路、完成進路鎖定並控制號誌顯示。",
           "維護與驗收流程負責處置、追蹤與交付判斷。",
         ],
       },
     ],
   },
 };
+
+const railwaySystemsCards = [
+  {
+    key: "INF",
+    en: "Infrastructure",
+    zh: "基礎設施",
+    description: "Track, station, turnout, depot and civil structures.",
+    tone: "trackside",
+  },
+  {
+    key: "RS",
+    en: "Rolling Stock",
+    zh: "車輛系統",
+    description: "Train formation, bogie, braking and onboard equipment.",
+    tone: "station",
+  },
+  {
+    key: "PS",
+    en: "Power Supply",
+    zh: "供電系統",
+    description: "Electrification, OCS, substations, UPS and grounding.",
+    tone: "control",
+  },
+  {
+    key: "COM",
+    en: "Communication",
+    zh: "通訊系統",
+    description: "Fiber, IP network, radio, CCTV and passenger systems.",
+    tone: "control",
+  },
+  {
+    key: "SIG",
+    en: "Signalling",
+    zh: "號誌系統",
+    description: "Signals, train detection, interlocking and routes.",
+    tone: "trackside",
+  },
+  {
+    key: "OCC",
+    en: "Operations Control",
+    zh: "行車控制",
+    description: "Dispatcher, CTC, ATS, ATP and control center logic.",
+    tone: "onboard",
+  },
+];
 
 const handbookItems = [
   {
@@ -529,7 +691,7 @@ const handbookItems = [
     status: "已承接",
     summary: "連接行車控制、OCC、CTC、ATS、ATP、ATO、ETCS、CBTC 與 RBC/Balise 概念。",
     topics: ["CTC", "ATS", "ATP", "ETCS", "CBTC"],
-    target: "protection",
+    target: "atp",
   },
   {
     number: "08",
@@ -591,13 +753,15 @@ let ctcMode = "normal";
 let activeModule = "learning";
 let pointPosition = "normal";
 let alarmScenario = "point";
-let commissioningStage = 2;
+let commissioningStage = 1;
 let scenarioStep = 0;
 
 const moduleTitle = document.querySelector("#module-title");
 const selectedTerm = document.querySelector("#selected-term");
 const systemStatus = document.querySelector("#system-status");
 const statusDot = document.querySelector("#route-status-dot");
+const sidebar = document.querySelector(".sidebar");
+const workspace = document.querySelector(".workspace");
 const knowledgeTitle = document.querySelector("#knowledge-title");
 const knowledgeGrid = document.querySelector("#knowledge-grid");
 const handbookGrid = document.querySelector("#handbook-grid");
@@ -618,7 +782,7 @@ const detectionOccupied = document.querySelector("#detection-occupied");
 const detectionExplanation = document.querySelector("#detection-explanation");
 const speedSlider = document.querySelector("#speed-slider");
 const speedValue = document.querySelector("#speed-value");
-const protectionExplanation = document.querySelector("#protection-explanation");
+const atpExplanation = document.querySelector("#atp-explanation");
 const ctcExplanation = document.querySelector("#ctc-explanation");
 const crossingApproach = document.querySelector("#crossing-approach");
 const crossingExplanation = document.querySelector("#crossing-explanation");
@@ -795,6 +959,52 @@ function renderHandbookItems() {
   });
 }
 
+function renderRailwaySystems() {
+  const systemsGroup = document.querySelector("#systems-overview");
+  systemsGroup.replaceChildren();
+
+  const cardPositions = [
+    { x: 82, y: 72 },
+    { x: 382, y: 72 },
+    { x: 682, y: 72 },
+    { x: 82, y: 230 },
+    { x: 382, y: 230 },
+    { x: 682, y: 230 },
+  ];
+
+  railwaySystemsCards.forEach((card, index) => {
+    const { x, y } = cardPositions[index];
+    systemsGroup.append(
+      svgEl("rect", { class: `systems-card ${card.tone}`, x, y, width: 236, height: 122, rx: 10 }),
+      svgEl("rect", { class: "systems-card-icon", x: x + 18, y: y + 18, width: 44, height: 44, rx: 10 }),
+      svgEl("text", { class: "systems-card-icon-text" }),
+      svgEl("text", { class: "systems-card-title" }),
+      svgEl("text", { class: "systems-card-subtitle" }),
+      svgEl("text", { class: "systems-card-desc" }),
+      svgEl("rect", { class: "systems-card-tag", x: x + 132, y: y + 20, width: 84, height: 24, rx: 12 }),
+      svgEl("text", { class: "systems-card-tag-text" })
+    );
+
+    const children = systemsGroup.children;
+    centerSvgText(children[children.length - 6], card.key, x + 40, y + 40, 24);
+    fitSvgText(children[children.length - 5], card.en, 144, { x: x + 76, y: y + 38 });
+    fitSvgText(children[children.length - 4], card.zh, 144, { x: x + 76, y: y + 62 });
+    fitSvgText(children[children.length - 3], card.description, 194, { x: x + 18, y: y + 92 });
+    centerSvgText(children[children.length - 1], "Coming Soon", x + 174, y + 32, 64);
+  });
+
+  systemsGroup.append(
+    svgEl("text", { class: "systems-caption", x: 86, y: 396 }),
+    svgEl("text", { class: "systems-caption", x: 86, y: 418 })
+  );
+  systemsGroup.children[systemsGroup.children.length - 2].textContent =
+    "Railway Systems groups the handbook into six engineering domains for future expansion.";
+  systemsGroup.children[systemsGroup.children.length - 1].textContent =
+    "Each card is a placeholder entry point. Detailed pages will be added later.";
+
+  setStatus("Coming Soon", "yellow");
+}
+
 function renderLearningMap() {
   const mapGroup = document.querySelector("#learning-map");
   mapGroup.replaceChildren();
@@ -832,19 +1042,29 @@ function renderLearningMap() {
     },
     {
       number: "04",
-      title: "行車控制",
-      subtitle: "Train Control",
-      x: 740,
+      title: "ATP 防護",
+      subtitle: "Train Protection",
+      x: 700,
       y: 46,
-      width: 174,
+      width: 146,
       type: "control",
-      target: "protection",
+      target: "atp",
     },
     {
       number: "05",
+      title: "ATS 監督",
+      subtitle: "Train Supervision",
+      x: 856,
+      y: 46,
+      width: 134,
+      type: "control",
+      target: "ats",
+    },
+    {
+      number: "06",
       title: "測試驗收",
       subtitle: "Commissioning",
-      x: 390,
+      x: 438,
       y: 314,
       width: 188,
       type: "delivery",
@@ -855,14 +1075,15 @@ function renderLearningMap() {
   mapGroup.append(
     svgEl("path", { class: "learning-route", d: "M 264 80 L 300 80" }),
     svgEl("path", { class: "learning-route", d: "M 466 80 L 510 80" }),
-    svgEl("path", { class: "learning-route", d: "M 696 80 L 740 80" }),
-    svgEl("path", { class: "learning-route", d: "M 828 112 C 784 212, 654 312, 578 341" }),
-    svgEl("path", { class: "learning-route muted", d: "M 390 341 C 276 306, 190 218, 164 118" }),
+    svgEl("path", { class: "learning-route", d: "M 696 80 L 700 80" }),
+    svgEl("path", { class: "learning-route", d: "M 846 80 L 856 80" }),
+    svgEl("path", { class: "learning-route", d: "M 918 128 C 900 214, 760 302, 626 341" }),
+    svgEl("path", { class: "learning-route muted", d: "M 438 341 C 306 306, 202 218, 164 118" }),
     svgEl("text", { class: "learning-caption", x: 84, y: 410 }),
     svgEl("text", { class: "learning-caption", x: 84, y: 432 })
   );
-  mapGroup.children[5].textContent = "Recommended path: project context -> signalling core -> train control -> testing and handover";
-  mapGroup.children[6].textContent = "Use this map as the opening story, then jump into each simulator for details.";
+  mapGroup.children[6].textContent = "Recommended path: project context -> signalling core -> ATP protection -> ATS supervision -> testing and handover";
+  mapGroup.children[7].textContent = "Use this map as the opening story, then jump into each simulator for details.";
 
   steps.forEach((step) => {
     const group = svgEl("g", { class: `learning-node ${step.type}` });
@@ -884,6 +1105,8 @@ function renderLearningMap() {
     ["轉轍器", "Point Machine", 352, 216],
     ["聯鎖", "Interlocking", 508, 190],
     ["閉塞", "Block Sections", 664, 216],
+    ["ATP", "Train Protection", 740, 146],
+    ["ATS", "Train Supervision", 836, 216],
   ];
   coreItems.forEach(([title, subtitle, x, y]) => {
     const group = svgEl("g", { class: "learning-chip" });
@@ -936,10 +1159,10 @@ function renderBlocks() {
   const yellowSignal = trainPosition > 1 ? `S${trainPosition - 1}` : "無";
   if (trainPosition === 1) {
     blockExplanation.textContent =
-      `${redSignal} 顯示紅燈，因為列車正在佔用 Block A；後方沒有前一架號誌需要顯示黃燈。`;
+      `在本示意模型中，當 Block A 被列車佔用時，保護該區段的 ${redSignal} 顯示停止（紅燈）；因為後方沒有前一架號誌，所以不另外顯示警戒號誌。`;
   } else {
     blockExplanation.textContent =
-      `${redSignal} 顯示紅燈，代表該閉塞區間已被佔用；${yellowSignal} 顯示黃燈，提醒駕駛下一個區間受限，必須準備停車。`;
+      `在本示意模型中，當 Block ${blockNames[trainPosition - 1]} 被列車佔用時，保護該區段的 ${redSignal} 顯示停止（紅燈）；前一架號誌 ${yellowSignal} 顯示警戒（黃燈），提醒駕駛下一架號誌為停止顯示。`;
   }
 
   if (trainPosition === 1) setStatus("後方保護中", "yellow");
@@ -966,7 +1189,8 @@ function renderLayout() {
   layoutGroup.append(
     svgEl("path", { class: "layout-link", d: "M 192 188 L 192 122 L 212 122" }),
     svgEl("path", { class: "layout-link", d: "M 410 188 L 410 122 L 430 122" }),
-    svgEl("path", { class: "layout-link", d: "M 348 235 L 348 386 L 380 386" }),
+    svgEl("path", { class: "layout-link", d: "M 326 235 L 326 386 L 368 386" }),
+    svgEl("path", { class: "layout-link", d: "M 506 272 L 506 386 L 538 386" }),
     svgEl("path", { class: "layout-link", d: "M 620 235 L 620 386 L 646 386" }),
     svgEl("path", { class: "layout-link", d: "M 724 188 L 724 154 L 804 154" }),
     svgEl("path", { class: "layout-link", d: "M 596 278 L 596 324 L 564 324" }),
@@ -982,13 +1206,15 @@ function renderLayout() {
   drawLayoutDevice(layoutGroup, 204, 86, 166, 66, "trackside", "軌道電路", "Track Circuit");
   drawLayoutDevice(layoutGroup, 422, 86, 164, 66, "trackside", "計軸器", "Axle Counter");
   drawLayoutDevice(layoutGroup, 430, 18, 148, 62, "station", "聯鎖", "Interlocking");
-  drawLayoutDevice(layoutGroup, 376, 356, 166, 66, "trackside", "轉轍器", "Point Machine");
-  drawLayoutDevice(layoutGroup, 672, 48, 158, 66, "control", "CTC", "Control Center");
-  drawLayoutDevice(layoutGroup, 640, 124, 170, 66, "control", "告警維護", "Alarm / Maint.");
+  drawLayoutDevice(layoutGroup, 292, 356, 152, 66, "trackside", "道岔", "Turnout / Points");
+  drawLayoutDevice(layoutGroup, 462, 356, 152, 66, "trackside", "轉轍器", "Point Machine");
+  drawLayoutDevice(layoutGroup, 660, 42, 164, 66, "control", "CTC", "Control Center");
+  drawLayoutDevice(layoutGroup, 648, 116, 188, 66, "control", "ATS 監督", "ATS Supervision");
+  drawLayoutDevice(layoutGroup, 640, 194, 170, 66, "control", "告警維護", "Alarm / Maint.");
   drawLayoutDevice(layoutGroup, 104, 356, 178, 66, "control", "測試驗收", "Commissioning");
   drawLayoutDevice(layoutGroup, 872, 48, 118, 66, "control", "RBC", "Radio Block");
-  drawLayoutDevice(layoutGroup, 820, 124, 168, 66, "trackside", "平交道", "Level Crossing");
-  drawLayoutDevice(layoutGroup, 642, 356, 166, 66, "onboard", "車上 ATP", "Onboard ATP");
+  drawLayoutDevice(layoutGroup, 840, 136, 148, 66, "trackside", "平交道", "Level Crossing");
+  drawLayoutDevice(layoutGroup, 628, 356, 184, 66, "onboard", "車上 ATP", "Onboard ATP");
   drawBalise(layoutGroup, 540, 282);
   drawTrain(layoutGroup, 665, 244, "Train");
 
@@ -1012,7 +1238,7 @@ function renderInterlocking() {
   let blocked = false;
   let routePath = "M 110 170 L 870 170";
   let signalColor = "green";
-  let text = "進路已鎖定";
+  let text = "進路鎖定完成";
   let tone = "green";
 
   if (selectedRoute === "B") routePath = "M 110 170 L 355 170 L 520 275 L 870 275";
@@ -1026,7 +1252,7 @@ function renderInterlocking() {
   if (selectedRoute === "B" && occupied) {
     blocked = true;
     signalColor = "red";
-    text = "月台佔用，拒絕進路";
+    text = "月台佔用，拒絕建立進路";
     tone = "red";
   }
 
@@ -1040,8 +1266,8 @@ function renderInterlocking() {
     checkSwitch,
     "pass",
     selectedRoute === "A"
-      ? "道岔位置 / Switch Position：維持直向，通往月台 A"
-      : "道岔位置 / Switch Position：轉向，通往月台 B"
+      ? "道岔位置 / Point Position：維持直向，通往月台 A"
+      : "道岔位置 / Point Position：轉向，通往月台 B"
   );
   setCheck(
     checkOccupied,
@@ -1060,6 +1286,38 @@ function renderInterlocking() {
   setStatus(text, tone);
 }
 
+function renderTurnout() {
+  const turnoutGroup = document.querySelector("#turnout-board");
+  turnoutGroup.replaceChildren();
+
+  turnoutGroup.append(
+    svgEl("rect", { class: "layout-device trackside", x: 172, y: 78, width: 196, height: 72, rx: 8 }),
+    svgEl("text", { class: "layout-text" }),
+    svgEl("text", { class: "layout-subtext" }),
+    svgEl("rect", { class: "layout-device station", x: 622, y: 88, width: 196, height: 72, rx: 8 }),
+    svgEl("text", { class: "layout-text" }),
+    svgEl("text", { class: "layout-subtext" }),
+    svgEl("text", { class: "diagram-label" }),
+    svgEl("text", { class: "diagram-label" })
+  );
+
+  centerBoxLabel(turnoutGroup.children[1], turnoutGroup.children[2], "道岔", "Turnout / Points", {
+    x: 172,
+    y: 78,
+    width: 196,
+    height: 72,
+  });
+  centerBoxLabel(turnoutGroup.children[4], turnoutGroup.children[5], "分歧股道", "Branch Route", {
+    x: 622,
+    y: 88,
+    width: 196,
+    height: 72,
+  });
+  centerSvgText(turnoutGroup.children[6], "Infrastructure / 基礎設施", 270, 180, 220);
+  centerSvgText(turnoutGroup.children[7], "列車可由直向轉入分歧股道", 720, 188, 260);
+  setStatus("Infrastructure 視角", "green");
+}
+
 function renderPoint() {
   const equipmentGroup = document.querySelector("#point-equipment");
   const trainGroup = document.querySelector("#point-train");
@@ -1072,7 +1330,7 @@ function renderPoint() {
   const routePath = reverse ? "M 115 205 L 380 205 L 585 305 L 870 305" : "M 115 205 L 890 205";
   const routeOkay = locked && detected;
   const statusTone = routeOkay ? "green" : "red";
-  const statusText = routeOkay ? "道岔可用" : "禁止開放進路";
+  const statusText = routeOkay ? "轉轍器回報正常" : "禁止建立進路";
 
   equipmentGroup.append(
     svgEl("path", { class: `route-line ${routeOkay ? "" : "blocked"}`, d: routePath }),
@@ -1115,7 +1373,7 @@ function renderPoint() {
     locked ? "pass" : "fail",
     locked
       ? "鎖定狀態 / Locking：道岔已鎖定，可納入進路條件"
-      : "鎖定狀態 / Locking：未鎖定，列車通過前不可開放進路"
+      : "鎖定狀態 / Locking：未鎖定，列車通過前不可建立進路"
   );
   setCheck(
     pointDetectionCheck,
@@ -1138,7 +1396,7 @@ function renderAlarm() {
       status: "道岔不到位",
       tone: "red",
       affected: "Route 12 / Platform B",
-      actions: ["確認道岔位置偵測是否一致。", "暫停相關進路開放。", "通知現場檢查轉轍器與鎖定機構。"],
+      actions: ["確認道岔位置偵測是否一致。", "暫停相關進路建立與號誌顯示。", "通知現場檢查轉轍器與鎖定機構。"],
     },
     comm: {
       title: "Communication Loss",
@@ -1152,7 +1410,7 @@ function renderAlarm() {
       status: "異常佔用",
       tone: "red",
       affected: "Track Circuit T3",
-      actions: ["確認是否有列車或工程車佔用。", "限制相關區間進路與號誌開放。", "檢查軌道電路、計軸器或現場回報。"],
+      actions: ["確認是否有列車或工程車佔用。", "限制相關區間進路建立與號誌顯示。", "檢查軌道電路、計軸器或現場回報。"],
     },
   };
   const scenario = scenarios[alarmScenario];
@@ -1195,7 +1453,7 @@ function renderAlarm() {
     scenario.tone === "red" ? "Block Route" : "Degraded Mode",
     { x: 390, y: 218, width: 220, height: 76 }
   );
-  centerBoxLabel(alarmGroup.children[12], alarmGroup.children[13], "Owner", "Signaling Maint.", {
+  centerBoxLabel(alarmGroup.children[12], alarmGroup.children[13], "Owner", "Signalling Maint.", {
     x: 635,
     y: 218,
     width: 220,
@@ -1217,82 +1475,71 @@ function renderCommissioning() {
 
   const stages = [
     {
-      zh: "設計確認",
-      en: "Design Review",
-      shortEn: "Design",
-      actions: ["確認設計圖、點位表與測試案例一致。", "釐清號誌、道岔、偵測與控制中心介面。", "未釐清項目需先列入追蹤。"],
+      zh: "安裝完成",
+      en: "Installation",
+      shortEn: "Installation",
+      actions: ["完成設備安裝、接線、標示與現場配置。", "確認供電、通訊、接地與基本條件已就緒。", "Installation 完成後，流程才進入 Testing。"],
     },
     {
-      zh: "現場檢查",
-      en: "Site Inspection",
-      shortEn: "Site",
-      actions: ["確認設備安裝位置、標籤與線路。", "檢查供電、接地、通訊與現場可接近性。", "現場狀態需符合測試前置條件。"],
+      zh: "Testing",
+      en: "Testing",
+      shortEn: "Testing",
+      actions: ["依照測試程序驗證設備、功能與系統是否符合設計需求。", "FAT、SAT、SIT 都屬於 Testing 範圍。", "缺失需記錄、修正與復測後，才能進入 Commissioning。"],
     },
     {
-      zh: "I/O 測試",
-      en: "I/O Test",
-      shortEn: "I/O",
-      actions: ["確認每個輸入與輸出點位對應正確。", "記錄測試結果、缺失與復測狀態。", "通過後才能進入聯鎖邏輯測試。"],
+      zh: "Commissioning",
+      en: "Commissioning",
+      shortEn: "Commissioning",
+      actions: ["完成設備安裝與整合後，透過試運轉確認系統已具備投入營運的能力。", "此階段在接近實際營運的條件下觀察系統整體穩定性。", "若試運轉發現問題，需回到 Testing 或修正流程。"],
     },
     {
-      zh: "聯鎖測試",
-      en: "Logic Test",
-      shortEn: "Logic",
-      actions: ["測正常進路、衝突進路與拒絕條件。", "確認道岔、號誌、軌道佔用條件互相一致。", "測試結果要能追溯到測試案例。"],
+      zh: "Acceptance",
+      en: "Acceptance",
+      shortEn: "Acceptance",
+      actions: ["由業主依照合約及驗收標準確認工程成果是否符合要求。", "Acceptance 重點是契約、標準、紀錄與成果是否完整。", "不符合的項目需列管並完成補正。"],
     },
     {
-      zh: "故障情境",
-      en: "Failure Test",
-      shortEn: "Failure",
-      actions: ["模擬通訊中斷、道岔不到位與異常佔用。", "確認系統進入保守或降級狀態。", "告警、紀錄與現場處置流程都要被驗證。"],
-    },
-    {
-      zh: "試運轉",
-      en: "Trial Run",
-      shortEn: "Trial",
-      actions: ["在接近營運條件下觀察系統穩定性。", "確認操作員、維護人員與現場流程銜接。", "持續追蹤殘留問題與改善項目。"],
-    },
-    {
-      zh: "交付驗收",
+      zh: "Handover",
       en: "Handover",
       shortEn: "Handover",
-      actions: ["彙整測試紀錄、缺失清單與復測證據。", "確認操作維護文件與教育訓練準備完成。", "完成簽核後才進入正式交付。"],
+      actions: ["完成文件、設備、教育訓練及維護資料移交，正式交付業主。", "Handover 代表責任、文件與維護資訊已完成正式移交。", "正式交付後，系統進入業主接管與後續維護階段。"],
     },
   ];
 
   const issueFound = commissioningIssue.checked;
   const active = stages[commissioningStage];
   commissioningStageValue.textContent = active.zh;
+  commissioningStageSlider.value = commissioningStage;
 
   board.append(
-    svgEl("rect", { class: "layout-device control", x: 72, y: 62, width: 856, height: 296, rx: 10 }),
+    svgEl("rect", { class: "layout-device control", x: 86, y: 62, width: 828, height: 296, rx: 10 }),
     svgEl("text", { class: "diagram-label" }),
-    svgEl("line", { class: issueFound ? "occupied-cable" : "clear-cable", x1: 150, y1: 215, x2: 850, y2: 215 })
+    svgEl("line", { class: issueFound ? "occupied-cable" : "clear-cable", x1: 160, y1: 215, x2: 840, y2: 215 })
   );
-  centerSvgText(board.children[1], "Testing Flow / 測試與驗收流程", 500, 104, 720);
+  centerSvgText(board.children[1], "Installation -> Testing -> Commissioning -> Acceptance -> Handover", 500, 104, 760);
 
   stages.forEach((stage, index) => {
-    const x = 92 + index * 122;
+    const x = 108 + index * 144;
     const isActive = index === commissioningStage;
     const isDone = index < commissioningStage && !issueFound;
     const isBlocked = issueFound && index >= commissioningStage;
     const stateClass = isActive ? (issueFound ? "red" : "yellow") : isDone ? "green" : isBlocked ? "red" : "";
     board.append(
-      svgEl("rect", { class: `test-step ${stateClass}`, x, y: 148, width: 106, height: 98, rx: 8 }),
+      svgEl("rect", { class: `test-step ${stateClass}`, x, y: 148, width: 124, height: 98, rx: 8 }),
       svgEl("text", { class: "layout-text" }),
       svgEl("text", { class: "layout-subtext" })
     );
     centerBoxLabel(
       board.children[board.children.length - 2],
       board.children[board.children.length - 1],
+      stage.en,
       stage.zh,
-      stage.shortEn,
-      { x, y: 148, width: 106, height: 98 }
+      { x, y: 148, width: 124, height: 98 }
     );
   });
 
   board.append(
-    svgEl("rect", { class: `alarm-row ${issueFound ? "red" : "yellow"}`, x: 270, y: 276, width: 460, height: 54, rx: 8 }),
+    svgEl("rect", { class: `alarm-row ${issueFound ? "red" : "yellow"}`, x: 238, y: 276, width: 524, height: 54, rx: 8 }),
     svgEl("text", { class: "layout-text" })
   );
   centerSvgText(
@@ -1300,7 +1547,7 @@ function renderCommissioning() {
     issueFound ? `缺失阻塞 / Issue blocks ${active.en}` : `目前階段 / Current stage: ${active.en}`,
     500,
     303,
-    420
+    500
   );
 
   commissioningActions.replaceChildren();
@@ -1310,7 +1557,7 @@ function renderCommissioning() {
     commissioningActions.append(item);
   });
 
-  setStatus(issueFound ? "缺失待復測" : "測試進行中", issueFound ? "red" : "yellow");
+  setStatus(issueFound ? "缺失待復測" : active.en, issueFound ? "red" : commissioningStage === stages.length - 1 ? "green" : "yellow");
 }
 
 function renderScenario() {
@@ -1322,7 +1569,7 @@ function renderScenario() {
       title: "轉轍器命令",
       status: "等待回報",
       tone: "yellow",
-      actions: ["聯鎖命令轉轍器轉到 Reverse。", "等待現場設備回報位置偵測。", "此時尚未允許開放進路。"],
+      actions: ["聯鎖命令轉轍器轉到 Reverse。", "等待現場設備回報位置偵測。", "進路尚未完成建立，因此相關號誌維持停止顯示。"],
     },
     {
       title: "位置未證實",
@@ -1373,25 +1620,25 @@ function renderScenario() {
     svgEl("rect", { class: `alarm-row ${step.tone}`, x: 250, y: 380, width: 530, height: 42, rx: 8 }),
     svgEl("text", { class: "layout-text" })
   );
-  centerBoxLabel(board.children[2], board.children[3], "轉轍器", scenarioStep >= 1 ? "No Detection" : "Command Reverse", {
+  centerBoxLabel(board.children[2], board.children[3], "Route Request", "Point Command", {
     x: 238,
     y: 88,
     width: 168,
     height: 72,
   });
-  centerBoxLabel(board.children[5], board.children[6], "聯鎖", scenarioStep >= 2 ? "Route Denied" : "Checking", {
+  centerBoxLabel(board.children[5], board.children[6], "Safety Check", scenarioStep >= 2 ? "Route Setting" : "Checking", {
     x: 452,
     y: 88,
     width: 140,
     height: 72,
   });
-  centerBoxLabel(board.children[8], board.children[9], "告警維護", scenarioStep >= 3 ? "Critical Alarm" : "Monitoring", {
+  centerBoxLabel(board.children[8], board.children[9], "Route Locking", scenarioStep >= 3 ? "Lock Failed" : "Locked", {
     x: 634,
     y: 88,
     width: 166,
     height: 72,
   });
-  centerBoxLabel(board.children[11], board.children[12], "測試驗收", scenarioStep >= 4 ? "Retest Required" : "Evidence", {
+  centerBoxLabel(board.children[11], board.children[12], "Signal Clears", scenarioStep >= 2 ? "Proceed Aspect Blocked" : "Proceed Aspect", {
     x: 394,
     y: 298,
     width: 204,
@@ -1432,10 +1679,10 @@ function renderEtcs() {
       svgEl("text", { class: "diagram-label" }),
       svgEl("text", { class: "diagram-label" })
     );
-    centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 2], "Level 1：路旁設備 + 應答器傳遞資訊", 300, 135, 360);
-    centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 1], "Movement Authority 由地面資訊更新", 720, 135, 320);
+    centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 2], "ETCS Level 1：Eurobalise 傳送地面資訊", 300, 135, 360);
+    centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 1], "列車通過 Balise 時更新 Movement Authority", 720, 135, 360);
     etcsFlow.innerHTML =
-      "<li>路旁號誌與聯鎖決定可通行範圍</li><li>Balise / 應答器在固定位置傳送資料</li><li>車上設備依資料監控速度與行車許可</li>";
+      "<li>ETCS Level 1 主要利用 Eurobalise 將地面資訊傳送給列車</li><li>列車通常在通過 Balise 時更新 Movement Authority 與相關行車資訊</li><li>地面仍保留傳統號誌系統，Balise 負責傳遞資訊</li>";
     setStatus("Level 1 模式", "yellow");
   } else {
     radioWave.classList.remove("hidden");
@@ -1445,9 +1692,9 @@ function renderEtcs() {
       svgEl("text", { class: "diagram-label" })
     );
     centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 2], "RBC", 507.5, 88, 92);
-    centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 1], "Level 2：透過無線通訊更新行車許可", 338, 135, 420);
+    centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 1], "ETCS Level 2：RBC 透過無線持續更新 Movement Authority", 360, 135, 470);
     etcsFlow.innerHTML =
-      "<li>列車位置回報給 RBC / 無線閉塞中心</li><li>RBC 持續計算 Movement Authority / 行車許可</li><li>車上設備以無線更新資訊，不只依賴固定點傳輸</li>";
+      "<li>ETCS Level 2 由 Radio Block Centre（RBC）透過無線通訊持續向列車傳送 Movement Authority</li><li>Eurobalise 主要提供位置校正與參考點</li><li>Level 2 不再以 Balise 作為主要資訊傳輸方式</li>";
     setStatus("Level 2 模式", "green");
   }
 }
@@ -1502,9 +1749,9 @@ function renderDetection() {
   setStatus(occupied ? "區間佔用" : "區間空閒", occupied ? "red" : "green");
 }
 
-function renderProtection() {
-  const equipmentGroup = document.querySelector("#protection-equipment");
-  const trainGroup = document.querySelector("#protection-train");
+function renderAtp() {
+  const equipmentGroup = document.querySelector("#atp-equipment");
+  const trainGroup = document.querySelector("#atp-train");
   equipmentGroup.replaceChildren();
   trainGroup.replaceChildren();
 
@@ -1525,7 +1772,7 @@ function renderProtection() {
   centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 2], `${limit}`, 502, 150, 60);
   centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 1], "Permitted Speed / 允許速度", 500, 205, 280);
   speedValue.textContent = speed;
-  protectionExplanation.textContent =
+  atpExplanation.textContent =
     speed > limit
       ? `列車速度 ${speed} km/h 已超過允許速度 ${limit} km/h，ATP 會觸發警告並介入煞車。`
       : speed > 75
@@ -1534,47 +1781,75 @@ function renderProtection() {
   setStatus(statusText, statusTone);
 }
 
+function renderAts() {
+  const networkGroup = document.querySelector("#ats-network");
+  networkGroup.replaceChildren();
+
+  networkGroup.append(
+    svgEl("rect", { class: "rbc-box", x: 390, y: 52, width: 220, height: 72, rx: 8 }),
+    svgEl("text", { class: "block-text" }),
+    svgEl("path", { class: "data-link", d: "M 500 124 L 500 178" }),
+    svgEl("line", { class: "clear-cable", x1: 220, y1: 214, x2: 780, y2: 214 }),
+    svgEl("line", { class: "data-link", x1: 310, y1: 214, x2: 310, y2: 296 }),
+    svgEl("line", { class: "data-link", x1: 500, y1: 214, x2: 500, y2: 296 }),
+    svgEl("line", { class: "data-link", x1: 690, y1: 214, x2: 690, y2: 296 })
+  );
+  centerSvgText(networkGroup.children[1], "ATS / 列車自動監督", 500, 88, 170);
+
+  const atsNodes = [
+    { zh: "列車追蹤", en: "Train Tracking", x: 220, y: 182, width: 180 },
+    { zh: "時刻表管理", en: "Timetable", x: 410, y: 182, width: 180 },
+    { zh: "告警顯示", en: "Alarm Display", x: 600, y: 182, width: 180 },
+    { zh: "行車調度", en: "Dispatch Support", x: 410, y: 296, width: 180 },
+  ];
+
+  atsNodes.forEach((node) => {
+    drawLayoutDevice(networkGroup, node.x, node.y, node.width, 66, "control", node.zh, node.en);
+  });
+
+  networkGroup.append(svgEl("text", { class: "diagram-label" }));
+  centerSvgText(networkGroup.lastChild, "ATS 著重營運監督，不直接執行安全煞車", 500, 392, 360);
+  setStatus("ATS 監督視角", "yellow");
+}
+
 function renderCtc() {
   const networkGroup = document.querySelector("#ctc-network");
   networkGroup.replaceChildren();
-  const stations = [
-    { name: "Station A", x: 130, y: 230 },
-    { name: "Station B", x: 390, y: 230 },
-    { name: "Station C", x: 650, y: 230 },
-    { name: "Yard", x: 840, y: 310 },
-  ];
   const blocked = ctcMode === "maintenance";
   const delayed = ctcMode === "delay";
 
   networkGroup.append(
-    svgEl("rect", { class: "rbc-box", x: 400, y: 55, width: 205, height: 70, rx: 8 }),
+    svgEl("rect", { class: "layout-device control", x: 112, y: 55, width: 150, height: 70, rx: 8 }),
     svgEl("text", { class: "block-text" }),
-    svgEl("path", { class: "data-link", d: "M 500 126 L 500 190" }),
-    svgEl("line", { class: blocked ? "occupied-cable" : "clear-cable", x1: 130, y1: 230, x2: 840, y2: 310 })
+    svgEl("rect", { class: "rbc-box", x: 330, y: 55, width: 170, height: 70, rx: 8 }),
+    svgEl("text", { class: "block-text" }),
+    svgEl("rect", { class: "layout-device station", x: 570, y: 55, width: 175, height: 70, rx: 8 }),
+    svgEl("text", { class: "block-text" }),
+    svgEl("rect", { class: "layout-device trackside", x: 790, y: 275, width: 160, height: 70, rx: 8 }),
+    svgEl("text", { class: "block-text" }),
+    svgEl("text", { class: "block-text" }),
+    svgEl("path", { class: "data-link", d: "M 262 90 L 330 90" }),
+    svgEl("path", { class: "data-link", d: "M 500 90 L 570 90" }),
+    svgEl("path", { class: blocked ? "occupied-cable" : "clear-cable", d: "M 745 90 C 790 110, 825 165, 850 275" }),
+    svgEl("line", { class: blocked ? "occupied-cable" : "clear-cable", x1: 180, y1: 215, x2: 845, y2: 215 })
   );
-  centerSvgText(networkGroup.children[1], "Control Center / 控制中心", 502.5, 90, 166);
-
-  stations.forEach((station, index) => {
-    const stationBlocked = blocked && index === 2;
-    const fillClass = stationBlocked ? "block-zone occupied" : "ctc-node";
-    networkGroup.append(
-      svgEl("rect", { class: fillClass, x: station.x - 62, y: station.y - 34, width: 124, height: 68, rx: 8 }),
-      svgEl("text", { class: "block-text" })
-    );
-    centerSvgText(networkGroup.lastChild, station.name, station.x, station.y, 96);
-  });
+  centerSvgText(networkGroup.children[1], "Dispatcher", 187, 90, 110);
+  centerSvgText(networkGroup.children[3], "CTC", 415, 90, 120);
+  centerSvgText(networkGroup.children[5], "Interlocking", 657.5, 90, 125);
+  centerSvgText(networkGroup.children[7], "Field Equipment", 870, 310, 130);
+  centerSvgText(networkGroup.children[8], "Dispatcher -> CTC -> Interlocking -> Field Equipment", 500, 190, 560);
 
   if (delayed) drawTrain(networkGroup, 505, 230, "Late");
   else drawTrain(networkGroup, blocked ? 265 : 720, blocked ? 230 : 280, "T");
 
   if (ctcMode === "normal") {
-    ctcExplanation.textContent = "中心可看到各站進路與區間佔用，並維持列車依序運轉。";
+    ctcExplanation.textContent = "調度員透過 CTC 集中監看列車與設備狀態；涉及行車安全的控制命令，仍需由聯鎖系統完成安全條件檢查後才會作用到現場設備。";
     setStatus("全線監控中", "green");
   } else if (ctcMode === "delay") {
-    ctcExplanation.textContent = "列車延誤時，CTC 協助調度員觀察前後車間隔，必要時調整待避或發車順序。";
+    ctcExplanation.textContent = "列車延誤時，CTC 協助調度員觀察前後車間隔並提出調整命令；是否能安全執行，仍需由聯鎖系統確認。";
     setStatus("延誤調度", "yellow");
   } else {
-    ctcExplanation.textContent = "維修封鎖時，CTC 會標示不可用區間，避免進路被建立到封鎖範圍內。";
+    ctcExplanation.textContent = "維修封鎖時，CTC 會標示不可用區間並限制調度命令；真正涉及設備與進路的安全控制，仍由聯鎖系統把關。";
     setStatus("維修封鎖", "red");
   }
 }
@@ -1597,12 +1872,14 @@ function renderCrossing() {
 
   if (approaching) drawTrain(trainGroup, 250, 235, "Approach");
   crossingExplanation.textContent = approaching
-    ? "列車進入接近區段後，平交道先啟動閃光與警鈴，再放下柵欄，保護道路車輛不進入軌道。"
-    : "目前沒有列車接近，平交道維持開放，道路車輛可通行。";
+    ? "典型流程為：列車接近 -> 啟動警示設備 -> 遮斷桿下降；列車通過後，再解除警示並升起遮斷桿。"
+    : "目前沒有列車接近；在本概念示意中，平交道維持開放，道路車輛可通行。";
   setStatus(approaching ? "警示啟動" : "道路開放", approaching ? "red" : "green");
 }
 
 function renderCurrentConcept() {
+  if (activeModule === "railway-systems") renderRailwaySystems();
+  if (activeModule === "turnout") renderTurnout();
   if (activeModule === "learning") renderLearningMap();
   if (activeModule === "layout") renderLayout();
   if (activeModule === "scenario") renderScenario();
@@ -1610,7 +1887,8 @@ function renderCurrentConcept() {
   if (activeModule === "interlocking") renderInterlocking();
   if (activeModule === "point") renderPoint();
   if (activeModule === "detection") renderDetection();
-  if (activeModule === "protection") renderProtection();
+  if (activeModule === "atp") renderAtp();
+  if (activeModule === "ats") renderAts();
   if (activeModule === "ctc") renderCtc();
   if (activeModule === "alarm") renderAlarm();
   if (activeModule === "commissioning") renderCommissioning();
@@ -1629,21 +1907,48 @@ function updateNavigationState(moduleName) {
   });
 }
 
+function resetWorkspaceScroll() {
+  if (!workspace) return;
+  const header = workspace.querySelector(".workspace-header");
+  requestAnimationFrame(() => {
+    workspace.scrollTop = 0;
+    if (header) {
+      header.scrollIntoView({ block: "start", inline: "nearest" });
+      workspace.scrollTop = 0;
+    }
+  });
+}
+
+function restoreSidebarScroll(scrollTop) {
+  if (!sidebar) return;
+  requestAnimationFrame(() => {
+    sidebar.scrollTop = scrollTop;
+  });
+}
+
 function switchModule(moduleName) {
+  const sidebarScrollTop = sidebar ? sidebar.scrollTop : 0;
   activeModule = moduleName;
   updateNavigationState(moduleName);
   document.querySelectorAll(".diagram-layer").forEach((layer) => layer.classList.add("hidden"));
   document.querySelectorAll(".module-panel").forEach((panel) => panel.classList.remove("active"));
-  const viewClass = activeModule === "blocks" ? "blocks" : activeModule;
+  const viewClass =
+    activeModule === "blocks" ? "blocks" : activeModule === "railway-systems" ? "systems" : activeModule;
   document.querySelector(`.${viewClass}-view`).classList.remove("hidden");
   document.querySelector(`#panel-${activeModule}`).classList.add("active");
   moduleTitle.textContent = modules[activeModule].title;
   selectedTerm.textContent = modules[activeModule].term;
   renderKnowledge(activeModule);
   renderCurrentConcept();
+  if (sidebar) sidebar.scrollTop = sidebarScrollTop;
+  restoreSidebarScroll(sidebarScrollTop);
+  resetWorkspaceScroll();
 }
 
 document.querySelectorAll(".nav-item").forEach((button) => {
+  button.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+  });
   button.addEventListener("click", () => switchModule(button.dataset.module));
 });
 
@@ -1693,7 +1998,7 @@ document.querySelectorAll("[data-detection]").forEach((button) => {
 });
 
 detectionOccupied.addEventListener("change", renderDetection);
-speedSlider.addEventListener("input", renderProtection);
+speedSlider.addEventListener("input", renderAtp);
 
 document.querySelectorAll("[data-ctc]").forEach((button) => {
   button.addEventListener("click", () => {

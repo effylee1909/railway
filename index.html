@@ -3,19 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Railway Knowledge</title>
+    <title>Railway Project Learning Map</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="app-shell">
       <aside class="sidebar" aria-label="Learning modules">
         <div class="brand-block">
-          <p class="eyebrow">Interactive Signaling Lab</p>
-          <h1>Railway Knowledge</h1>
-          <p>用互動模擬理解鐵道號誌系統的核心邏輯。</p>
+          <p class="eyebrow">Railway Project Learning Map</p>
+          <h1>Railway Project Learning Map</h1>
+          <p>Interactive study site for understanding railway projects and signaling systems.</p>
         </div>
 
         <nav class="module-nav mindmap-nav" aria-label="Modules">
+          <details class="nav-branch" open>
+            <summary>
+              <span>Railway Systems</span>
+              <small>System Domains</small>
+            </summary>
+            <div class="nav-children">
+              <button class="nav-item" data-module="railway-systems">
+                <span>系統總覽</span>
+                <small>Infrastructure to Operations</small>
+              </button>
+              <button class="nav-item" data-module="turnout">
+                <span>道岔</span>
+                <small>Turnout / Points · Infrastructure</small>
+              </button>
+            </div>
+          </details>
+
           <details class="nav-branch" open>
             <summary>
               <span>學習入口</span>
@@ -72,9 +89,13 @@
               <small>Train Control</small>
             </summary>
             <div class="nav-children">
-              <button class="nav-item" data-module="protection">
-                <span>列車防護</span>
-                <small>ATP / ATS</small>
+              <button class="nav-item" data-module="atp">
+                <span>列車自動防護</span>
+                <small>ATP</small>
+              </button>
+              <button class="nav-item" data-module="ats">
+                <span>列車自動監督</span>
+                <small>ATS</small>
               </button>
               <button class="nav-item" data-module="ctc">
                 <span>調度控制</span>
@@ -116,7 +137,7 @@
       <section class="workspace">
         <header class="workspace-header">
           <div>
-            <p class="eyebrow">Taiwan Railway Signaling Upgrade Study</p>
+            <p class="eyebrow">Taiwan Railway Signalling Upgrade Study</p>
             <h2 id="module-title">學習地圖 / Learning Map</h2>
           </div>
           <div class="status-strip" aria-label="Current system status">
@@ -175,6 +196,15 @@
                 <g id="detection-train"></g>
               </g>
 
+              <g class="diagram-layer turnout-view hidden">
+                <line class="rail" x1="75" y1="205" x2="925" y2="205" />
+                <line class="rail rail-secondary" x1="75" y1="235" x2="925" y2="235" />
+                <line class="switch-rail" x1="380" y1="205" x2="585" y2="305" />
+                <line class="rail" x1="585" y1="305" x2="895" y2="305" />
+                <line class="rail rail-secondary" x1="585" y1="335" x2="895" y2="335" />
+                <g id="turnout-board"></g>
+              </g>
+
               <g class="diagram-layer point-view hidden">
                 <line class="rail" x1="75" y1="205" x2="925" y2="205" />
                 <line class="rail rail-secondary" x1="75" y1="235" x2="925" y2="235" />
@@ -185,11 +215,15 @@
                 <g id="point-train"></g>
               </g>
 
-              <g class="diagram-layer protection-view hidden">
+              <g class="diagram-layer atp-view hidden">
                 <line class="rail" x1="75" y1="260" x2="925" y2="260" />
                 <line class="rail rail-secondary" x1="75" y1="290" x2="925" y2="290" />
-                <g id="protection-equipment"></g>
-                <g id="protection-train"></g>
+                <g id="atp-equipment"></g>
+                <g id="atp-train"></g>
+              </g>
+
+              <g class="diagram-layer ats-view hidden">
+                <g id="ats-network"></g>
               </g>
 
               <g class="diagram-layer ctc-view hidden">
@@ -230,6 +264,10 @@
                 <path id="radio-wave" class="radio-wave hidden" d="M 500 90 C 575 135, 610 165, 680 216" />
               </g>
 
+              <g class="diagram-layer systems-view hidden">
+                <g id="systems-overview"></g>
+              </g>
+
               <g class="diagram-layer learning-view">
                 <g id="learning-map"></g>
               </g>
@@ -248,6 +286,32 @@
           </div>
 
           <div class="control-panel">
+            <div class="module-panel" id="panel-railway-systems">
+              <h3>Railway Systems / 鐵道系統</h3>
+              <p>
+                這裡先建立 handbook 的六大系統入口。每張卡片先提供系統名稱、簡介、圖示預留與 Coming Soon 狀態，作為後續擴充基礎。
+              </p>
+              <div class="flow-panel">
+                <span class="insight-label">Current Scope</span>
+                <ol>
+                  <li>先建立六大系統的總覽卡片，不進入各自詳細內容頁。</li>
+                  <li>Signalling 與 Operations Control 已有既有模組，可作為後續優先延伸對象。</li>
+                  <li>其他系統先用統一入口保留位置，避免現在就打散整體結構。</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="module-panel" id="panel-turnout">
+              <h3>道岔 / Turnout / Points</h3>
+              <p>
+                道岔是軌道系統中的分歧結構，使列車能夠從一條軌道轉入另一條軌道。它屬於基礎設施的一部分。
+              </p>
+              <div class="insight-panel" aria-live="polite">
+                <span class="insight-label">分類定位 / Infrastructure Role</span>
+                <p>這一頁只聚焦軌道本體與分歧結構本身；驅動、鎖定與位置偵測設備則放在 Point Machine 頁面。</p>
+              </div>
+            </div>
+
             <div class="module-panel active" id="panel-learning">
               <h3>學習地圖 / Learning Map</h3>
               <p>
@@ -269,13 +333,18 @@
                   <strong>聯鎖邏輯</strong>
                   <small>看懂安全條件如何被檢查</small>
                 </button>
-                <button class="learning-jump" type="button" data-jump-module="protection">
+                <button class="learning-jump" type="button" data-jump-module="atp">
                   <span>04</span>
-                  <strong>列車控制</strong>
-                  <small>連到 ATP、ATS、CTC、ETCS</small>
+                  <strong>ATP 防護</strong>
+                  <small>速度監督、煞車曲線、安全介入</small>
+                </button>
+                <button class="learning-jump" type="button" data-jump-module="ats">
+                  <span>05</span>
+                  <strong>ATS 監督</strong>
+                  <small>列車追蹤、時刻表、告警、調度</small>
                 </button>
                 <button class="learning-jump" type="button" data-jump-module="commissioning">
-                  <span>05</span>
+                  <span>06</span>
                   <strong>測試驗收</strong>
                   <small>把知識接回專案交付流程</small>
                 </button>
@@ -330,7 +399,7 @@
                 <ol id="scenario-actions">
                   <li>聯鎖命令轉轍器轉到 Reverse。</li>
                   <li>等待現場設備回報位置偵測。</li>
-                  <li>此時尚未允許開放進路。</li>
+                  <li>進路尚未完成建立，因此相關號誌維持停止顯示。</li>
                 </ol>
               </div>
             </div>
@@ -338,7 +407,10 @@
             <div class="module-panel" id="panel-blocks">
               <h3>閉塞區間 / Block Sections</h3>
               <p>
-                鐵路用區間佔用狀態控制列車間隔。當前方區間被列車佔用，後方號誌會限制或禁止進入。
+                閉塞系統將鐵路劃分為多個可管理的區段，並利用列車偵測、號誌與行車規則維持安全列車間隔。
+              </p>
+              <p>
+                本頁採用簡化的固定閉塞（Fixed Block）示意模型，用於說明閉塞系統的基本概念。實際鐵路系統會依不同號誌制式、行車規則及控制系統而有所差異。
               </p>
               <label class="slider-label" for="train-position">
                 列車位置 / Train Position
@@ -355,15 +427,19 @@
                   <strong id="occupied-block">Block B</strong>
                 </div>
                 <p id="block-explanation">
-                  S2 顯示紅燈，因為列車正在佔用 Block B；S1 顯示黃燈，提醒前方下一區間受限。
+                  在本示意模型中，當 Block B 被列車佔用時，保護該區段的 S2 顯示停止（紅燈）；前一架號誌 S1 顯示警戒（黃燈），提醒駕駛下一架號誌為停止顯示。
                 </p>
+              </div>
+              <div class="flow-panel">
+                <span class="insight-label">Note</span>
+                <p>本頁為概念示意，並非所有鐵路系統皆採用相同號誌邏輯。</p>
               </div>
             </div>
 
             <div class="module-panel" id="panel-interlocking">
               <h3>聯鎖 / Interlocking</h3>
               <p>
-                聯鎖會檢查進路、道岔、佔用狀態與衝突，只有安全條件成立時才允許開放號誌。
+                聯鎖系統負責檢查進路、道岔位置、列車偵測狀態及衝突進路，只有所有安全條件成立時，才允許建立進路並開放相關號誌。
               </p>
               <div class="segmented" role="group" aria-label="Route selection">
                 <button class="segment active" data-route="A">進路 A</button>
@@ -378,7 +454,7 @@
               <div class="checklist-panel" aria-live="polite">
                 <div class="check-row pass" id="check-switch">
                   <span></span>
-                  <p>道岔位置 / Switch Position</p>
+                  <p>道岔位置 / Point Position</p>
                 </div>
                 <div class="check-row pass" id="check-occupied">
                   <span></span>
@@ -392,9 +468,9 @@
             </div>
 
             <div class="module-panel" id="panel-point">
-              <h3>道岔與轉轍器 / Point Machine</h3>
+              <h3>Point Machine / 轉轍器</h3>
               <p>
-                轉轍器負責扳動道岔並回報位置。聯鎖必須確認道岔到位且鎖定，才會允許相關進路開放。
+                轉轍器是驅動、鎖定並偵測道岔位置的機電設備。聯鎖系統會根據轉轍器回報的位置與鎖定狀態，判斷是否允許建立進路，並讓相關號誌顯示允許行車（Proceed Aspect）。
               </p>
               <div class="segmented" role="group" aria-label="Point position">
                 <button class="segment active" data-point-position="normal">Normal</button>
@@ -443,10 +519,10 @@
               </div>
             </div>
 
-            <div class="module-panel" id="panel-protection">
-              <h3>列車防護 / ATP & ATS</h3>
+            <div class="module-panel" id="panel-atp">
+              <h3>列車自動防護 / Automatic Train Protection</h3>
               <p>
-                ATP 監控列車是否超過允許速度，必要時介入煞車；ATS 則偏向列車監督、營運管理與告警。
+                ATP 持續監督列車的實際速度、允許速度、煞車曲線與可行駛距離。當列車可能超過安全限制，且駕駛未及時採取動作時，系統會發出警告或介入煞車。
               </p>
               <label class="slider-label" for="speed-slider">
                 列車速度 / Train Speed
@@ -454,15 +530,37 @@
               </label>
               <input id="speed-slider" type="range" min="0" max="130" value="70" />
               <div class="insight-panel" aria-live="polite">
-                <span class="insight-label">防護狀態 / Protection State</span>
-                <p id="protection-explanation">目前速度低於允許速度，ATP 持續監控但不介入。</p>
+                <span class="insight-label">防護狀態 / ATP State</span>
+                <p id="atp-explanation">目前速度低於允許速度，ATP 持續監控但不介入。</p>
+              </div>
+            </div>
+
+            <div class="module-panel" id="panel-ats">
+              <h3>列車自動監督 / Automatic Train Supervision</h3>
+              <p>
+                ATS 用於監督列車位置與運行狀態，並支援時刻表管理、列車追蹤、告警顯示與行車調度。ATS 著重營運監督，不等同於 ATP 的安全防護功能。
+              </p>
+              <div class="insight-panel" aria-live="polite">
+                <span class="insight-label">監督範圍 / Supervision Scope</span>
+                <p>目前先提供分類定位與系統角色說明；列車追蹤、時刻表管理與告警佇列互動將於後續擴充。</p>
+              </div>
+              <div class="flow-panel">
+                <span class="insight-label">Coming Soon</span>
+                <ol>
+                  <li>列車追蹤與位置總覽 / Train Tracking</li>
+                  <li>時刻表與延誤監看 / Timetable & Delay View</li>
+                  <li>告警顯示與調度支援 / Alarm & Dispatch Support</li>
+                </ol>
               </div>
             </div>
 
             <div class="module-panel" id="panel-ctc">
               <h3>調度控制 / CTC</h3>
               <p>
-                CTC 讓控制中心集中監看多個車站、區間與進路狀態，協助調度員做營運決策。
+                CTC（Centralized Traffic Control）提供集中式列車監控與行車調度功能。調度員可透過 CTC 監看列車位置、設備狀態與進路資訊，並依系統配置遠端下達控制命令。
+              </p>
+              <p>
+                所有涉及行車安全的控制命令仍需經由 Interlocking（聯鎖系統）進行安全條件檢查。CTC 負責監控與調度，不直接取代聯鎖的安全功能。
               </p>
               <div class="segmented" role="group" aria-label="CTC mode">
                 <button class="segment active" data-ctc="normal">正常營運</button>
@@ -471,7 +569,7 @@
               </div>
               <div class="insight-panel" aria-live="polite">
                 <span class="insight-label">調度重點 / Dispatch Focus</span>
-                <p id="ctc-explanation">中心可看到各站進路與區間佔用，並維持列車依序運轉。</p>
+                <p id="ctc-explanation">調度員透過 CTC 集中監看列車與設備狀態；涉及行車安全的控制命令，仍需由聯鎖系統完成安全條件檢查後才會作用到現場設備。</p>
               </div>
             </div>
 
@@ -489,7 +587,7 @@
                 <span class="insight-label">處置重點 / Maintenance Focus</span>
                 <ol id="alarm-actions">
                   <li>確認道岔位置偵測是否一致。</li>
-                  <li>暫停相關進路開放。</li>
+                  <li>暫停相關進路建立與號誌顯示。</li>
                   <li>通知現場檢查轉轍器與鎖定機構。</li>
                 </ol>
               </div>
@@ -498,23 +596,24 @@
             <div class="module-panel" id="panel-commissioning">
               <h3>測試與驗收 / Testing & Commissioning</h3>
               <p>
-                號誌更新案需要透過分階段測試確認設計、現場 I/O、聯鎖邏輯、故障情境與試運轉結果，才能進入交付驗收。
+                這一頁把專案交付過程拆成 Testing、Commissioning、Acceptance 與 Handover 四個概念，並對應到從 Installation 開始的實務流程。
               </p>
               <label class="slider-label" for="commissioning-stage">
-                測試階段 / Test Stage
-                <span id="commissioning-stage-value">I/O 測試</span>
+                交付流程 / Delivery Flow
+                <span id="commissioning-stage-value">Testing</span>
               </label>
-              <input id="commissioning-stage" type="range" min="0" max="6" value="2" />
+              <input id="commissioning-stage" type="range" min="0" max="4" value="1" />
               <label class="toggle-row">
                 <input id="commissioning-issue" type="checkbox" />
                 <span>發現缺失 / Issue Found</span>
               </label>
               <div class="flow-panel" aria-live="polite">
-                <span class="insight-label">驗收重點 / Acceptance Focus</span>
+                <span class="insight-label">四個概念 / Four Concepts</span>
                 <ol id="commissioning-actions">
-                  <li>確認每個輸入與輸出點位對應正確。</li>
-                  <li>記錄測試結果、缺失與復測狀態。</li>
-                  <li>通過後才能進入聯鎖邏輯測試。</li>
+                  <li>Testing（測試）：依照測試程序驗證設備、功能與系統是否符合設計需求。</li>
+                  <li>Commissioning（試運轉／啟用）：完成設備安裝與整合後，透過試運轉確認系統已具備投入營運的能力。</li>
+                  <li>Acceptance（驗收）：由業主依照合約及驗收標準確認工程成果是否符合要求。</li>
+                  <li>Handover（交付）：完成文件、設備、教育訓練及維護資料移交，正式交付業主。</li>
                 </ol>
               </div>
             </div>
@@ -522,7 +621,10 @@
             <div class="module-panel" id="panel-crossing">
               <h3>平交道保護 / Level Crossing Protection</h3>
               <p>
-                平交道系統會依列車接近偵測啟動警鈴、閃光號誌與柵欄，避免道路車輛進入列車路徑。
+                平交道保護系統通常利用列車接近資訊或列車偵測設備，依序啟動警鈴、閃光號誌及遮斷桿，以降低道路使用者與列車衝突的風險。
+              </p>
+              <p>
+                部分平交道會與聯鎖系統整合，只有當平交道已達到安全保護狀態時，相關進路或號誌才允許建立。
               </p>
               <label class="toggle-row">
                 <input id="crossing-approach" type="checkbox" />
@@ -530,26 +632,38 @@
               </label>
               <div class="insight-panel" aria-live="polite">
                 <span class="insight-label">保護序列 / Protection Sequence</span>
-                <p id="crossing-explanation">目前沒有列車接近，平交道維持開放，道路車輛可通行。</p>
+                <p id="crossing-explanation">典型流程為：列車接近 -> 啟動警示設備 -> 遮斷桿下降 -> 列車通過 -> 解除警示 -> 遮斷桿升起。</p>
+              </div>
+              <div class="flow-panel">
+                <span class="insight-label">Note</span>
+                <p>不同國家、不同路線及不同平交道型式，其控制方式可能不同。本頁內容為典型自動平交道概念示意。</p>
               </div>
             </div>
 
             <div class="module-panel" id="panel-etcs">
               <h3>ETCS / ERTMS 入門</h3>
               <p>
-                ERTMS 整合 ETCS、鐵路無線通訊與營運規則；ETCS 則把允許速度與行車權限帶到駕駛室。
+                ETCS（European Train Control System）是 ERTMS 的核心列車控制系統，用於提供列車保護與行車授權。
               </p>
               <div class="segmented" role="group" aria-label="ETCS level">
                 <button class="segment active" data-level="1">Level 1</button>
                 <button class="segment" data-level="2">Level 2</button>
               </div>
               <div class="flow-panel" aria-live="polite">
-                <span class="insight-label">資訊流 / Information Flow</span>
+                <span class="insight-label">ETCS Level 1 / ETCS Level 2</span>
                 <ol id="etcs-flow">
-                  <li>路旁設備計算可授權範圍</li>
-                  <li>Balise / 應答器把資訊傳到車上</li>
-                  <li>車上設備監控速度與行車許可</li>
+                  <li>ETCS Level 1：Balise 更新資訊，地面仍保留傳統號誌</li>
+                  <li>ETCS Level 2：RBC 透過無線持續傳送 Movement Authority</li>
+                  <li>Eurobalise 在 Level 2 主要提供位置校正與參考點</li>
                 </ol>
+              </div>
+              <div class="insight-panel">
+                <span class="insight-label">比較表 / Comparison</span>
+                <p>
+                  Level 1: Balise 更新資訊 / 保留傳統號誌 / 間歇更新
+                  <br />
+                  Level 2: RBC 無線傳輸 / 可不依賴沿線號誌 / 持續更新 Movement Authority
+                </p>
               </div>
             </div>
           </div>
