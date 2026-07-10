@@ -472,6 +472,116 @@ const knowledgeNotes = {
   },
 };
 
+const handbookItems = [
+  {
+    number: "01",
+    zh: "鐵道基礎",
+    en: "Railway Fundamentals",
+    status: "後續",
+    summary: "建立鐵道種類、基本名詞、標準與專案概論，作為非工程背景進入鐵道知識的入口。",
+    topics: ["Railway Terminology", "System Overview", "Project Overview"],
+  },
+  {
+    number: "02",
+    zh: "基礎設施",
+    en: "Infrastructure",
+    status: "下一步",
+    summary: "整理軌道、道岔、車站、月台、橋梁、隧道與機廠，幫助把號誌設備放回現場環境。",
+    topics: ["Track", "Turnout", "Station", "Depot"],
+  },
+  {
+    number: "03",
+    zh: "車輛系統",
+    en: "Rolling Stock",
+    status: "後續",
+    summary: "補上列車編組、轉向架、煞車、牽引與車載設備，連接 ATP、ATO、OBU 等車上視角。",
+    topics: ["Bogie", "Braking", "On-board Unit"],
+  },
+  {
+    number: "04",
+    zh: "供電系統",
+    en: "Power Supply",
+    status: "後續",
+    summary: "建立牽引供電、OCS、第三軌、變電站、UPS、接地與防雷的基礎分類。",
+    topics: ["OCS", "Substation", "UPS", "Grounding"],
+  },
+  {
+    number: "05",
+    zh: "通訊系統",
+    en: "Communication",
+    status: "下一步",
+    summary: "整理光纖、IP 網路、GSM-R、LTE-R、FRMCS、CCTV、PIS、PA 與時鐘系統。",
+    topics: ["IP Network", "GSM-R", "LTE-R", "PIS"],
+  },
+  {
+    number: "06",
+    zh: "號誌系統",
+    en: "Signalling",
+    status: "已承接",
+    summary: "網站核心內容，包含號誌機、列車偵測、轉轍器、進路、聯鎖、平交道與沿線設備。",
+    topics: ["Signal", "Train Detection", "Point Machine", "Interlocking"],
+    target: "layout",
+  },
+  {
+    number: "07",
+    zh: "列車控制",
+    en: "Train Control",
+    status: "已承接",
+    summary: "連接行車控制、OCC、CTC、ATS、ATP、ATO、ETCS、CBTC 與 RBC/Balise 概念。",
+    topics: ["CTC", "ATS", "ATP", "ETCS", "CBTC"],
+    target: "protection",
+  },
+  {
+    number: "08",
+    zh: "系統工程",
+    en: "Systems Engineering",
+    status: "下一步",
+    summary: "把需求、架構、介面、組態、變更與追溯性整理成專案理解框架。",
+    topics: ["Requirements", "Interface", "Configuration", "Traceability"],
+  },
+  {
+    number: "09",
+    zh: "專案管理",
+    en: "Project Management",
+    status: "後續",
+    summary: "補上生命週期、利害關係人、時程、成本、風險、採購與合約等非技術但重要的專案視角。",
+    topics: ["Lifecycle", "Stakeholders", "Risk", "Contract"],
+  },
+  {
+    number: "10",
+    zh: "工程文件",
+    en: "Documents",
+    status: "下一步",
+    summary: "建立 SRS、ICD、FD、測試程序、測試報告、竣工文件與 O&M Manual 的文件地圖。",
+    topics: ["SRS", "ICD", "FD", "Test Procedure"],
+  },
+  {
+    number: "11",
+    zh: "測試與上線",
+    en: "Testing & Commissioning",
+    status: "已承接",
+    summary: "延伸 FAT、SAT、SIT、Commissioning、Trial Run、Handover 與驗證確認流程。",
+    topics: ["FAT", "SAT", "SIT", "Handover"],
+    target: "commissioning",
+  },
+  {
+    number: "12",
+    zh: "安全",
+    en: "Safety",
+    status: "後續",
+    summary: "整理 RAMS、SIL、EN 50126/50128/50129、Hazard Analysis、FMEA、FTA 與 Safety Case。",
+    topics: ["RAMS", "SIL", "FMEA", "Safety Case"],
+  },
+  {
+    number: "13",
+    zh: "鐵道應用",
+    en: "Railway Applications",
+    status: "後續",
+    summary: "把 Taiwan Railway、THSR、Taipei Metro、DB、JR、SNCF、Network Rail 等案例整理成比較視角。",
+    topics: ["Taiwan Railway", "THSR", "Metro", "DB", "JR"],
+  },
+];
+
 const blockNames = ["A", "B", "C", "D", "E"];
 let trainPosition = 2;
 let selectedRoute = "A";
@@ -490,6 +600,7 @@ const systemStatus = document.querySelector("#system-status");
 const statusDot = document.querySelector("#route-status-dot");
 const knowledgeTitle = document.querySelector("#knowledge-title");
 const knowledgeGrid = document.querySelector("#knowledge-grid");
+const handbookGrid = document.querySelector("#handbook-grid");
 const trainSlider = document.querySelector("#train-position");
 const trainPositionValue = document.querySelector("#train-position-value");
 const occupiedBlock = document.querySelector("#occupied-block");
@@ -629,6 +740,58 @@ function renderKnowledge(moduleName) {
 
     article.append(zh, en, list);
     knowledgeGrid.append(article);
+  });
+}
+
+function renderHandbookItems() {
+  handbookGrid.replaceChildren();
+  handbookItems.forEach((item) => {
+    const article = document.createElement("article");
+    article.className = "handbook-card";
+
+    const header = document.createElement("div");
+    header.className = "handbook-card-header";
+
+    const number = document.createElement("span");
+    number.className = "handbook-number";
+    number.textContent = item.number;
+
+    const title = document.createElement("div");
+    const zh = document.createElement("strong");
+    zh.textContent = item.zh;
+    const en = document.createElement("small");
+    en.textContent = item.en;
+    title.append(zh, en);
+
+    const status = document.createElement("span");
+    status.className = `handbook-status ${item.status === "已承接" ? "done" : item.status === "下一步" ? "next" : ""}`;
+    status.textContent = item.status;
+
+    header.append(number, title, status);
+
+    const summary = document.createElement("p");
+    summary.textContent = item.summary;
+
+    const topics = document.createElement("div");
+    topics.className = "handbook-topics";
+    item.topics.forEach((topic) => {
+      const chip = document.createElement("span");
+      chip.textContent = topic;
+      topics.append(chip);
+    });
+
+    article.append(header, summary, topics);
+
+    if (item.target) {
+      const button = document.createElement("button");
+      button.className = "handbook-link";
+      button.type = "button";
+      button.dataset.jumpModule = item.target;
+      button.textContent = "查看目前模組";
+      article.append(button);
+    }
+
+    handbookGrid.append(article);
   });
 }
 
@@ -1475,10 +1638,6 @@ document.querySelectorAll(".nav-item").forEach((button) => {
   button.addEventListener("click", () => switchModule(button.dataset.module));
 });
 
-document.querySelectorAll("[data-jump-module]").forEach((button) => {
-  button.addEventListener("click", () => switchModule(button.dataset.jumpModule));
-});
-
 trainSlider.addEventListener("input", (event) => {
   trainPosition = Number(event.target.value);
   renderBlocks();
@@ -1576,4 +1735,8 @@ document.querySelectorAll("[data-level]").forEach((button) => {
 });
 
 renderKnowledge(activeModule);
+renderHandbookItems();
+document.querySelectorAll("[data-jump-module]").forEach((button) => {
+  button.addEventListener("click", () => switchModule(button.dataset.jumpModule));
+});
 renderLearningMap();
