@@ -527,6 +527,12 @@ function svgEl(tag, attrs = {}) {
   return element;
 }
 
+function fitSvgText(element, text, maxWidth) {
+  element.textContent = text;
+  element.setAttribute("textLength", maxWidth);
+  element.setAttribute("lengthAdjust", "spacingAndGlyphs");
+}
+
 function setStatus(text, tone = "green") {
   systemStatus.textContent = text;
   statusDot.className = `status-dot ${tone}`;
@@ -564,8 +570,8 @@ function drawLayoutDevice(parent, x, y, width, height, type, title, subtitle) {
     svgEl("text", { class: "layout-text", x: x + 14, y: y + 28 }),
     svgEl("text", { class: "layout-subtext", x: x + 14, y: y + 54 })
   );
-  parent.children[parent.children.length - 2].textContent = title;
-  parent.children[parent.children.length - 1].textContent = subtitle;
+  fitSvgText(parent.children[parent.children.length - 2], title, width - 28);
+  fitSvgText(parent.children[parent.children.length - 1], subtitle, width - 28);
 }
 
 function drawBalise(parent, x, y) {
@@ -574,8 +580,8 @@ function drawBalise(parent, x, y) {
     svgEl("text", { class: "layout-text", x: x + 58, y: y + 14 }),
     svgEl("text", { class: "layout-subtext", x: x + 58, y: y + 40 })
   );
-  parent.children[parent.children.length - 2].textContent = "應答器";
-  parent.children[parent.children.length - 1].textContent = "Balise";
+  fitSvgText(parent.children[parent.children.length - 2], "應答器", 78);
+  fitSvgText(parent.children[parent.children.length - 1], "Balise", 78);
 }
 
 function renderKnowledge(moduleName) {
@@ -680,9 +686,9 @@ function renderLearningMap() {
       svgEl("text", { class: "learning-title", x: step.x + 50, y: step.y + 32 }),
       svgEl("text", { class: "learning-subtitle", x: step.x + 50, y: step.y + 60 })
     );
-    group.children[2].textContent = step.number;
-    group.children[3].textContent = step.title;
-    group.children[4].textContent = step.subtitle;
+    fitSvgText(group.children[2], step.number, 16);
+    fitSvgText(group.children[3], step.title, step.width - 62);
+    fitSvgText(group.children[4], step.subtitle, step.width - 62);
     mapGroup.append(group);
   });
 
@@ -699,8 +705,8 @@ function renderLearningMap() {
       svgEl("text", { class: "layout-text", x: x + 14, y: y + 28 }),
       svgEl("text", { class: "layout-subtext", x: x + 14, y: y + 54 })
     );
-    group.children[1].textContent = title;
-    group.children[2].textContent = subtitle;
+    fitSvgText(group.children[1], title, 120);
+    fitSvgText(group.children[2], subtitle, 120);
     mapGroup.append(group);
   });
 
@@ -795,7 +801,7 @@ function renderLayout() {
   drawLayoutDevice(layoutGroup, 640, 124, 170, 66, "control", "告警維護", "Alarm / Maint.");
   drawLayoutDevice(layoutGroup, 104, 356, 178, 66, "control", "測試驗收", "Commissioning");
   drawLayoutDevice(layoutGroup, 872, 48, 118, 66, "control", "RBC", "Radio Block");
-  drawLayoutDevice(layoutGroup, 812, 124, 176, 66, "trackside", "平交道", "Level Crossing");
+  drawLayoutDevice(layoutGroup, 820, 124, 168, 66, "trackside", "平交道", "Level Crossing");
   drawLayoutDevice(layoutGroup, 642, 356, 166, 66, "onboard", "車上 ATP", "Onboard ATP");
   drawBalise(layoutGroup, 540, 282);
   drawTrain(layoutGroup, 665, 244, "Train");
@@ -893,10 +899,10 @@ function renderPoint() {
     svgEl("text", { class: "layout-subtext", x: 578, y: 146 }),
     svgEl("path", { class: "layout-control-link", d: "M 480 123 L 560 123" })
   );
-  equipmentGroup.children[2].textContent = reverse ? "Reverse / 反位" : "Normal / 定位";
-  equipmentGroup.children[3].textContent = "Point Machine";
-  equipmentGroup.children[6].textContent = "聯鎖";
-  equipmentGroup.children[7].textContent = "Interlocking";
+  fitSvgText(equipmentGroup.children[2], reverse ? "Reverse / 反位" : "Normal / 定位", 148);
+  fitSvgText(equipmentGroup.children[3], "Point Machine", 148);
+  fitSvgText(equipmentGroup.children[6], "聯鎖", 112);
+  fitSvgText(equipmentGroup.children[7], "Interlocking", 112);
 
   drawSignal(equipmentGroup, 105, 120, routeOkay ? "green" : "red", "P");
   drawTrain(trainGroup, reverse ? 710 : 740, reverse ? 305 : 205, "Route");
@@ -1062,17 +1068,19 @@ function renderCommissioning() {
       svgEl("text", { class: "layout-text", x: x + 12, y: 181 }),
       svgEl("text", { class: "layout-subtext", x: x + 12, y: 207 })
     );
-    board.children[board.children.length - 2].textContent = stage.zh;
-    board.children[board.children.length - 1].textContent = stage.shortEn;
+    fitSvgText(board.children[board.children.length - 2], stage.zh, 82);
+    fitSvgText(board.children[board.children.length - 1], stage.shortEn, 82);
   });
 
   board.append(
     svgEl("rect", { class: `alarm-row ${issueFound ? "red" : "yellow"}`, x: 270, y: 276, width: 460, height: 54, rx: 8 }),
     svgEl("text", { class: "layout-text", x: 292, y: 306 })
   );
-  board.lastChild.textContent = issueFound
-    ? `缺失阻塞 / Issue blocks ${active.en}`
-    : `目前階段 / Current stage: ${active.en}`;
+  fitSvgText(
+    board.lastChild,
+    issueFound ? `缺失阻塞 / Issue blocks ${active.en}` : `目前階段 / Current stage: ${active.en}`,
+    420
+  );
 
   commissioningActions.replaceChildren();
   active.actions.forEach((action) => {
@@ -1144,14 +1152,14 @@ function renderScenario() {
     svgEl("rect", { class: `alarm-row ${step.tone}`, x: 250, y: 380, width: 530, height: 42, rx: 8 }),
     svgEl("text", { class: "layout-text", x: 270, y: 406 })
   );
-  board.children[2].textContent = "轉轍器";
-  board.children[3].textContent = scenarioStep >= 1 ? "No Detection" : "Command Reverse";
-  board.children[5].textContent = "聯鎖";
-  board.children[6].textContent = scenarioStep >= 2 ? "Route Denied" : "Checking";
-  board.children[8].textContent = "告警維護";
-  board.children[9].textContent = scenarioStep >= 3 ? "Critical Alarm" : "Monitoring";
-  board.children[11].textContent = "測試驗收";
-  board.children[12].textContent = scenarioStep >= 4 ? "Retest Required" : "Evidence";
+  fitSvgText(board.children[2], "轉轍器", 140);
+  fitSvgText(board.children[3], scenarioStep >= 1 ? "No Detection" : "Command Reverse", 140);
+  fitSvgText(board.children[5], "聯鎖", 112);
+  fitSvgText(board.children[6], scenarioStep >= 2 ? "Route Denied" : "Checking", 112);
+  fitSvgText(board.children[8], "告警維護", 138);
+  fitSvgText(board.children[9], scenarioStep >= 3 ? "Critical Alarm" : "Monitoring", 138);
+  fitSvgText(board.children[11], "測試驗收", 176);
+  fitSvgText(board.children[12], scenarioStep >= 4 ? "Retest Required" : "Evidence", 176);
   board.lastChild.textContent = `${step.title} / ${step.status}`;
 
   drawSignal(board, 112, 150, scenarioStep >= 2 ? "red" : "yellow", "Home");
