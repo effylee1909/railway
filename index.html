@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Railway Project Learning Map</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260714-track-overview" />
   </head>
   <body>
     <main class="app-shell">
@@ -12,7 +12,7 @@
         <div class="brand-block">
           <p class="eyebrow">Railway Project Learning Map</p>
           <h1>Railway Project Learning Map</h1>
-          <p>Interactive study site for understanding railway projects and signaling systems.</p>
+          <p>Learn railway systems, signalling principles and engineering workflows through structured learning.</p>
         </div>
 
         <nav class="module-nav mindmap-nav" aria-label="Modules">
@@ -138,17 +138,17 @@
         <header class="workspace-header">
           <div>
             <p class="eyebrow">Taiwan Railway Signalling Upgrade Study</p>
-            <h2 id="module-title">學習地圖 / Learning Map</h2>
+            <h2 id="module-title">Learning Map｜學習地圖</h2>
           </div>
           <div class="status-strip" aria-label="Current system status">
             <div>
               <span id="route-status-dot" class="status-dot green"></span>
               <strong id="system-status">學習路徑</strong>
-              <small>System State</small>
+              <small>System State｜系統狀態</small>
             </div>
             <div>
               <strong id="selected-term">學習順序</strong>
-              <small>Selected Term</small>
+              <small>Selected Term｜目前主題</small>
             </div>
           </div>
         </header>
@@ -156,6 +156,9 @@
         <section class="hero-lab" aria-label="Railway signaling simulator">
           <div class="track-board" id="track-board">
             <div class="track-grid" aria-hidden="true"></div>
+            <div id="learning-map-panel" class="learning-map-panel hidden" aria-live="polite"></div>
+            <div id="system-map-panel" class="system-map-panel hidden" aria-live="polite"></div>
+            <div class="diagram-scroll" id="diagram-scroll">
             <svg class="rail-diagram" viewBox="0 0 1000 430" role="img" aria-labelledby="diagram-title">
               <title id="diagram-title">Interactive railway signaling diagram</title>
               <defs>
@@ -283,11 +286,14 @@
                 <g id="layout-equipment"></g>
               </g>
             </svg>
+            </div>
+            <div id="systems-card-board" class="systems-card-board hidden" aria-live="polite"></div>
+            <div id="diagram-caption" class="diagram-caption hidden" aria-live="polite"></div>
           </div>
 
           <div class="control-panel">
             <div class="module-panel" id="panel-railway-systems">
-              <h3>Railway Systems / 鐵道系統</h3>
+              <h3>Railway Systems｜鐵道系統</h3>
               <p>
                 這裡先建立 handbook 的六大系統入口。每張卡片先提供系統名稱、簡介、圖示預留與 Coming Soon 狀態，作為後續擴充基礎。
               </p>
@@ -302,7 +308,7 @@
             </div>
 
             <div class="module-panel" id="panel-turnout">
-              <h3>道岔 / Turnout / Points</h3>
+              <h3>Turnout / Points｜道岔</h3>
               <p>
                 道岔是軌道系統中的分歧結構，使列車能夠從一條軌道轉入另一條軌道。它屬於基礎設施的一部分。
               </p>
@@ -313,7 +319,7 @@
             </div>
 
             <div class="module-panel active" id="panel-learning">
-              <h3>學習地圖 / Learning Map</h3>
+              <h3>Learning Map｜學習地圖</h3>
               <p>
                 這條路線把 handbook 的大架構收斂成作品導覽：先理解鐵道專案，再進入號誌核心，最後接到文件、測試與案例。
               </p>
@@ -360,7 +366,7 @@
             </div>
 
             <div class="module-panel" id="panel-layout">
-              <h3>系統地圖 / System Map</h3>
+              <h3>System Map｜系統地圖</h3>
               <p>
                 這張總覽圖把號誌設備放回軌道現場：哪些在軌旁、哪些在車站設備室、哪些在控制中心或列車上。
               </p>
@@ -381,7 +387,7 @@
             </div>
 
             <div class="module-panel" id="panel-scenario">
-              <h3>案例模式 / Scenario Mode</h3>
+              <h3>Scenario Mode｜案例模式</h3>
               <p>
                 這個案例示範道岔不到位如何從現場轉轍器一路影響聯鎖、告警維護與測試驗收流程。
               </p>
@@ -405,7 +411,7 @@
             </div>
 
             <div class="module-panel" id="panel-blocks">
-              <h3>閉塞區間 / Block Sections</h3>
+              <h3>Block System｜閉塞系統</h3>
               <p>
                 閉塞系統將鐵路劃分為多個可管理的區段，並利用列車偵測、號誌與行車規則維持安全列車間隔。
               </p>
@@ -437,7 +443,7 @@
             </div>
 
             <div class="module-panel" id="panel-interlocking">
-              <h3>聯鎖 / Interlocking</h3>
+              <h3>Interlocking｜聯鎖系統</h3>
               <p>
                 聯鎖系統負責檢查進路、道岔位置、列車偵測狀態及衝突進路，只有所有安全條件成立時，才允許建立進路並開放相關號誌。
               </p>
@@ -468,7 +474,7 @@
             </div>
 
             <div class="module-panel" id="panel-point">
-              <h3>Point Machine / 轉轍器</h3>
+              <h3>Point Machine｜轉轍器</h3>
               <p>
                 轉轍器是驅動、鎖定並偵測道岔位置的機電設備。聯鎖系統會根據轉轍器回報的位置與鎖定狀態，判斷是否允許建立進路，並讓相關號誌顯示允許行車（Proceed Aspect）。
               </p>
@@ -501,7 +507,7 @@
             </div>
 
             <div class="module-panel" id="panel-detection">
-              <h3>列車偵測 / Train Detection</h3>
+              <h3>Train Detection｜列車偵測</h3>
               <p>
                 號誌系統需要先知道列車在哪裡。常見方式包含軌道電路與計軸器，兩者都用來判斷區間是否佔用。
               </p>
@@ -520,7 +526,7 @@
             </div>
 
             <div class="module-panel" id="panel-atp">
-              <h3>列車自動防護 / Automatic Train Protection</h3>
+              <h3>Automatic Train Protection (ATP)｜列車自動防護</h3>
               <p>
                 ATP 持續監督列車的實際速度、允許速度、煞車曲線與可行駛距離。當列車可能超過安全限制，且駕駛未及時採取動作時，系統會發出警告或介入煞車。
               </p>
@@ -536,7 +542,7 @@
             </div>
 
             <div class="module-panel" id="panel-ats">
-              <h3>列車自動監督 / Automatic Train Supervision</h3>
+              <h3>Automatic Train Supervision (ATS)｜列車自動監督</h3>
               <p>
                 ATS 用於監督列車位置與運行狀態，並支援時刻表管理、列車追蹤、告警顯示與行車調度。ATS 著重營運監督，不等同於 ATP 的安全防護功能。
               </p>
@@ -555,7 +561,7 @@
             </div>
 
             <div class="module-panel" id="panel-ctc">
-              <h3>調度控制 / CTC</h3>
+              <h3>Centralized Traffic Control (CTC)｜中央行車控制</h3>
               <p>
                 CTC（Centralized Traffic Control）提供集中式列車監控與行車調度功能。調度員可透過 CTC 監看列車位置、設備狀態與進路資訊，並依系統配置遠端下達控制命令。
               </p>
@@ -574,7 +580,7 @@
             </div>
 
             <div class="module-panel" id="panel-alarm">
-              <h3>告警與維護 / Alarm & Maintenance</h3>
+              <h3>Alarm & Maintenance｜告警與維護</h3>
               <p>
                 維護與測試時，控制中心需要快速辨識設備異常、通訊中斷、道岔不到位或偵測異常，並判斷影響範圍。
               </p>
@@ -594,7 +600,7 @@
             </div>
 
             <div class="module-panel" id="panel-commissioning">
-              <h3>測試與驗收 / Testing & Commissioning</h3>
+              <h3>Testing and Commissioning｜測試與試運轉</h3>
               <p>
                 這一頁把專案交付過程拆成 Testing、Commissioning、Acceptance 與 Handover 四個概念，並對應到從 Installation 開始的實務流程。
               </p>
@@ -619,7 +625,7 @@
             </div>
 
             <div class="module-panel" id="panel-crossing">
-              <h3>平交道保護 / Level Crossing Protection</h3>
+              <h3>Level Crossing Protection｜平交道保護</h3>
               <p>
                 平交道保護系統通常利用列車接近資訊或列車偵測設備，依序啟動警鈴、閃光號誌及遮斷桿，以降低道路使用者與列車衝突的風險。
               </p>
@@ -641,7 +647,7 @@
             </div>
 
             <div class="module-panel" id="panel-etcs">
-              <h3>ETCS / ERTMS 入門</h3>
+              <h3>ETCS / ERTMS｜列車控制</h3>
               <p>
                 ETCS（European Train Control System）是 ERTMS 的核心列車控制系統，用於提供列車保護與行車授權。
               </p>
@@ -671,22 +677,22 @@
 
         <section class="knowledge-section" aria-label="Current module learning notes">
           <div class="knowledge-header">
-            <p class="eyebrow">Learning Notes</p>
-            <h3 id="knowledge-title">閉塞 / Block Sections</h3>
+            <p class="eyebrow">Learning Notes｜學習筆記</p>
+            <h3 id="knowledge-title">Learning Map｜學習地圖</h3>
           </div>
           <div class="knowledge-grid" id="knowledge-grid"></div>
         </section>
 
         <section class="handbook-section" aria-label="Handbook-based project items">
           <div class="knowledge-header">
-            <p class="eyebrow">From Learning Handbook</p>
-            <h3>PDF 內容項目 / Handbook Items</h3>
+            <p class="eyebrow">From Learning Handbook｜手冊來源</p>
+            <h3>Handbook Items｜手冊項目</h3>
           </div>
           <div class="handbook-grid" id="handbook-grid"></div>
         </section>
       </section>
     </main>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=20260714-track-overview"></script>
   </body>
 </html>

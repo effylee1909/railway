@@ -1,73 +1,73 @@
 const modules = {
   "railway-systems": {
-    title: "Railway Systems / 鐵道系統",
-    term: "系統總覽",
+    title: "Railway Systems｜鐵道系統",
+    term: "Systems Overview｜系統總覽",
   },
   turnout: {
-    title: "道岔 / Turnout / Points",
-    term: "道岔",
+    title: "Turnout / Points｜道岔",
+    term: "Infrastructure｜基礎設施",
   },
   learning: {
-    title: "學習地圖 / Learning Map",
-    term: "學習順序",
+    title: "Learning Map｜學習地圖",
+    term: "Recommended Path｜建議學習路徑",
   },
   layout: {
-    title: "系統地圖 / System Map",
-    term: "設備位置",
+    title: "System Map｜系統地圖",
+    term: "Equipment Layout｜設備配置",
   },
   scenario: {
-    title: "案例模式 / Point Detection Failure",
-    term: "道岔不到位",
+    title: "Scenario Mode｜案例模式",
+    term: "Point Detection Failure｜道岔不到位",
   },
   blocks: {
-    title: "閉塞區間 / Block Sections",
-    term: "閉塞區間",
+    title: "Block System｜閉塞系統",
+    term: "Fixed Block Model｜固定閉塞示意",
   },
   interlocking: {
-    title: "聯鎖 / Interlocking",
-    term: "聯鎖",
+    title: "Interlocking｜聯鎖系統",
+    term: "Route Setting｜進路建立",
   },
   point: {
-    title: "Point Machine / 轉轍器",
-    term: "轉轍器",
+    title: "Point Machine｜轉轍器",
+    term: "Point Position｜道岔位置",
   },
   detection: {
-    title: "列車偵測 / Train Detection",
-    term: "列車偵測",
+    title: "Train Detection｜列車偵測",
+    term: "Occupancy State｜佔用狀態",
   },
   atp: {
-    title: "列車自動防護 / Automatic Train Protection",
-    term: "ATP",
+    title: "Automatic Train Protection (ATP)｜列車自動防護",
+    term: "Speed Supervision｜速度監督",
   },
   ats: {
-    title: "列車自動監督 / Automatic Train Supervision",
-    term: "ATS",
+    title: "Automatic Train Supervision (ATS)｜列車自動監督",
+    term: "Train Supervision｜列車監督",
   },
   ctc: {
-    title: "調度控制 / CTC",
-    term: "中央行車控制",
+    title: "Centralized Traffic Control (CTC)｜中央行車控制",
+    term: "Dispatch Control｜調度控制",
   },
   alarm: {
-    title: "告警與維護 / Alarm & Maintenance",
-    term: "告警維護",
+    title: "Alarm & Maintenance｜告警與維護",
+    term: "Maintenance Focus｜維護重點",
   },
   commissioning: {
-    title: "測試與驗收 / Testing & Commissioning",
-    term: "測試驗收",
+    title: "Testing and Commissioning｜測試與試運轉",
+    term: "Delivery Flow｜交付流程",
   },
   crossing: {
-    title: "平交道保護 / Level Crossing Protection",
-    term: "平交道保護",
+    title: "Level Crossing Protection｜平交道保護",
+    term: "Protection Sequence｜保護序列",
   },
   etcs: {
-    title: "ETCS / ERTMS 入門",
-    term: "行車許可",
+    title: "ETCS / ERTMS｜列車控制",
+    term: "Movement Authority｜行車授權",
   },
 };
 
 const knowledgeNotes = {
   "railway-systems": {
-    title: "Railway Systems / 鐵道系統",
+    title: "Railway Systems｜鐵道系統",
     cards: [
       {
         zh: "主要入口",
@@ -99,7 +99,7 @@ const knowledgeNotes = {
     ],
   },
   turnout: {
-    title: "道岔 / Turnout / Points",
+    title: "Turnout / Points｜道岔",
     cards: [
       {
         zh: "分歧結構",
@@ -131,7 +131,7 @@ const knowledgeNotes = {
     ],
   },
   learning: {
-    title: "學習地圖 / Learning Map",
+    title: "Learning Map｜學習地圖",
     cards: [
       {
         zh: "作品敘事",
@@ -163,7 +163,7 @@ const knowledgeNotes = {
     ],
   },
   blocks: {
-    title: "閉塞 / Block Sections",
+    title: "Block System｜閉塞系統",
     cards: [
       {
         zh: "閉塞區間",
@@ -195,7 +195,7 @@ const knowledgeNotes = {
     ],
   },
   interlocking: {
-    title: "聯鎖 / Interlocking",
+    title: "Interlocking｜聯鎖系統",
     cards: [
       {
         zh: "進路",
@@ -227,7 +227,7 @@ const knowledgeNotes = {
     ],
   },
   detection: {
-    title: "列車偵測 / Train Detection",
+    title: "Train Detection｜列車偵測",
     cards: [
       {
         zh: "軌道電路",
@@ -259,7 +259,7 @@ const knowledgeNotes = {
     ],
   },
   point: {
-    title: "Point Machine / 轉轍器",
+    title: "Point Machine｜轉轍器",
     cards: [
       {
         zh: "轉轍器",
@@ -291,7 +291,7 @@ const knowledgeNotes = {
     ],
   },
   atp: {
-    title: "列車自動防護 / Automatic Train Protection",
+    title: "Automatic Train Protection (ATP)｜列車自動防護",
     cards: [
       {
         zh: "速度監督",
@@ -323,7 +323,7 @@ const knowledgeNotes = {
     ],
   },
   ats: {
-    title: "列車自動監督 / Automatic Train Supervision",
+    title: "Automatic Train Supervision (ATS)｜列車自動監督",
     cards: [
       {
         zh: "列車監督",
@@ -355,7 +355,7 @@ const knowledgeNotes = {
     ],
   },
   ctc: {
-    title: "調度控制 / CTC",
+    title: "Centralized Traffic Control (CTC)｜中央行車控制",
     cards: [
       {
         zh: "中央行車控制",
@@ -387,7 +387,7 @@ const knowledgeNotes = {
     ],
   },
   alarm: {
-    title: "告警與維護 / Alarm & Maintenance",
+    title: "Alarm & Maintenance｜告警與維護",
     cards: [
       {
         zh: "告警",
@@ -419,7 +419,7 @@ const knowledgeNotes = {
     ],
   },
   commissioning: {
-    title: "測試與驗收 / Testing & Commissioning",
+    title: "Testing and Commissioning｜測試與試運轉",
     cards: [
       {
         zh: "測試",
@@ -460,7 +460,7 @@ const knowledgeNotes = {
     ],
   },
   crossing: {
-    title: "平交道保護 / Level Crossing",
+    title: "Level Crossing Protection｜平交道保護",
     cards: [
       {
         zh: "接近偵測",
@@ -492,7 +492,7 @@ const knowledgeNotes = {
     ],
   },
   etcs: {
-    title: "ETCS / ERTMS",
+    title: "ETCS / ERTMS｜列車控制",
     cards: [
       {
         zh: "ETCS",
@@ -524,7 +524,7 @@ const knowledgeNotes = {
     ],
   },
   layout: {
-    title: "系統地圖 / System Map",
+    title: "System Map｜系統地圖",
     cards: [
       {
         zh: "軌旁設備",
@@ -556,7 +556,7 @@ const knowledgeNotes = {
     ],
   },
   scenario: {
-    title: "案例模式 / Point Detection Failure",
+    title: "Scenario Mode｜案例模式",
     cards: [
       {
         zh: "事件鏈",
@@ -762,6 +762,13 @@ const systemStatus = document.querySelector("#system-status");
 const statusDot = document.querySelector("#route-status-dot");
 const sidebar = document.querySelector(".sidebar");
 const workspace = document.querySelector(".workspace");
+const heroLab = document.querySelector(".hero-lab");
+const trackBoard = document.querySelector("#track-board");
+const diagramScroll = document.querySelector("#diagram-scroll");
+const systemsCardBoard = document.querySelector("#systems-card-board");
+const diagramCaption = document.querySelector("#diagram-caption");
+const learningMapPanel = document.querySelector("#learning-map-panel");
+const systemMapPanel = document.querySelector("#system-map-panel");
 const knowledgeTitle = document.querySelector("#knowledge-title");
 const knowledgeGrid = document.querySelector("#knowledge-grid");
 const handbookGrid = document.querySelector("#handbook-grid");
@@ -819,17 +826,88 @@ function centerSvgText(element, text, x, y, maxWidth) {
   fitSvgText(element, text, maxWidth, { x, y, center: true });
 }
 
-function centerBoxLabel(titleElement, subtitleElement, title, subtitle, box) {
+function wrapSvgText(text, maxCharsPerLine = 16) {
+  const normalized = String(text ?? "").trim().replace(/\s+/g, " ");
+  if (!normalized) return [""];
+
+  const lines = [];
+  let current = "";
+  normalized.split(" ").forEach((word) => {
+    if (!current) {
+      current = word;
+      return;
+    }
+    if (`${current} ${word}`.length <= maxCharsPerLine) {
+      current = `${current} ${word}`;
+      return;
+    }
+    lines.push(current);
+    current = word;
+  });
+  if (current) lines.push(current);
+  return lines;
+}
+
+function setSvgLines(element, lines, x, startY, lineHeight, anchor = "middle") {
+  element.replaceChildren();
+  element.setAttribute("x", x);
+  element.setAttribute("text-anchor", anchor);
+  element.removeAttribute("dominant-baseline");
+
+  lines.forEach((line, index) => {
+    const tspan = svgEl("tspan", { x, y: startY + index * lineHeight });
+    tspan.textContent = line;
+    element.append(tspan);
+  });
+}
+
+function centerBoxLabel(titleElement, subtitleElement, title, subtitle, box, options = {}) {
   const centerX = box.x + box.width / 2;
-  const centerY = box.y + box.height / 2;
-  const maxWidth = box.width - 28;
-  centerSvgText(titleElement, title, centerX, centerY - 12, maxWidth);
-  centerSvgText(subtitleElement, subtitle, centerX, centerY + 14, maxWidth);
+  const titleLines = wrapSvgText(title, options.titleMaxChars ?? 14);
+  const subtitleLines = wrapSvgText(subtitle, options.subtitleMaxChars ?? 16);
+  const titleLineHeight = options.titleLineHeight ?? 20;
+  const subtitleLineHeight = options.subtitleLineHeight ?? 17;
+  const gap = options.gap ?? 7;
+  const totalHeight =
+    titleLines.length * titleLineHeight + subtitleLines.length * subtitleLineHeight + gap;
+  const startY = box.y + (box.height - totalHeight) / 2 + 2;
+
+  setSvgLines(titleElement, titleLines, centerX, startY, titleLineHeight);
+  setSvgLines(
+    subtitleElement,
+    subtitleLines,
+    centerX,
+    startY + titleLines.length * titleLineHeight + gap,
+    subtitleLineHeight
+  );
 }
 
 function setStatus(text, tone = "green") {
   systemStatus.textContent = text;
   statusDot.className = `status-dot ${tone}`;
+}
+
+function setDiagramCaption(title = "", lines = []) {
+  if (!diagramCaption) return;
+  diagramCaption.replaceChildren();
+  if (!title && lines.length === 0) {
+    diagramCaption.classList.add("hidden");
+    return;
+  }
+
+  const heading = document.createElement("p");
+  heading.className = "diagram-caption__title";
+  heading.textContent = title;
+  diagramCaption.append(heading);
+
+  lines.forEach((line) => {
+    const paragraph = document.createElement("p");
+    paragraph.className = "diagram-caption__text";
+    paragraph.textContent = line;
+    diagramCaption.append(paragraph);
+  });
+
+  diagramCaption.classList.remove("hidden");
 }
 
 function setCheck(row, state, text) {
@@ -962,164 +1040,479 @@ function renderHandbookItems() {
 function renderRailwaySystems() {
   const systemsGroup = document.querySelector("#systems-overview");
   systemsGroup.replaceChildren();
+  if (!systemsCardBoard) return;
+  systemsCardBoard.replaceChildren();
 
-  const cardPositions = [
-    { x: 82, y: 72 },
-    { x: 382, y: 72 },
-    { x: 682, y: 72 },
-    { x: 82, y: 230 },
-    { x: 382, y: 230 },
-    { x: 682, y: 230 },
-  ];
+  railwaySystemsCards.forEach((card) => {
+    const article = document.createElement("article");
+    article.className = `systems-card ${card.tone}`;
 
-  railwaySystemsCards.forEach((card, index) => {
-    const { x, y } = cardPositions[index];
-    systemsGroup.append(
-      svgEl("rect", { class: `systems-card ${card.tone}`, x, y, width: 236, height: 122, rx: 10 }),
-      svgEl("rect", { class: "systems-card-icon", x: x + 18, y: y + 18, width: 44, height: 44, rx: 10 }),
-      svgEl("text", { class: "systems-card-icon-text" }),
-      svgEl("text", { class: "systems-card-title" }),
-      svgEl("text", { class: "systems-card-subtitle" }),
-      svgEl("text", { class: "systems-card-desc" }),
-      svgEl("rect", { class: "systems-card-tag", x: x + 132, y: y + 20, width: 84, height: 24, rx: 12 }),
-      svgEl("text", { class: "systems-card-tag-text" })
-    );
+    const header = document.createElement("div");
+    header.className = "systems-card__header";
 
-    const children = systemsGroup.children;
-    centerSvgText(children[children.length - 6], card.key, x + 40, y + 40, 24);
-    fitSvgText(children[children.length - 5], card.en, 144, { x: x + 76, y: y + 38 });
-    fitSvgText(children[children.length - 4], card.zh, 144, { x: x + 76, y: y + 62 });
-    fitSvgText(children[children.length - 3], card.description, 194, { x: x + 18, y: y + 92 });
-    centerSvgText(children[children.length - 1], "Coming Soon", x + 174, y + 32, 64);
+    const icon = document.createElement("div");
+    icon.className = "systems-card__icon";
+    icon.textContent = card.key;
+
+    const status = document.createElement("div");
+    status.className = "systems-card__status";
+    status.textContent = "Coming Soon｜即將推出";
+
+    header.append(icon, status);
+
+    const body = document.createElement("div");
+    body.className = "systems-card__body";
+
+    const en = document.createElement("div");
+    en.className = "systems-card__title";
+    en.textContent = card.en;
+
+    const zh = document.createElement("div");
+    zh.className = "systems-card__subtitle";
+    zh.textContent = card.zh;
+
+    const description = document.createElement("p");
+    description.className = "systems-card__description";
+    description.textContent = card.description;
+
+    body.append(en, zh, description);
+    article.append(header, body);
+    systemsCardBoard.append(article);
   });
 
-  systemsGroup.append(
-    svgEl("text", { class: "systems-caption", x: 86, y: 396 }),
-    svgEl("text", { class: "systems-caption", x: 86, y: 418 })
-  );
-  systemsGroup.children[systemsGroup.children.length - 2].textContent =
-    "Railway Systems groups the handbook into six engineering domains for future expansion.";
-  systemsGroup.children[systemsGroup.children.length - 1].textContent =
-    "Each card is a placeholder entry point. Detailed pages will be added later.";
+  systemsCardBoard.classList.remove("hidden");
+  setDiagramCaption("Railway Systems｜鐵道系統", [
+    "Railway Systems groups the handbook into six engineering domains for future expansion.",
+    "Each card is a placeholder entry point. Detailed pages will be added later.",
+  ]);
+  setStatus("Coming Soon｜即將推出", "yellow");
+}
 
-  setStatus("Coming Soon", "yellow");
+function wrapLearningMapLines(text, maxCharsPerLine = 18) {
+  const normalized = String(text ?? "").trim().replace(/\s+/g, " ");
+  if (!normalized) return [""];
+
+  const words = normalized.split(" ");
+  const lines = [];
+  let current = "";
+
+  words.forEach((word) => {
+    const candidate = current ? `${current} ${word}` : word;
+    if (candidate.length <= maxCharsPerLine || !current) {
+      if (candidate.length <= maxCharsPerLine) {
+        current = candidate;
+        return;
+      }
+    }
+
+    if (current) lines.push(current);
+
+    if (word.length <= maxCharsPerLine) {
+      current = word;
+      return;
+    }
+
+    let chunk = "";
+    Array.from(word).forEach((char) => {
+      const candidateChunk = `${chunk}${char}`;
+      if (candidateChunk.length <= maxCharsPerLine || !chunk) {
+        chunk = candidateChunk;
+      } else {
+        lines.push(chunk);
+        chunk = char;
+      }
+    });
+    current = chunk;
+  });
+
+  if (current) lines.push(current);
+  return lines;
+}
+
+function setLearningMapText(element, lines, x, startY, lineHeight) {
+  element.replaceChildren();
+  element.setAttribute("x", x);
+  element.setAttribute("text-anchor", "middle");
+  element.removeAttribute("dominant-baseline");
+
+  lines.forEach((line, index) => {
+    const tspan = svgEl("tspan", {
+      x,
+      y: startY + index * lineHeight,
+    });
+    tspan.textContent = line;
+    element.append(tspan);
+  });
+}
+
+function drawLearningMapNode(group, step) {
+  const titleClass = "learning-title learning-map-node__title";
+  const subtitleClass = "learning-subtitle learning-map-node__subtitle";
+  const lineWidth = step.width - 62;
+  const textCenterX = step.x + 50 + lineWidth / 2;
+  const titleLines = [step.title];
+  const subtitleLines = wrapLearningMapLines(step.subtitle, step.subtitleMaxChars ?? 15);
+  const titleLineHeight = 22;
+  const subtitleLineHeight = 18;
+  const titleHeight = titleLines.length * titleLineHeight;
+  const subtitleHeight = subtitleLines.length * subtitleLineHeight;
+  const gap = 8;
+  const nodeHeight = step.height ?? 82;
+  const totalHeight = titleHeight + gap + subtitleHeight;
+  const startY = step.y + (nodeHeight - totalHeight) / 2 + 4;
+
+  group.append(
+    svgEl("rect", {
+      x: step.x,
+      y: step.y,
+      width: step.width,
+      height: nodeHeight,
+      rx: 8,
+      class: "learning-map-node__box",
+    }),
+    svgEl("circle", { cx: step.x + 24, cy: step.y + 24, r: 15 }),
+    svgEl("text", { class: "learning-number" }),
+    svgEl("text", { class: titleClass }),
+    svgEl("text", { class: subtitleClass })
+  );
+
+  centerSvgText(group.children[2], step.number, step.x + 24, step.y + 24, 16);
+  setLearningMapText(group.children[3], titleLines, textCenterX, startY, titleLineHeight);
+  setLearningMapText(
+    group.children[4],
+    subtitleLines,
+    textCenterX,
+    startY + titleHeight + gap,
+    subtitleLineHeight
+  );
+}
+
+function drawLearningMapChip(group, chip) {
+  const titleClass = "layout-text learning-map-chip__title";
+  const subtitleClass = "layout-subtext learning-map-chip__subtitle";
+  const boxHeight = chip.height ?? 78;
+  const centerX = chip.x + chip.width / 2;
+  const titleLines = [chip.title];
+  const subtitleLines = wrapLearningMapLines(chip.subtitle, chip.subtitleMaxChars ?? 15);
+  const titleLineHeight = 20;
+  const subtitleLineHeight = 17;
+  const titleHeight = titleLines.length * titleLineHeight;
+  const subtitleHeight = subtitleLines.length * subtitleLineHeight;
+  const gap = 7;
+  const totalHeight = titleHeight + gap + subtitleHeight;
+  const startY = chip.y + (boxHeight - totalHeight) / 2 + 3;
+
+  group.append(
+    svgEl("rect", { x: chip.x, y: chip.y, width: chip.width, height: boxHeight, rx: 8 }),
+    svgEl("text", { class: titleClass }),
+    svgEl("text", { class: subtitleClass })
+  );
+
+  setLearningMapText(group.children[1], titleLines, centerX, startY, titleLineHeight);
+  setLearningMapText(group.children[2], subtitleLines, centerX, startY + titleHeight + gap, subtitleLineHeight);
+}
+
+function drawLearningMapCaption(element, text, x, y, maxCharsPerLine = 56) {
+  const lines = wrapLearningMapLines(text, maxCharsPerLine);
+  element.setAttribute("class", "learning-caption learning-map-caption");
+  element.replaceChildren();
+  element.setAttribute("x", x);
+  element.removeAttribute("text-anchor");
+  element.removeAttribute("dominant-baseline");
+
+  lines.forEach((line, index) => {
+    const tspan = svgEl("tspan", {
+      x,
+      y: y + index * 22,
+    });
+    tspan.textContent = line;
+    element.append(tspan);
+  });
 }
 
 function renderLearningMap() {
   const mapGroup = document.querySelector("#learning-map");
   mapGroup.replaceChildren();
-  mapGroup.setAttribute("transform", "translate(0 -170)");
+  if (!learningMapPanel) return;
 
   const steps = [
     {
       number: "01",
-      title: "鐵道專案總覽",
-      subtitle: "Railway Project",
-      x: 82,
-      y: 46,
-      width: 182,
-      type: "foundation",
+      zh: "鐵道專案總覽",
+      en: ["Railway Project Overview"],
+      tone: "foundation",
     },
     {
       number: "02",
-      title: "系統總覽",
-      subtitle: "System Map",
-      x: 300,
-      y: 46,
-      width: 166,
-      type: "system",
-      target: "layout",
+      zh: "鐵道系統總覽",
+      en: ["Railway Systems Overview"],
+      tone: "system",
     },
     {
       number: "03",
-      title: "號誌核心",
-      subtitle: "Signalling Core",
-      x: 510,
-      y: 46,
-      width: 186,
-      type: "signaling",
-      target: "detection",
+      zh: "號誌核心",
+      en: ["Signalling Core"],
+      tone: "signalling",
     },
     {
       number: "04",
-      title: "ATP 防護",
-      subtitle: "Train Protection",
-      x: 700,
-      y: 46,
-      width: 146,
-      type: "control",
-      target: "atp",
+      zh: "列車自動防護",
+      en: ["Automatic Train Protection", "(ATP)"],
+      tone: "control",
+      wide: true,
     },
     {
       number: "05",
-      title: "ATS 監督",
-      subtitle: "Train Supervision",
-      x: 856,
-      y: 46,
-      width: 134,
-      type: "control",
-      target: "ats",
+      zh: "列車自動監督",
+      en: ["Automatic Train Supervision", "(ATS)"],
+      tone: "control",
+      wide: true,
     },
     {
       number: "06",
-      title: "測試驗收",
-      subtitle: "Commissioning",
-      x: 438,
-      y: 314,
-      width: 188,
-      type: "delivery",
-      target: "commissioning",
+      zh: "測試與試運轉",
+      en: ["Testing and Commissioning"],
+      tone: "delivery",
+      final: true,
     },
   ];
 
-  mapGroup.append(
-    svgEl("path", { class: "learning-route", d: "M 264 80 L 300 80" }),
-    svgEl("path", { class: "learning-route", d: "M 466 80 L 510 80" }),
-    svgEl("path", { class: "learning-route", d: "M 696 80 L 700 80" }),
-    svgEl("path", { class: "learning-route", d: "M 846 80 L 856 80" }),
-    svgEl("path", { class: "learning-route", d: "M 918 128 C 900 214, 760 302, 626 341" }),
-    svgEl("path", { class: "learning-route muted", d: "M 438 341 C 306 306, 202 218, 164 118" }),
-    svgEl("text", { class: "learning-caption", x: 84, y: 410 }),
-    svgEl("text", { class: "learning-caption", x: 84, y: 432 })
-  );
-  mapGroup.children[6].textContent = "Recommended path: project context -> signalling core -> ATP protection -> ATS supervision -> testing and handover";
-  mapGroup.children[7].textContent = "Use this map as the opening story, then jump into each simulator for details.";
-
-  steps.forEach((step) => {
-    const group = svgEl("g", { class: `learning-node ${step.type}` });
-    group.append(
-      svgEl("rect", { x: step.x, y: step.y, width: step.width, height: 82, rx: 8 }),
-      svgEl("circle", { cx: step.x + 24, cy: step.y + 24, r: 15 }),
-      svgEl("text", { class: "learning-number" }),
-      svgEl("text", { class: "learning-title" }),
-      svgEl("text", { class: "learning-subtitle" })
-    );
-    centerSvgText(group.children[2], step.number, step.x + 24, step.y + 24, 16);
-    centerSvgText(group.children[3], step.title, step.x + 50 + (step.width - 62) / 2, step.y + 33, step.width - 62);
-    centerSvgText(group.children[4], step.subtitle, step.x + 50 + (step.width - 62) / 2, step.y + 61, step.width - 62);
-    mapGroup.append(group);
-  });
-
-  const coreItems = [
-    ["列車偵測", "Train Detection", 196, 190],
-    ["轉轍器", "Point Machine", 352, 216],
-    ["聯鎖", "Interlocking", 508, 190],
-    ["閉塞", "Block Sections", 664, 216],
-    ["ATP", "Train Protection", 740, 146],
-    ["ATS", "Train Supervision", 836, 216],
+  const topics = [
+    { zh: "列車偵測", en: "Train Detection" },
+    { zh: "轉轍器", en: "Point Machine" },
+    { zh: "聯鎖系統", en: "Interlocking" },
+    { zh: "閉塞系統", en: "Block System" },
   ];
-  coreItems.forEach(([title, subtitle, x, y]) => {
-    const group = svgEl("g", { class: "learning-chip" });
-    group.append(
-      svgEl("rect", { x, y, width: 148, height: 66, rx: 8 }),
-      svgEl("text", { class: "layout-text" }),
-      svgEl("text", { class: "layout-subtext" })
-    );
-    centerBoxLabel(group.children[1], group.children[2], title, subtitle, { x, y, width: 148, height: 66 });
-    mapGroup.append(group);
+
+  const pathItems = [
+    { number: "01", label: "專案總覽", tone: "foundation" },
+    { number: "02", label: "系統總覽", tone: "system" },
+    { number: "03", label: "號誌核心", tone: "signalling" },
+    { number: "04", label: "ATP", tone: "control" },
+    { number: "05", label: "ATS", tone: "control" },
+    { number: "06", label: "測試與試運轉", tone: "delivery" },
+  ];
+
+  learningMapPanel.replaceChildren();
+  learningMapPanel.className = "learning-map";
+
+  const header = document.createElement("div");
+  header.className = "learning-map__header";
+
+  const intro = document.createElement("div");
+  intro.className = "learning-map__intro";
+
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "learning-map__eyebrow";
+  eyebrow.textContent = "TAIWAN RAILWAY SIGNALLING UPGRADE STUDY";
+
+  const title = document.createElement("h2");
+  title.className = "learning-map__title";
+  title.textContent = "Learning Map｜學習地圖";
+
+  const description = document.createElement("p");
+  description.className = "learning-map__description";
+  description.textContent =
+    "本地圖提供鐵道號誌學習順序，使用者可再進入各主題查看詳細內容與互動示意。";
+
+  intro.append(eyebrow, title, description);
+
+  const statusCard = document.createElement("div");
+  statusCard.className = "learning-map__status-card";
+
+  const statusTitle = document.createElement("strong");
+  statusTitle.className = "learning-map__status-title";
+  statusTitle.textContent = "Learning Path｜學習路徑";
+
+  const statusSub = document.createElement("span");
+  statusSub.className = "learning-map__status-subtitle";
+  statusSub.textContent = "System State｜系統狀態";
+
+  const statusDotEl = document.createElement("span");
+  statusDotEl.className = "learning-map__status-dot";
+  statusCard.append(statusDotEl, statusTitle, statusSub);
+
+  header.append(intro, statusCard);
+
+  const diagram = document.createElement("section");
+  diagram.className = "learning-map__diagram";
+
+  const stepsRow = document.createElement("div");
+  stepsRow.className = "learning-map__steps-row";
+
+  steps.slice(0, 5).forEach((step) => {
+    const card = document.createElement("article");
+    card.className = `learning-map__step learning-map__step--${step.tone}${step.wide ? " learning-map__step--wide" : ""}`;
+
+    const badge = document.createElement("div");
+    badge.className = "learning-map__badge";
+    badge.textContent = step.number;
+
+    const textWrap = document.createElement("div");
+    textWrap.className = "learning-map__step-body";
+
+    const zh = document.createElement("h3");
+    zh.className = "learning-map__step-title";
+    zh.textContent = step.zh;
+
+    const enWrap = document.createElement("div");
+    enWrap.className = "learning-map__step-subtitle";
+    step.en.forEach((line) => {
+      const span = document.createElement("span");
+      span.textContent = line;
+      enWrap.append(span);
+    });
+
+    textWrap.append(zh, enWrap);
+    card.append(badge, textWrap);
+    stepsRow.append(card);
   });
 
-  setStatus("學習路徑", "green");
+  const topicsRow = document.createElement("div");
+  topicsRow.className = "learning-map__topics-row";
+  topics.forEach((topic) => {
+    const card = document.createElement("article");
+    card.className = "learning-map__topic";
+
+    const zh = document.createElement("h4");
+    zh.className = "learning-map__topic-title";
+    zh.textContent = topic.zh;
+
+    const en = document.createElement("p");
+    en.className = "learning-map__topic-subtitle";
+    en.textContent = topic.en;
+
+    card.append(zh, en);
+    topicsRow.append(card);
+  });
+
+  const finalRow = document.createElement("div");
+  finalRow.className = "learning-map__final-row";
+
+  const finalStep = document.createElement("article");
+  finalStep.className = "learning-map__step learning-map__step--delivery learning-map__step--final";
+
+  const finalBadge = document.createElement("div");
+  finalBadge.className = "learning-map__badge";
+  finalBadge.textContent = "06";
+
+  const finalBody = document.createElement("div");
+  finalBody.className = "learning-map__step-body";
+
+  const finalZh = document.createElement("h3");
+  finalZh.className = "learning-map__step-title";
+  finalZh.textContent = "測試與試運轉";
+
+  const finalEn = document.createElement("div");
+  finalEn.className = "learning-map__step-subtitle";
+  const finalEnLine = document.createElement("span");
+  finalEnLine.textContent = "Testing and Commissioning";
+  finalEn.append(finalEnLine);
+
+  finalBody.append(finalZh, finalEn);
+  finalStep.append(finalBadge, finalBody);
+  finalRow.append(finalStep);
+
+  const connectors = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  connectors.setAttribute("class", "learning-map__connectors");
+  connectors.setAttribute("viewBox", "0 0 1200 520");
+  connectors.setAttribute("aria-hidden", "true");
+  connectors.innerHTML = `
+    <path class="learning-map__line learning-map__line--system" d="M 214 136 L 246 136" />
+    <path class="learning-map__line learning-map__line--system" d="M 470 136 L 502 136" />
+    <path class="learning-map__line learning-map__line--signalling" d="M 738 136 L 770 136" />
+    <path class="learning-map__line learning-map__line--control" d="M 1018 136 L 1050 136" />
+    <path class="learning-map__line learning-map__line--topic" d="M 320 254 L 918 254" />
+    <path class="learning-map__line learning-map__line--topic learning-map__line--topic-dash" d="M 320 254 L 320 286" />
+    <path class="learning-map__line learning-map__line--topic learning-map__line--topic-dash" d="M 524 254 L 524 286" />
+    <path class="learning-map__line learning-map__line--topic learning-map__line--topic-dash" d="M 726 254 L 726 286" />
+    <path class="learning-map__line learning-map__line--topic learning-map__line--topic-dash" d="M 918 254 L 918 286" />
+    <path class="learning-map__line learning-map__line--foundation learning-map__line--curve" d="M 108 188 C 104 364, 302 428, 508 432" />
+    <path class="learning-map__line learning-map__line--control learning-map__line--curve" d="M 1090 188 C 1098 364, 930 428, 694 432" />
+  `;
+
+  diagram.append(header, stepsRow, topicsRow, finalRow, connectors);
+
+  const pathSection = document.createElement("section");
+  pathSection.className = "learning-map__path";
+
+  const pathTitle = document.createElement("h3");
+  pathTitle.className = "learning-map__section-title";
+  pathTitle.textContent = "Recommended Path｜建議學習路徑";
+
+  const pathList = document.createElement("div");
+  pathList.className = "learning-map__path-list";
+
+  pathItems.forEach((item, index) => {
+    const node = document.createElement("div");
+    node.className = "learning-map__path-item";
+
+    const circle = document.createElement("div");
+    circle.className = `learning-map__path-badge learning-map__path-badge--${item.tone}`;
+    circle.textContent = item.number;
+
+    const label = document.createElement("div");
+    label.className = "learning-map__path-label";
+    label.textContent = item.label;
+
+    node.append(circle, label);
+    pathList.append(node);
+
+    if (index < pathItems.length - 1) {
+      const arrow = document.createElement("div");
+      arrow.className = "learning-map__path-arrow";
+      arrow.textContent = "→";
+      pathList.append(arrow);
+    }
+  });
+
+  pathSection.append(pathTitle, pathList);
+
+  const infoGrid = document.createElement("div");
+  infoGrid.className = "learning-map__info-grid";
+
+  const notes = document.createElement("section");
+  notes.className = "learning-map__info-card learning-map__notes";
+  const notesTitle = document.createElement("h3");
+  notesTitle.className = "learning-map__section-title";
+  notesTitle.textContent = "Learning Notes｜學習筆記";
+  const notesList = document.createElement("ul");
+  notesList.className = "learning-map__list";
+  [
+    "建議依照以上順序循序學習。",
+    "可從下方「下一層擴充」進入各主題細項。",
+    "名詞中英對照可於主題頁面參考。",
+  ].forEach((text) => {
+    const item = document.createElement("li");
+    item.textContent = text;
+    notesList.append(item);
+  });
+  notes.append(notesTitle, notesList);
+
+  const nextLayer = document.createElement("section");
+  nextLayer.className = "learning-map__info-card learning-map__next-layer";
+  const nextLayerTitle = document.createElement("h3");
+  nextLayerTitle.className = "learning-map__section-title";
+  nextLayerTitle.textContent = "Next Layer｜下一層擴充";
+  const nextLayerList = document.createElement("ul");
+  nextLayerList.className = "learning-map__list";
+  [
+    "Document Map 可承接 SRS、ICD、FD、Test Procedure。",
+    "Testing Flow 可細分 FAT、SAT、SIT、Trial Run、Handover。",
+    "Glossary 可將 Handbook 中英文名詞轉為可搜尋工具。",
+  ].forEach((text) => {
+    const item = document.createElement("li");
+    item.textContent = text;
+    nextLayerList.append(item);
+  });
+  nextLayer.append(nextLayerTitle, nextLayerList);
+
+  infoGrid.append(notes, nextLayer);
+
+  learningMapPanel.append(diagram, pathSection, infoGrid);
+
+  selectedTerm.textContent = "Learning Path｜學習路徑";
+  setStatus("Learning Path｜學習路徑", "green");
 }
 
 function renderBlocks() {
@@ -1173,57 +1566,358 @@ function renderBlocks() {
 function renderLayout() {
   const layoutGroup = document.querySelector("#layout-equipment");
   layoutGroup.replaceChildren();
+  if (!systemMapPanel) return;
 
-  layoutGroup.append(
-    svgEl("rect", { class: "block-zone", x: 105, y: 188, width: 175, height: 120, rx: 8 }),
-    svgEl("rect", { class: "block-zone", x: 280, y: 188, width: 180, height: 120, rx: 8 }),
-    svgEl("rect", { class: "block-zone", x: 460, y: 188, width: 175, height: 120, rx: 8 }),
-    svgEl("text", { class: "block-text" }),
-    svgEl("text", { class: "block-text" }),
-    svgEl("text", { class: "block-text" })
-  );
-  centerSvgText(layoutGroup.children[3], "Block A", 192.5, 326, 120);
-  centerSvgText(layoutGroup.children[4], "Block B", 370, 326, 124);
-  centerSvgText(layoutGroup.children[5], "Block C", 547.5, 326, 120);
+  const layerBadges = [
+    { id: "01", en: "Control and Supervision", zh: "控制與監督", tone: "control" },
+    { id: "02", en: "Safety Logic", zh: "安全邏輯", tone: "safety" },
+    { id: "03", en: "Wayside Equipment", zh: "軌旁設備", tone: "wayside" },
+    { id: "04", en: "Track Overview", zh: "軌道示意", tone: "infrastructure" },
+  ];
 
-  layoutGroup.append(
-    svgEl("path", { class: "layout-link", d: "M 192 188 L 192 122 L 212 122" }),
-    svgEl("path", { class: "layout-link", d: "M 410 188 L 410 122 L 430 122" }),
-    svgEl("path", { class: "layout-link", d: "M 326 235 L 326 386 L 368 386" }),
-    svgEl("path", { class: "layout-link", d: "M 506 272 L 506 386 L 538 386" }),
-    svgEl("path", { class: "layout-link", d: "M 620 235 L 620 386 L 646 386" }),
-    svgEl("path", { class: "layout-link", d: "M 724 188 L 724 154 L 804 154" }),
-    svgEl("path", { class: "layout-link", d: "M 596 278 L 596 324 L 564 324" }),
-    svgEl("path", { class: "layout-control-link", d: "M 548 96 C 594 64, 634 64, 674 84" }),
-    svgEl("path", { class: "layout-control-link", d: "M 790 82 C 820 58, 852 58, 884 82" }),
-    svgEl("path", { class: "layout-control-link", d: "M 690 138 C 638 164, 574 168, 516 148" })
-  );
+  const legendItems = [
+    { label: "Command / Control｜指令／控制", tone: "control" },
+    { label: "Information｜資訊傳遞", tone: "information" },
+    { label: "Physical Interface｜實體介面", tone: "physical" },
+  ];
 
-  drawSignal(layoutGroup, 116, 142, "green", "S1");
-  drawSignal(layoutGroup, 298, 142, "yellow", "S2");
-  drawSignal(layoutGroup, 478, 142, "red", "S3");
+  const controlNodes = [
+    { en: "Centralized Traffic Control (CTC)", zh: "中央行車控制", tag: "Control", icon: "CTC" },
+    { en: "Automatic Train Supervision (ATS)", zh: "列車自動監督", tag: "Control", icon: "ATS" },
+    { en: "Radio Block Centre (RBC)", zh: "無線閉塞中心", tag: "Control", icon: "RBC" },
+  ];
 
-  drawLayoutDevice(layoutGroup, 204, 86, 166, 66, "trackside", "軌道電路", "Track Circuit");
-  drawLayoutDevice(layoutGroup, 422, 86, 164, 66, "trackside", "計軸器", "Axle Counter");
-  drawLayoutDevice(layoutGroup, 430, 18, 148, 62, "station", "聯鎖", "Interlocking");
-  drawLayoutDevice(layoutGroup, 292, 356, 152, 66, "trackside", "道岔", "Turnout / Points");
-  drawLayoutDevice(layoutGroup, 462, 356, 152, 66, "trackside", "轉轍器", "Point Machine");
-  drawLayoutDevice(layoutGroup, 660, 42, 164, 66, "control", "CTC", "Control Center");
-  drawLayoutDevice(layoutGroup, 648, 116, 188, 66, "control", "ATS 監督", "ATS Supervision");
-  drawLayoutDevice(layoutGroup, 640, 194, 170, 66, "control", "告警維護", "Alarm / Maint.");
-  drawLayoutDevice(layoutGroup, 104, 356, 178, 66, "control", "測試驗收", "Commissioning");
-  drawLayoutDevice(layoutGroup, 872, 48, 118, 66, "control", "RBC", "Radio Block");
-  drawLayoutDevice(layoutGroup, 840, 136, 148, 66, "trackside", "平交道", "Level Crossing");
-  drawLayoutDevice(layoutGroup, 628, 356, 184, 66, "onboard", "車上 ATP", "Onboard ATP");
-  drawBalise(layoutGroup, 540, 282);
-  drawTrain(layoutGroup, 665, 244, "Train");
+  const safetyNodes = [
+    { en: "Interlocking", zh: "聯鎖系統", tag: "Safety", icon: "INT" },
+    { en: "Automatic Train Protection (ATP)", zh: "列車自動防護", tag: "Safety", icon: "ATP" },
+  ];
 
-  layoutGroup.append(
-    svgEl("line", { class: "barrier closed", x1: 672, y1: 220, x2: 750, y2: 220 }),
-    svgEl("line", { class: "barrier closed", x1: 698, y1: 286, x2: 776, y2: 286 }),
-    svgEl("circle", { class: "sensor-dot", cx: 438, cy: 235, r: 10 }),
-    svgEl("circle", { class: "sensor-dot", cx: 568, cy: 235, r: 10 })
-  );
+  const waysideNodes = [
+    { en: "Signal", zh: "號誌機", tag: "Wayside", icon: "SIG" },
+    { en: "Track Circuit", zh: "軌道電路", tag: "Wayside", icon: "TC" },
+    { en: "Axle Counter", zh: "計軸器", tag: "Wayside", icon: "AC" },
+    { en: "Turnout / Points", zh: "道岔", tag: "Wayside", icon: "TO" },
+    { en: "Point Machine", zh: "轉轍器", tag: "Wayside", icon: "PM" },
+    { en: "Eurobalise", zh: "歐洲應答器", tag: "Wayside", icon: "EB" },
+    { en: "Level Crossing Protection", zh: "平交道保護", tag: "Wayside", icon: "LC" },
+  ];
+
+  const relationships = [
+    { en: "CTC", zh: "中央行車控制", tone: "control" },
+    { en: "Interlocking", zh: "聯鎖系統", tone: "safety" },
+    { en: "Signal / Wayside Equipment", zh: "號誌與軌旁設備", tone: "wayside" },
+    { en: "Train / On-board ATP", zh: "列車與車載 ATP", tone: "train" },
+    { en: "ATS", zh: "列車自動監督", tone: "control" },
+  ];
+
+  function createNodeCard(node, toneClass = "") {
+    const card = document.createElement("article");
+    card.className = `system-map__node system-map__node--${node.tag.toLowerCase().replace(/[^a-z]+/g, "-")} ${toneClass}`.trim();
+
+    const icon = document.createElement("span");
+    icon.className = "system-map__node-icon";
+    icon.textContent = node.icon;
+
+    const body = document.createElement("div");
+    body.className = "system-map__node-body";
+
+    const en = document.createElement("h4");
+    en.className = "system-map__node-title";
+    en.textContent = node.en;
+
+    const zh = document.createElement("p");
+    zh.className = "system-map__node-subtitle";
+    zh.textContent = node.zh;
+
+    const tag = document.createElement("span");
+    tag.className = "system-map__node-tag";
+    tag.textContent = node.tag;
+
+    body.append(en, zh, tag);
+    card.append(icon, body);
+    return card;
+  }
+
+  function createLayerLabel(layer) {
+    const label = document.createElement("aside");
+    label.className = `system-map__layer-label system-map__layer-label--${layer.tone}`;
+
+    const eyebrow = document.createElement("span");
+    eyebrow.className = "system-map__layer-label-id";
+    eyebrow.textContent = `Layer ${layer.id}`;
+
+    const en = document.createElement("strong");
+    en.className = "system-map__layer-label-en";
+    en.textContent = layer.en;
+
+    const zh = document.createElement("span");
+    zh.className = "system-map__layer-label-zh";
+    zh.textContent = layer.zh;
+
+    label.append(eyebrow, en, zh);
+    return label;
+  }
+
+  systemMapPanel.replaceChildren();
+  systemMapPanel.className = "system-map";
+
+  const header = document.createElement("div");
+  header.className = "system-map__header";
+
+  const intro = document.createElement("div");
+  intro.className = "system-map__intro";
+
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "system-map__eyebrow";
+  eyebrow.textContent = "TAIWAN RAILWAY SIGNALLING UPGRADE STUDY";
+
+  const title = document.createElement("h2");
+  title.className = "system-map__title";
+  title.textContent = "System Map｜系統地圖";
+
+  const zhDescription = document.createElement("p");
+  zhDescription.className = "system-map__description";
+  zhDescription.textContent =
+    "本圖以分層方式呈現鐵道控制系統、聯鎖安全邏輯、軌旁設備與列車之間的主要關係。實際專案架構會依路線、系統與供應商設計而有所不同。";
+
+  const enDescription = document.createElement("p");
+  enDescription.className = "system-map__description system-map__description--secondary";
+  enDescription.textContent =
+    "This map presents the main relationships among traffic control, interlocking safety logic, wayside equipment and trains. Actual project architectures may vary by railway, system and supplier.";
+
+  intro.append(eyebrow, title, zhDescription, enDescription);
+
+  const legend = document.createElement("aside");
+  legend.className = "system-map__legend";
+  const legendTitle = document.createElement("h3");
+  legendTitle.className = "system-map__legend-title";
+  legendTitle.textContent = "Legend｜圖例";
+  const legendList = document.createElement("div");
+  legendList.className = "system-map__legend-list";
+  legendItems.forEach((item) => {
+    const row = document.createElement("div");
+    row.className = "system-map__legend-item";
+    const line = document.createElement("span");
+    line.className = `system-map__legend-line system-map__legend-line--${item.tone}`;
+    const label = document.createElement("span");
+    label.className = "system-map__legend-text";
+    label.textContent = item.label;
+    row.append(line, label);
+    legendList.append(row);
+  });
+  legend.append(legendTitle, legendList);
+
+  header.append(intro, legend);
+
+  const architecture = document.createElement("section");
+  architecture.className = "system-map__architecture";
+
+  const boardScroll = document.createElement("div");
+  boardScroll.className = "system-map__board-scroll";
+  const board = document.createElement("div");
+  board.className = "system-map__board";
+  board.innerHTML = `
+    <svg class="system-map__board-lines" viewBox="0 0 1280 900" role="presentation" aria-hidden="true">
+      <path class="system-map__board-line system-map__board-line--control" d="M 420 138 L 730 138"></path>
+      <path class="system-map__board-line system-map__board-line--control" d="M 730 138 L 1032 138"></path>
+      <path class="system-map__board-line system-map__board-line--control" d="M 340 180 L 340 258"></path>
+      <path class="system-map__board-line system-map__board-line--control" d="M 655 180 L 655 248 L 560 248"></path>
+      <path class="system-map__board-line system-map__board-line--control" d="M 655 180 L 655 248 L 846 248"></path>
+      <path class="system-map__board-line system-map__board-line--control" d="M 1032 180 L 1032 248 L 860 248"></path>
+
+      <path class="system-map__board-line system-map__board-line--information" d="M 560 316 L 846 316"></path>
+      <path class="system-map__board-line system-map__board-line--information" d="M 420 348 L 420 446"></path>
+      <path class="system-map__board-line system-map__board-line--information" d="M 560 348 L 560 446"></path>
+      <path class="system-map__board-line system-map__board-line--information" d="M 718 348 L 718 446"></path>
+      <path class="system-map__board-line system-map__board-line--information" d="M 846 348 L 846 446"></path>
+      <path class="system-map__board-line system-map__board-line--information" d="M 996 348 L 996 446"></path>
+      <path class="system-map__board-line system-map__board-line--information" d="M 1118 348 L 1118 446"></path>
+
+      <path class="system-map__board-line system-map__board-line--physical" d="M 264 560 L 264 610"></path>
+      <path class="system-map__board-line system-map__board-line--physical" d="M 412 560 L 412 610"></path>
+      <path class="system-map__board-line system-map__board-line--physical" d="M 556 560 L 556 610"></path>
+      <path class="system-map__board-line system-map__board-line--physical" d="M 700 560 L 700 640 L 636 640"></path>
+      <path class="system-map__board-line system-map__board-line--physical" d="M 844 560 L 844 610"></path>
+      <path class="system-map__board-line system-map__board-line--physical" d="M 992 560 L 992 610"></path>
+      <path class="system-map__board-line system-map__board-line--physical" d="M 1138 560 L 1138 610"></path>
+      <path class="system-map__board-line system-map__board-line--physical" d="M 930 780 L 930 824"></path>
+    </svg>
+  `;
+
+  const controlRow = document.createElement("section");
+  controlRow.className = "system-map__layer";
+  const controlCards = document.createElement("div");
+  controlCards.className = "system-map__layer-content system-map__layer-content--control";
+  controlNodes.forEach((node) => controlCards.append(createNodeCard(node)));
+  controlRow.append(createLayerLabel(layerBadges[0]), controlCards);
+
+  const safetyRow = document.createElement("section");
+  safetyRow.className = "system-map__layer";
+  const safetyCards = document.createElement("div");
+  safetyCards.className = "system-map__layer-content system-map__layer-content--safety";
+  safetyNodes.forEach((node) => safetyCards.append(createNodeCard(node)));
+  safetyRow.append(createLayerLabel(layerBadges[1]), safetyCards);
+
+  const waysideRow = document.createElement("section");
+  waysideRow.className = "system-map__layer";
+  const waysideCards = document.createElement("div");
+  waysideCards.className = "system-map__layer-content system-map__layer-content--wayside";
+  waysideNodes.forEach((node) => waysideCards.append(createNodeCard(node, "system-map__node--wayside-card")));
+  waysideRow.append(createLayerLabel(layerBadges[2]), waysideCards);
+
+  const trackRow = document.createElement("section");
+  trackRow.className = "system-map__layer";
+  const trackPanel = document.createElement("div");
+  trackPanel.className = "system-map__track";
+  trackPanel.innerHTML = `
+    <div class="track-overview">
+      <h3 class="system-map__track-title">Track Overview｜軌道示意</h3>
+      <div class="track-overview__scroll">
+        <div class="track-overview__canvas">
+          <div class="track-overview__label track-overview__label--signal">
+            <strong>Signal</strong><span>號誌機</span>
+          </div>
+          <div class="track-overview__label track-overview__label--track-circuit">
+            <strong>Track Circuit</strong><span>軌道電路</span>
+          </div>
+          <div class="track-overview__label track-overview__label--axle-counter">
+            <strong>Axle Counter</strong><span>計軸器</span>
+          </div>
+          <div class="track-overview__label track-overview__label--turnout">
+            <strong>Turnout / Points</strong><span>道岔</span>
+          </div>
+          <div class="track-overview__label track-overview__label--eurobalise">
+            <strong>Eurobalise</strong><span>歐洲應答器</span>
+          </div>
+          <div class="track-overview__label track-overview__label--train">
+            <strong>Train</strong><span>列車</span>
+          </div>
+          <div class="track-overview__label track-overview__label--crossing">
+            <strong>Level Crossing Protection</strong><span>平交道保護</span>
+          </div>
+          <div class="track-overview__label track-overview__label--point-machine">
+            <strong>Point Machine</strong><span>轉轍器</span>
+          </div>
+          <div class="track-overview__label track-overview__label--onboard-atp">
+            <strong>On-board ATP</strong><span>車載 ATP</span>
+          </div>
+
+          <svg class="track-overview__svg" viewBox="0 0 1120 430" role="img" aria-label="Track overview diagram">
+            <defs>
+              <linearGradient id="trackCircuitGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="rgba(92, 136, 255, 0.18)"></stop>
+                <stop offset="100%" stop-color="rgba(92, 136, 255, 0.36)"></stop>
+              </linearGradient>
+            </defs>
+
+            <path class="track-overview__label-guide" d="M 88 142 L 88 198"></path>
+            <path class="track-overview__label-guide" d="M 236 142 L 236 224"></path>
+            <path class="track-overview__label-guide" d="M 406 142 L 406 222"></path>
+            <path class="track-overview__label-guide" d="M 590 142 L 590 192"></path>
+            <path class="track-overview__label-guide" d="M 748 142 L 748 224"></path>
+            <path class="track-overview__label-guide" d="M 930 142 L 930 168"></path>
+            <path class="track-overview__label-guide" d="M 1050 142 L 1050 204"></path>
+            <path class="track-overview__label-guide" d="M 628 332 L 628 286"></path>
+            <path class="track-overview__label-guide track-overview__label-guide--purple" d="M 924 332 L 924 278"></path>
+
+            <line class="track-overview__rail" x1="34" y1="222" x2="1086" y2="222"></line>
+            <line class="track-overview__rail track-overview__rail--secondary" x1="34" y1="248" x2="1086" y2="248"></line>
+            <line class="track-overview__rail track-overview__rail--branch" x1="516" y1="222" x2="690" y2="164"></line>
+            <line class="track-overview__rail track-overview__rail--branch-secondary" x1="516" y1="248" x2="690" y2="190"></line>
+            <line class="track-overview__rail" x1="690" y1="164" x2="814" y2="164"></line>
+            <line class="track-overview__rail track-overview__rail--secondary" x1="690" y1="190" x2="814" y2="190"></line>
+
+            <rect class="track-overview__track-circuit" x="156" y="208" width="164" height="54" rx="14"></rect>
+
+            <g class="track-overview__signal">
+              <rect x="72" y="160" width="30" height="62" rx="8"></rect>
+              <line x1="87" y1="222" x2="87" y2="272"></line>
+              <circle cx="87" cy="176" r="7"></circle>
+              <circle cx="87" cy="192" r="7" class="track-overview__signal-light track-overview__signal-light--amber"></circle>
+              <circle cx="87" cy="208" r="7" class="track-overview__signal-light track-overview__signal-light--red"></circle>
+            </g>
+
+            <g class="track-overview__axle-counter">
+              <circle cx="406" cy="232" r="9"></circle>
+              <circle cx="492" cy="232" r="9"></circle>
+              <line x1="406" y1="214" x2="406" y2="252"></line>
+              <line x1="492" y1="214" x2="492" y2="252"></line>
+            </g>
+
+            <g class="track-overview__point-machine-link">
+              <path d="M 616 246 L 630 246 L 630 266"></path>
+            </g>
+
+            <g class="track-overview__point-machine">
+              <rect x="612" y="266" width="36" height="40" rx="8"></rect>
+              <rect x="620" y="244" width="20" height="24" rx="6"></rect>
+            </g>
+
+            <polygon class="track-overview__balise" points="732,226 764,226 758,248 726,248"></polygon>
+
+            <g class="track-overview__train">
+              <path d="M 840 172 C 860 152, 884 146, 918 146 H 1036 C 1058 146, 1070 156, 1076 174 L 1076 242 C 1070 258, 1058 268, 1038 268 H 890 C 868 268, 850 262, 838 246 L 816 224 C 812 218, 812 210, 818 204 Z"></path>
+              <rect x="880" y="170" width="38" height="24" rx="6"></rect>
+              <rect x="924" y="170" width="38" height="24" rx="6"></rect>
+              <rect x="968" y="170" width="38" height="24" rx="6"></rect>
+              <rect x="1012" y="170" width="38" height="24" rx="6"></rect>
+              <circle cx="900" cy="270" r="12"></circle>
+              <circle cx="1028" cy="270" r="12"></circle>
+            </g>
+
+            <g class="track-overview__onboard">
+              <rect x="886" y="290" width="76" height="26" rx="10"></rect>
+              <line x1="924" y1="290" x2="924" y2="252"></line>
+            </g>
+
+            <g class="track-overview__crossing">
+              <line x1="1038" y1="176" x2="1070" y2="208"></line>
+              <line x1="1070" y1="176" x2="1038" y2="208"></line>
+              <line x1="1042" y1="222" x2="1042" y2="314"></line>
+              <line x1="1072" y1="222" x2="1072" y2="314"></line>
+              <line x1="1042" y1="260" x2="1064" y2="238"></line>
+              <line x1="1072" y1="260" x2="1094" y2="238"></line>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  `;
+  trackRow.append(createLayerLabel(layerBadges[3]), trackPanel);
+
+  board.append(controlRow, safetyRow, waysideRow, trackRow);
+  boardScroll.append(board);
+  architecture.append(boardScroll);
+
+  const relationshipsSection = document.createElement("section");
+  relationshipsSection.className = "system-map__relationships";
+  const relationshipsTitle = document.createElement("h3");
+  relationshipsTitle.className = "system-map__section-title";
+  relationshipsTitle.textContent = "Main Relationships｜主要關係";
+  const relationshipsFlow = document.createElement("div");
+  relationshipsFlow.className = "system-map__relationships-flow";
+  relationships.forEach((item, index) => {
+    const node = document.createElement("article");
+    node.className = `system-map__relationship-node system-map__relationship-node--${item.tone}`;
+    const en = document.createElement("strong");
+    en.textContent = item.en;
+    const zh = document.createElement("span");
+    zh.textContent = item.zh;
+    node.append(en, zh);
+    relationshipsFlow.append(node);
+    if (index < relationships.length - 1) {
+      const arrow = document.createElement("span");
+      arrow.className = "system-map__relationship-arrow";
+      arrow.textContent = "→";
+      relationshipsFlow.append(arrow);
+    }
+  });
+  relationshipsSection.append(relationshipsTitle, relationshipsFlow);
+
+  systemMapPanel.append(header, architecture, relationshipsSection);
+
+  selectedTerm.textContent = "Architecture View｜架構視圖";
+  setStatus("System Map｜系統地圖", "green");
 }
 
 function renderInterlocking() {
@@ -1519,13 +2213,13 @@ function renderCommissioning() {
   centerSvgText(board.children[1], "Installation -> Testing -> Commissioning -> Acceptance -> Handover", 500, 104, 760);
 
   stages.forEach((stage, index) => {
-    const x = 108 + index * 144;
+    const x = 92 + index * 156;
     const isActive = index === commissioningStage;
     const isDone = index < commissioningStage && !issueFound;
     const isBlocked = issueFound && index >= commissioningStage;
     const stateClass = isActive ? (issueFound ? "red" : "yellow") : isDone ? "green" : isBlocked ? "red" : "";
     board.append(
-      svgEl("rect", { class: `test-step ${stateClass}`, x, y: 148, width: 124, height: 98, rx: 8 }),
+      svgEl("rect", { class: `test-step ${stateClass}`, x, y: 144, width: 138, height: 110, rx: 8 }),
       svgEl("text", { class: "layout-text" }),
       svgEl("text", { class: "layout-subtext" })
     );
@@ -1534,7 +2228,8 @@ function renderCommissioning() {
       board.children[board.children.length - 1],
       stage.en,
       stage.zh,
-      { x, y: 148, width: 124, height: 98 }
+      { x, y: 144, width: 138, height: 110 },
+      { titleMaxChars: 13, subtitleMaxChars: 10, titleLineHeight: 18, subtitleLineHeight: 17 }
     );
   });
 
@@ -1671,31 +2366,33 @@ function renderEtcs() {
     svgEl("polygon", { class: "balise", points: "440,285 485,285 470,315 425,315" }),
     svgEl("text", { class: "block-text" })
   );
-  centerSvgText(equipmentGroup.lastChild, "Balise / 應答器", 455, 340, 150);
+  centerSvgText(equipmentGroup.lastChild, "Balise｜應答器", 455, 340, 138);
 
   if (activeEtcsLevel === "1") {
     radioWave.classList.add("hidden");
-    equipmentGroup.append(
-      svgEl("text", { class: "diagram-label" }),
-      svgEl("text", { class: "diagram-label" })
-    );
-    centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 2], "ETCS Level 1：Eurobalise 傳送地面資訊", 300, 135, 360);
-    centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 1], "列車通過 Balise 時更新 Movement Authority", 720, 135, 360);
     etcsFlow.innerHTML =
       "<li>ETCS Level 1 主要利用 Eurobalise 將地面資訊傳送給列車</li><li>列車通常在通過 Balise 時更新 Movement Authority 與相關行車資訊</li><li>地面仍保留傳統號誌系統，Balise 負責傳遞資訊</li>";
-    setStatus("Level 1 模式", "yellow");
+    setDiagramCaption("ETCS Level 1｜地面資訊更新", [
+      "ETCS Level 1 主要利用 Eurobalise 將地面資訊傳送給列車。",
+      "列車通常在通過 Balise 時更新 Movement Authority 與相關行車資訊。",
+      "地面仍保留傳統號誌系統，Balise 負責傳遞資訊。",
+    ]);
+    setStatus("Level 1｜間歇更新", "yellow");
   } else {
     radioWave.classList.remove("hidden");
     equipmentGroup.append(
       svgEl("rect", { class: "rbc-box", x: 445, y: 56, width: 125, height: 62, rx: 8 }),
-      svgEl("text", { class: "block-text" }),
-      svgEl("text", { class: "diagram-label" })
+      svgEl("text", { class: "block-text" })
     );
-    centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 2], "RBC", 507.5, 88, 92);
-    centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 1], "ETCS Level 2：RBC 透過無線持續更新 Movement Authority", 360, 135, 470);
+    centerSvgText(equipmentGroup.children[equipmentGroup.children.length - 1], "RBC", 507.5, 88, 92);
     etcsFlow.innerHTML =
       "<li>ETCS Level 2 由 Radio Block Centre（RBC）透過無線通訊持續向列車傳送 Movement Authority</li><li>Eurobalise 主要提供位置校正與參考點</li><li>Level 2 不再以 Balise 作為主要資訊傳輸方式</li>";
-    setStatus("Level 2 模式", "green");
+    setDiagramCaption("ETCS Level 2｜無線授權更新", [
+      "ETCS Level 2 由 RBC 透過無線通訊持續向列車傳送 Movement Authority。",
+      "Eurobalise 主要提供位置校正與參考點，不再是主要資訊傳輸方式。",
+      "圖內只保留 RBC、Balise 與列車位置關係，避免說明文字壓在線條上。",
+    ]);
+    setStatus("Level 2｜持續更新", "green");
   }
 }
 
@@ -1786,30 +2483,32 @@ function renderAts() {
   networkGroup.replaceChildren();
 
   networkGroup.append(
-    svgEl("rect", { class: "rbc-box", x: 390, y: 52, width: 220, height: 72, rx: 8 }),
+    svgEl("rect", { class: "rbc-box", x: 378, y: 48, width: 244, height: 76, rx: 8 }),
     svgEl("text", { class: "block-text" }),
     svgEl("path", { class: "data-link", d: "M 500 124 L 500 178" }),
-    svgEl("line", { class: "clear-cable", x1: 220, y1: 214, x2: 780, y2: 214 }),
-    svgEl("line", { class: "data-link", x1: 310, y1: 214, x2: 310, y2: 296 }),
+    svgEl("line", { class: "clear-cable", x1: 210, y1: 214, x2: 790, y2: 214 }),
+    svgEl("line", { class: "data-link", x1: 300, y1: 214, x2: 300, y2: 296 }),
     svgEl("line", { class: "data-link", x1: 500, y1: 214, x2: 500, y2: 296 }),
-    svgEl("line", { class: "data-link", x1: 690, y1: 214, x2: 690, y2: 296 })
+    svgEl("line", { class: "data-link", x1: 700, y1: 214, x2: 700, y2: 296 })
   );
-  centerSvgText(networkGroup.children[1], "ATS / 列車自動監督", 500, 88, 170);
+  centerSvgText(networkGroup.children[1], "ATS｜列車自動監督", 500, 86, 190);
 
   const atsNodes = [
-    { zh: "列車追蹤", en: "Train Tracking", x: 220, y: 182, width: 180 },
-    { zh: "時刻表管理", en: "Timetable", x: 410, y: 182, width: 180 },
-    { zh: "告警顯示", en: "Alarm Display", x: 600, y: 182, width: 180 },
-    { zh: "行車調度", en: "Dispatch Support", x: 410, y: 296, width: 180 },
+    { zh: "Train Tracking", en: "列車追蹤", x: 202, y: 182, width: 188 },
+    { zh: "Timetable", en: "時刻表管理", x: 406, y: 182, width: 188 },
+    { zh: "Alarm Display", en: "告警顯示", x: 610, y: 182, width: 188 },
+    { zh: "Dispatch Support", en: "行車調度", x: 406, y: 296, width: 188 },
   ];
 
   atsNodes.forEach((node) => {
-    drawLayoutDevice(networkGroup, node.x, node.y, node.width, 66, "control", node.zh, node.en);
+    drawLayoutDevice(networkGroup, node.x, node.y, node.width, 70, "control", node.zh, node.en);
   });
 
-  networkGroup.append(svgEl("text", { class: "diagram-label" }));
-  centerSvgText(networkGroup.lastChild, "ATS 著重營運監督，不直接執行安全煞車", 500, 392, 360);
-  setStatus("ATS 監督視角", "yellow");
+  setDiagramCaption("Automatic Train Supervision (ATS)｜列車自動監督", [
+    "ATS 著重營運監督，不直接執行安全煞車。",
+    "圖內只保留監督功能節點，詳細說明放在右側內容區與下方學習筆記。",
+  ]);
+  setStatus("ATS Supervision｜列車監督", "yellow");
 }
 
 function renderCtc() {
@@ -1819,38 +2518,47 @@ function renderCtc() {
   const delayed = ctcMode === "delay";
 
   networkGroup.append(
-    svgEl("rect", { class: "layout-device control", x: 112, y: 55, width: 150, height: 70, rx: 8 }),
+    svgEl("rect", { class: "layout-device control", x: 98, y: 55, width: 162, height: 74, rx: 8 }),
     svgEl("text", { class: "block-text" }),
-    svgEl("rect", { class: "rbc-box", x: 330, y: 55, width: 170, height: 70, rx: 8 }),
+    svgEl("rect", { class: "rbc-box", x: 318, y: 55, width: 194, height: 74, rx: 8 }),
     svgEl("text", { class: "block-text" }),
-    svgEl("rect", { class: "layout-device station", x: 570, y: 55, width: 175, height: 70, rx: 8 }),
+    svgEl("rect", { class: "layout-device station", x: 568, y: 55, width: 190, height: 74, rx: 8 }),
     svgEl("text", { class: "block-text" }),
-    svgEl("rect", { class: "layout-device trackside", x: 790, y: 275, width: 160, height: 70, rx: 8 }),
+    svgEl("rect", { class: "layout-device trackside", x: 784, y: 268, width: 170, height: 76, rx: 8 }),
     svgEl("text", { class: "block-text" }),
     svgEl("text", { class: "block-text" }),
-    svgEl("path", { class: "data-link", d: "M 262 90 L 330 90" }),
-    svgEl("path", { class: "data-link", d: "M 500 90 L 570 90" }),
-    svgEl("path", { class: blocked ? "occupied-cable" : "clear-cable", d: "M 745 90 C 790 110, 825 165, 850 275" }),
-    svgEl("line", { class: blocked ? "occupied-cable" : "clear-cable", x1: 180, y1: 215, x2: 845, y2: 215 })
+    svgEl("path", { class: "data-link", d: "M 260 92 L 318 92" }),
+    svgEl("path", { class: "data-link", d: "M 512 92 L 568 92" }),
+    svgEl("path", { class: blocked ? "occupied-cable" : "clear-cable", d: "M 758 92 C 796 114, 826 168, 846 268" }),
+    svgEl("line", { class: blocked ? "occupied-cable" : "clear-cable", x1: 186, y1: 216, x2: 846, y2: 216 })
   );
-  centerSvgText(networkGroup.children[1], "Dispatcher", 187, 90, 110);
-  centerSvgText(networkGroup.children[3], "CTC", 415, 90, 120);
-  centerSvgText(networkGroup.children[5], "Interlocking", 657.5, 90, 125);
-  centerSvgText(networkGroup.children[7], "Field Equipment", 870, 310, 130);
-  centerSvgText(networkGroup.children[8], "Dispatcher -> CTC -> Interlocking -> Field Equipment", 500, 190, 560);
+  centerSvgText(networkGroup.children[1], "Dispatcher｜調度員", 179, 92, 130);
+  centerSvgText(networkGroup.children[3], "CTC｜中央行車控制", 415, 92, 154);
+  centerSvgText(networkGroup.children[5], "Interlocking｜聯鎖系統", 663, 92, 154);
+  centerSvgText(networkGroup.children[7], "Field Equipment｜現場設備", 869, 306, 146);
+  centerSvgText(networkGroup.children[8], "Dispatcher -> CTC -> Interlocking -> Field Equipment", 515, 186, 520);
 
   if (delayed) drawTrain(networkGroup, 505, 230, "Late");
   else drawTrain(networkGroup, blocked ? 265 : 720, blocked ? 230 : 280, "T");
 
   if (ctcMode === "normal") {
     ctcExplanation.textContent = "調度員透過 CTC 集中監看列車與設備狀態；涉及行車安全的控制命令，仍需由聯鎖系統完成安全條件檢查後才會作用到現場設備。";
-    setStatus("全線監控中", "green");
+    setDiagramCaption("CTC Flow｜調度命令流程", [
+      "CTC 提供集中監控與調度視角，但安全條件仍由 Interlocking 檢查。",
+    ]);
+    setStatus("Network Supervision｜全線監控", "green");
   } else if (ctcMode === "delay") {
     ctcExplanation.textContent = "列車延誤時，CTC 協助調度員觀察前後車間隔並提出調整命令；是否能安全執行，仍需由聯鎖系統確認。";
-    setStatus("延誤調度", "yellow");
+    setDiagramCaption("CTC Flow｜調度命令流程", [
+      "延誤調整屬於營運調度決策，實際控制命令仍需經過聯鎖安全檢查。",
+    ]);
+    setStatus("Delay Management｜延誤調度", "yellow");
   } else {
     ctcExplanation.textContent = "維修封鎖時，CTC 會標示不可用區間並限制調度命令；真正涉及設備與進路的安全控制，仍由聯鎖系統把關。";
-    setStatus("維修封鎖", "red");
+    setDiagramCaption("CTC Flow｜調度命令流程", [
+      "維修封鎖時，CTC 會顯示限制狀態；設備與進路是否可用仍由聯鎖系統把關。",
+    ]);
+    setStatus("Possession Mode｜維修封鎖", "red");
   }
 }
 
@@ -1868,13 +2576,18 @@ function renderCrossing() {
     svgEl("line", { class: `barrier ${approaching ? "closed" : ""}`, x1: 575, y1: approaching ? 272 : 330, x2: 657, y2: approaching ? 272 : 300 }),
     svgEl("text", { class: "diagram-label" })
   );
-  centerSvgText(equipmentGroup.lastChild, approaching ? "Warning active / 警示啟動" : "Road open / 道路開放", 500, 360, 280);
+  centerSvgText(equipmentGroup.lastChild, approaching ? "Warning Active｜警示啟動" : "Road Open｜道路開放", 500, 360, 240);
 
   if (approaching) drawTrain(trainGroup, 250, 235, "Approach");
   crossingExplanation.textContent = approaching
     ? "典型流程為：列車接近 -> 啟動警示設備 -> 遮斷桿下降；列車通過後，再解除警示並升起遮斷桿。"
     : "目前沒有列車接近；在本概念示意中，平交道維持開放，道路車輛可通行。";
-  setStatus(approaching ? "警示啟動" : "道路開放", approaching ? "red" : "green");
+  setDiagramCaption("Level Crossing Protection｜平交道保護", [
+    approaching
+      ? "列車接近時，警示設備先啟動，再進入遮斷桿下降與列車通過流程。"
+      : "目前畫面為概念示意中的待命狀態，平交道維持道路開放。",
+  ]);
+  setStatus(approaching ? "Warning Active｜警示啟動" : "Road Open｜道路開放", approaching ? "red" : "green");
 }
 
 function renderCurrentConcept() {
@@ -1926,9 +2639,45 @@ function restoreSidebarScroll(scrollTop) {
   });
 }
 
+function prepareDiagramSurface(moduleName) {
+  if (!trackBoard) return;
+  const showLearningMap = moduleName === "learning";
+  const showSystemMap = moduleName === "layout";
+  const showSystems = moduleName === "railway-systems";
+  workspace?.classList.toggle("learning-map-page", showLearningMap);
+  workspace?.classList.toggle("system-map-page", showSystemMap);
+  heroLab?.classList.toggle("learning-map-page", showLearningMap);
+  heroLab?.classList.toggle("system-map-page", showSystemMap);
+  trackBoard.classList.toggle("show-systems", showSystems);
+  trackBoard.classList.toggle("show-learning-map", showLearningMap);
+  trackBoard.classList.toggle("show-system-map", showSystemMap);
+  if (learningMapPanel) {
+    learningMapPanel.classList.toggle("hidden", !showLearningMap);
+    if (!showLearningMap) learningMapPanel.replaceChildren();
+  }
+  if (systemMapPanel) {
+    systemMapPanel.classList.toggle("hidden", !showSystemMap);
+    if (!showSystemMap) systemMapPanel.replaceChildren();
+  }
+  if (systemsCardBoard) {
+    systemsCardBoard.classList.toggle("hidden", !showSystems);
+    if (!showSystems) systemsCardBoard.replaceChildren();
+  }
+  if (diagramScroll) {
+    diagramScroll.classList.toggle("hidden", showLearningMap || showSystemMap || showSystems);
+    if (!showLearningMap && !showSystemMap && !showSystems) diagramScroll.classList.remove("hidden");
+  }
+  if (moduleName !== "learning" && moduleName !== "etcs" && moduleName !== "railway-systems") {
+    setDiagramCaption();
+  }
+  if (showLearningMap && diagramCaption) diagramCaption.classList.add("hidden");
+  if (showSystemMap && diagramCaption) diagramCaption.classList.add("hidden");
+}
+
 function switchModule(moduleName) {
   const sidebarScrollTop = sidebar ? sidebar.scrollTop : 0;
   activeModule = moduleName;
+  prepareDiagramSurface(moduleName);
   updateNavigationState(moduleName);
   document.querySelectorAll(".diagram-layer").forEach((layer) => layer.classList.add("hidden"));
   document.querySelectorAll(".module-panel").forEach((panel) => panel.classList.remove("active"));
@@ -2054,4 +2803,5 @@ renderHandbookItems();
 document.querySelectorAll("[data-jump-module]").forEach((button) => {
   button.addEventListener("click", () => switchModule(button.dataset.jumpModule));
 });
-renderLearningMap();
+prepareDiagramSurface(activeModule);
+renderCurrentConcept();
