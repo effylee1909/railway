@@ -3,103 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Railway Project Learning Map</title>
-    <link rel="stylesheet" href="styles.css?v=20260714-track-overview" />
+    <title>Railway Signalling Knowledge Website</title>
+    <link rel="stylesheet" href="styles.css?v=20260916-phase-3" />
   </head>
   <body>
     <main class="app-shell">
-      <aside class="sidebar" aria-label="Learning modules">
+      <aside class="sidebar" aria-label="Railway signalling topics">
         <div class="brand-block">
-          <p class="eyebrow">Railway Project Learning Map</p>
-          <h1>Railway Project Learning Map</h1>
-          <p>Learn railway systems, signalling principles and engineering workflows through structured learning.</p>
+          <p class="eyebrow">Railway Signalling Knowledge Website</p>
+          <h1>Railway Signalling Knowledge Website</h1>
+          <p>Explore railway signalling systems, equipment, control logic and engineering practices through a structured knowledge map.</p>
+          <p>系統化整理鐵道號誌系統、設備、控制邏輯與工程實務。</p>
         </div>
 
-        <nav class="module-nav mindmap-nav" aria-label="Modules">
+        <nav class="module-nav mindmap-nav" aria-label="Railway signalling knowledge topics">
           <details class="nav-branch" open>
             <summary>
-              <span>Railway Systems</span>
-              <small>System Domains</small>
+              <span>01 Overview</span>
+              <small>系統總覽</small>
             </summary>
             <div class="nav-children">
-              <button class="nav-item" data-module="railway-systems">
-                <span>系統總覽</span>
-                <small>Infrastructure to Operations</small>
-              </button>
-              <button class="nav-item" data-module="turnout">
-                <span>道岔</span>
-                <small>Turnout / Points · Infrastructure</small>
-              </button>
-            </div>
-          </details>
-
-          <details class="nav-branch" open>
-            <summary>
-              <span>學習入口</span>
-              <small>Learning Entry</small>
-            </summary>
-            <div class="nav-children">
-              <button class="nav-item active" data-module="learning">
-                <span>學習地圖</span>
-                <small>Learning Map</small>
+              <button class="nav-item active" data-module="railway-systems">
+                <span>System Overview</span>
+                <small>系統概覽</small>
               </button>
               <button class="nav-item" data-module="layout">
-                <span>系統地圖</span>
-                <small>System Map</small>
-              </button>
-              <button class="nav-item" data-module="scenario">
-                <span>案例模式</span>
-                <small>Point Detection Failure</small>
+                <span>System Map</span>
+                <small>系統地圖</small>
               </button>
             </div>
           </details>
 
           <details class="nav-branch" open>
             <summary>
-              <span>號誌核心</span>
-              <small>Signalling Core</small>
+              <span>02 Wayside Equipment</span>
+              <small>軌旁設備</small>
+            </summary>
+            <div class="nav-children">
+              <button class="nav-item" data-module="turnout">
+                <span>Turnout / Points</span>
+                <small>道岔</small>
+              </button>
+              <button class="nav-item" data-module="point">
+                <span>Point Machine</span>
+                <small>轉轍器</small>
+              </button>
+              <button class="nav-item" data-module="crossing">
+                <span>Level Crossing Protection</span>
+                <small>平交道保護</small>
+              </button>
+            </div>
+          </details>
+
+          <details class="nav-branch" open>
+            <summary>
+              <span>03 Signalling Principles</span>
+              <small>號誌原理</small>
             </summary>
             <div class="nav-children">
               <button class="nav-item" data-module="detection">
-                <span>列車偵測</span>
-                <small>Track Circuit / Axle Counter</small>
-              </button>
-              <button class="nav-item" data-module="point">
-                <span>轉轍器</span>
-                <small>Point Machine</small>
+                <span>Train Detection</span>
+                <small>列車偵測</small>
               </button>
               <button class="nav-item" data-module="interlocking">
-                <span>聯鎖</span>
-                <small>Interlocking</small>
+                <span>Interlocking</span>
+                <small>聯鎖</small>
               </button>
               <button class="nav-item" data-module="blocks">
-                <span>閉塞</span>
-                <small>Block Sections</small>
-              </button>
-              <button class="nav-item" data-module="crossing">
-                <span>平交道</span>
-                <small>Level Crossing</small>
+                <span>Block System</span>
+                <small>閉塞系統</small>
               </button>
             </div>
           </details>
 
           <details class="nav-branch">
             <summary>
-              <span>行車控制</span>
-              <small>Train Control</small>
+              <span>04 Train Protection & Control</span>
+              <small>列車防護與控制</small>
             </summary>
             <div class="nav-children">
               <button class="nav-item" data-module="atp">
-                <span>列車自動防護</span>
-                <small>ATP</small>
-              </button>
-              <button class="nav-item" data-module="ats">
-                <span>列車自動監督</span>
-                <small>ATS</small>
-              </button>
-              <button class="nav-item" data-module="ctc">
-                <span>調度控制</span>
-                <small>CTC</small>
+                <span>ATP</span>
+                <small>列車自動防護</small>
               </button>
               <button class="nav-item" data-module="etcs">
                 <span>ETCS / ERTMS</span>
@@ -110,44 +95,67 @@
 
           <details class="nav-branch">
             <summary>
-              <span>專案交付</span>
-              <small>Project Delivery</small>
+              <span>05 Control & Supervision</span>
+              <small>控制與監督</small>
             </summary>
             <div class="nav-children">
-              <button class="nav-item" data-module="alarm">
-                <span>告警維護</span>
-                <small>Alarm / Maintenance</small>
+              <button class="nav-item" data-module="ats">
+                <span>ATS</span>
+                <small>列車自動監督</small>
               </button>
+              <button class="nav-item" data-module="ctc">
+                <span>CTC</span>
+                <small>中央行車控制</small>
+              </button>
+            </div>
+          </details>
+
+          <details class="nav-branch">
+            <summary>
+              <span>06 Engineering</span>
+              <small>工程實務</small>
+            </summary>
+            <div class="nav-children">
               <button class="nav-item" data-module="commissioning">
-                <span>測試驗收</span>
-                <small>Testing / Commissioning</small>
+                <span>Testing & Commissioning</span>
+                <small>測試與試運轉</small>
+              </button>
+              <button class="nav-item" data-module="alarm">
+                <span>Alarm & Maintenance</span>
+                <small>警報與維護</small>
+              </button>
+            </div>
+          </details>
+
+          <details class="nav-branch">
+            <summary>
+              <span>07 Scenarios</span>
+              <small>案例</small>
+            </summary>
+            <div class="nav-children">
+              <button class="nav-item" data-module="scenario">
+                <span>Point Detection Failure</span>
+                <small>轉轍器位置偵測失效</small>
               </button>
             </div>
           </details>
         </nav>
-
-        <section class="note-panel">
-          <h2>作品定位</h2>
-          <p>
-            這不是號誌規範文件，而是一個把現場常見名詞拆成可觀察、可操作模型的學習作品。
-          </p>
-        </section>
       </aside>
 
       <section class="workspace">
         <header class="workspace-header">
           <div>
-            <p class="eyebrow">Taiwan Railway Signalling Upgrade Study</p>
-            <h2 id="module-title">Learning Map｜學習地圖</h2>
+            <p class="eyebrow">Railway Signalling Knowledge Website</p>
+            <h2 id="module-title">Railway Systems｜鐵道系統</h2>
           </div>
           <div class="status-strip" aria-label="Current system status">
             <div>
               <span id="route-status-dot" class="status-dot green"></span>
-              <strong id="system-status">學習路徑</strong>
+              <strong id="system-status">Systems Overview｜系統總覽</strong>
               <small>System State｜系統狀態</small>
             </div>
             <div>
-              <strong id="selected-term">學習順序</strong>
+              <strong id="selected-term">Systems Overview｜系統總覽</strong>
               <small>Selected Term｜目前主題</small>
             </div>
           </div>
@@ -267,11 +275,11 @@
                 <path id="radio-wave" class="radio-wave hidden" d="M 500 90 C 575 135, 610 165, 680 216" />
               </g>
 
-              <g class="diagram-layer systems-view hidden">
+              <g class="diagram-layer systems-view">
                 <g id="systems-overview"></g>
               </g>
 
-              <g class="diagram-layer learning-view">
+              <g class="diagram-layer learning-view hidden">
                 <g id="learning-map"></g>
               </g>
 
@@ -292,17 +300,17 @@
           </div>
 
           <div class="control-panel">
-            <div class="module-panel" id="panel-railway-systems">
+            <div class="module-panel active" id="panel-railway-systems">
               <h3>Railway Systems｜鐵道系統</h3>
               <p>
-                這裡先建立 handbook 的六大系統入口。每張卡片先提供系統名稱、簡介、圖示預留與 Coming Soon 狀態，作為後續擴充基礎。
+                鐵道專案通常由多個工程系統共同組成。這個總覽把基礎設施、車輛、供電、通訊、號誌與行車控制放在同一個入口下，方便理解各系統的分工。
               </p>
               <div class="flow-panel">
-                <span class="insight-label">Current Scope</span>
+                <span class="insight-label">System Domains｜系統分工</span>
                 <ol>
-                  <li>先建立六大系統的總覽卡片，不進入各自詳細內容頁。</li>
-                  <li>Signalling 與 Operations Control 已有既有模組，可作為後續優先延伸對象。</li>
-                  <li>其他系統先用統一入口保留位置，避免現在就打散整體結構。</li>
+                  <li>Infrastructure 對應軌道、車站、土建與機廠等現場空間。</li>
+                  <li>Signalling 負責列車偵測、進路、聯鎖與安全控制邏輯。</li>
+                  <li>Operations Control 連接調度、監督與控制中心的營運視角。</li>
                 </ol>
               </div>
             </div>
@@ -318,10 +326,10 @@
               </div>
             </div>
 
-            <div class="module-panel active" id="panel-learning">
-              <h3>Learning Map｜學習地圖</h3>
+            <div class="module-panel" id="panel-learning" hidden>
+              <h3>Knowledge Path｜知識路徑</h3>
               <p>
-                這條路線把 handbook 的大架構收斂成作品導覽：先理解鐵道專案，再進入號誌核心，最後接到文件、測試與案例。
+                這條路線把鐵道號誌主題整理成閱讀順序：先理解系統總覽，再進入號誌原理，最後接到工程實務與案例。
               </p>
               <div class="learning-actions" aria-label="Learning path shortcuts">
                 <button class="learning-jump" type="button" data-jump-module="layout">
@@ -356,9 +364,9 @@
                 </button>
               </div>
               <div class="flow-panel">
-                <span class="insight-label">展示方式 / Interview Story</span>
+                <span class="insight-label">Knowledge Flow｜知識脈絡</span>
                 <ol>
-                  <li>先用 Learning Map 說明你如何拆解鐵道專案知識。</li>
+                  <li>先從 Railway Systems 理解各工程系統的分工。</li>
                   <li>再進入 System Map，把抽象名詞放回現場位置。</li>
                   <li>最後用案例模式說明故障如何影響聯鎖、告警與驗收。</li>
                 </ol>
@@ -381,7 +389,7 @@
                 <ol>
                   <li>實線表示軌道或受控設備的位置。</li>
                   <li>虛線表示資料、命令或監控訊號的連線。</li>
-                  <li>設備標籤同時保留中文與英文，方便面試時講解。</li>
+                  <li>設備標籤同時保留中文與英文，方便對照工程圖面與系統文件。</li>
                 </ol>
               </div>
             </div>
@@ -548,15 +556,7 @@
               </p>
               <div class="insight-panel" aria-live="polite">
                 <span class="insight-label">監督範圍 / Supervision Scope</span>
-                <p>目前先提供分類定位與系統角色說明；列車追蹤、時刻表管理與告警佇列互動將於後續擴充。</p>
-              </div>
-              <div class="flow-panel">
-                <span class="insight-label">Coming Soon</span>
-                <ol>
-                  <li>列車追蹤與位置總覽 / Train Tracking</li>
-                  <li>時刻表與延誤監看 / Timetable & Delay View</li>
-                  <li>告警顯示與調度支援 / Alarm & Dispatch Support</li>
-                </ol>
+                <p>ATS 將列車位置、運行狀態、時刻表與告警資訊整理成營運監督畫面，協助調度與營運人員掌握全線狀態。</p>
               </div>
             </div>
 
@@ -675,15 +675,15 @@
           </div>
         </section>
 
-        <section class="knowledge-section" aria-label="Current module learning notes">
+        <section class="knowledge-section" aria-label="Current module knowledge notes">
           <div class="knowledge-header">
-            <p class="eyebrow">Learning Notes｜學習筆記</p>
-            <h3 id="knowledge-title">Learning Map｜學習地圖</h3>
+            <p class="eyebrow">Knowledge Notes｜知識筆記</p>
+            <h3 id="knowledge-title">Railway Systems｜鐵道系統</h3>
           </div>
           <div class="knowledge-grid" id="knowledge-grid"></div>
         </section>
 
-        <section class="handbook-section" aria-label="Handbook-based project items">
+        <section class="handbook-section" aria-label="Handbook-based project items" hidden>
           <div class="knowledge-header">
             <p class="eyebrow">From Learning Handbook｜手冊來源</p>
             <h3>Handbook Items｜手冊項目</h3>
@@ -693,6 +693,6 @@
       </section>
     </main>
 
-    <script src="app.js?v=20260714-track-overview"></script>
+    <script src="app.js?v=20260916-phase-3"></script>
   </body>
 </html>

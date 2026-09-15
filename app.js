@@ -8,8 +8,8 @@ const modules = {
     term: "Infrastructure｜基礎設施",
   },
   learning: {
-    title: "Learning Map｜學習地圖",
-    term: "Recommended Path｜建議學習路徑",
+    title: "Knowledge Path｜知識路徑",
+    term: "Topic Sequence｜主題順序",
   },
   layout: {
     title: "System Map｜系統地圖",
@@ -70,12 +70,12 @@ const knowledgeNotes = {
     title: "Railway Systems｜鐵道系統",
     cards: [
       {
-        zh: "主要入口",
-        en: "Main Entry",
+        zh: "系統總覽",
+        en: "Systems Overview",
         points: [
-          "這一層先把 handbook 中的六大系統放在同一個入口下。",
-          "目標是先建立系統邊界，再決定後續每一支要不要做成獨立模組。",
-          "目前先以總覽卡片呈現，後續再逐步補詳細內容頁。 ",
+          "鐵道專案通常由基礎設施、車輛、供電、通訊、號誌與行車控制共同組成。",
+          "每個系統都有自己的工程範圍，也會在介面、測試與營運上互相連接。",
+          "先掌握系統邊界，有助於理解設備、文件與責任分工。",
         ],
       },
       {
@@ -84,16 +84,16 @@ const knowledgeNotes = {
         points: [
           "Infrastructure 對應軌道、車站、土建與機廠等現場空間。",
           "Rolling Stock、Power Supply、Communication、Signalling、Operations Control 構成主要工程分工。",
-          "這些卡片是後續擴充 handbook 內容的基礎骨架。",
+          "Signalling 與 Operations Control 共同連接安全邏輯、列車監督與調度控制。",
         ],
       },
       {
-        zh: "擴充方式",
-        en: "Expansion Path",
+        zh: "系統分工",
+        en: "System Boundaries",
         points: [
-          "每張卡先保留 Coming Soon，避免現在就把細節塞太滿。",
-          "未來可以依 handbook 章節，逐張補名詞、設備、文件與案例。",
-          "Signalling 和 Operations Control 已有既有模組，可作為優先延伸對象。",
+          "Infrastructure 偏向現場空間與軌道結構。",
+          "Signalling 偏向安全控制、列車偵測、聯鎖與進路條件。",
+          "Operations Control 偏向控制中心、調度、監督與營運管理。",
         ],
       },
     ],
@@ -107,7 +107,7 @@ const knowledgeNotes = {
         points: [
           "道岔是軌道系統中的分歧結構，使列車能夠從一條軌道轉入另一條軌道。",
           "它屬於基礎設施的一部分。",
-          "本頁只先建立結構定位，驅動與鎖定設備另外放在 Point Machine。",
+          "軌道本體與分歧構造可和 Point Machine 的驅動、鎖定與位置偵測分開理解。",
         ],
       },
       {
@@ -131,15 +131,15 @@ const knowledgeNotes = {
     ],
   },
   learning: {
-    title: "Learning Map｜學習地圖",
+    title: "Knowledge Path｜知識路徑",
     cards: [
       {
-        zh: "作品敘事",
-        en: "Portfolio Story",
+        zh: "知識脈絡",
+        en: "Knowledge Flow",
         points: [
-          "用 handbook 的架構建立學習順序，而不是把名詞零散堆在頁面上。",
-          "先從鐵道專案總覽進入，再聚焦到號誌系統與測試驗收。",
-          "面試展示時可說明你如何把工作現場看過的內容轉成可學習模型。",
+          "鐵道號誌知識可從系統總覽、現場設備、安全邏輯到工程實務逐步理解。",
+          "先從鐵道系統總覽進入，再聚焦到號誌系統與測試驗收。",
+          "把設備位置、控制關係與安全條件放在同一個脈絡中閱讀。",
         ],
       },
       {
@@ -149,15 +149,6 @@ const knowledgeNotes = {
           "系統總覽：先知道設備在軌旁、車站、控制中心或車上。",
           "號誌核心：列車偵測、轉轍器、聯鎖、閉塞構成安全邏輯。",
           "專案交付：告警維護、測試驗收與案例模式把知識接回實務。",
-        ],
-      },
-      {
-        zh: "下一層擴充",
-        en: "Next Layer",
-        points: [
-          "Document Map 可承接 SRS、ICD、FD、Test Procedure。",
-          "Testing Flow 可細分 FAT、SAT、SIT、Trial Run、Handover。",
-          "Glossary 可把 handbook 中英文名詞變成可搜尋工具。",
         ],
       },
     ],
@@ -340,16 +331,7 @@ const knowledgeNotes = {
         points: [
           "常見功能包含時刻表管理、列車追蹤與延誤監看。",
           "它可將多站、多列車的運行資訊整理成可操作的監督畫面。",
-          "目前頁面先建立分類與定位，後續再補更完整的情境互動。",
-        ],
-      },
-      {
-        zh: "後續擴充",
-        en: "Coming Soon",
-        points: [
-          "後續可加入班距監看、時刻表、列車追蹤與告警佇列。",
-          "也可再連接 CTC、OCC 或案例模式，形成完整的行車監督鏈。",
-          "本頁先完成 ATP / ATS 的分類拆分與功能界線。",
+          "ATS 的資訊通常服務於營運判斷，安全防護仍需與 ATP、聯鎖等系統分工理解。",
         ],
       },
     ],
@@ -564,7 +546,7 @@ const knowledgeNotes = {
         points: [
           "道岔不到位不是單一設備問題，會連動聯鎖、告警與驗收。",
           "案例模式把現場異常轉成可追蹤的因果流程。",
-          "面試展示時可用它說明你理解系統關聯，而不是只背名詞。",
+          "這類案例有助於理解設備狀態如何影響安全邏輯與工程處置。",
         ],
       },
       {
@@ -750,7 +732,7 @@ let selectedRoute = "A";
 let activeEtcsLevel = "1";
 let detectionType = "track-circuit";
 let ctcMode = "normal";
-let activeModule = "learning";
+let activeModule = "railway-systems";
 let pointPosition = "normal";
 let alarmScenario = "point";
 let commissioningStage = 1;
@@ -986,6 +968,7 @@ function renderKnowledge(moduleName) {
 }
 
 function renderHandbookItems() {
+  if (!handbookGrid || handbookGrid.closest("[hidden]")) return;
   handbookGrid.replaceChildren();
   handbookItems.forEach((item) => {
     const article = document.createElement("article");
@@ -1056,7 +1039,7 @@ function renderRailwaySystems() {
 
     const status = document.createElement("div");
     status.className = "systems-card__status";
-    status.textContent = "Coming Soon｜即將推出";
+    status.textContent = "Overview｜總覽";
 
     header.append(icon, status);
 
@@ -1082,10 +1065,10 @@ function renderRailwaySystems() {
 
   systemsCardBoard.classList.remove("hidden");
   setDiagramCaption("Railway Systems｜鐵道系統", [
-    "Railway Systems groups the handbook into six engineering domains for future expansion.",
-    "Each card is a placeholder entry point. Detailed pages will be added later.",
+    "Railway Systems groups the project into six engineering domains.",
+    "The cards show the main boundaries between infrastructure, rolling stock, power, communication, signalling and operations control.",
   ]);
-  setStatus("Coming Soon｜即將推出", "yellow");
+  setStatus("Systems Overview｜系統總覽", "green");
 }
 
 function wrapLearningMapLines(text, maxCharsPerLine = 18) {
@@ -1304,16 +1287,16 @@ function renderLearningMap() {
 
   const eyebrow = document.createElement("p");
   eyebrow.className = "learning-map__eyebrow";
-  eyebrow.textContent = "TAIWAN RAILWAY SIGNALLING UPGRADE STUDY";
+  eyebrow.textContent = "RAILWAY SIGNALLING KNOWLEDGE WEBSITE";
 
   const title = document.createElement("h2");
   title.className = "learning-map__title";
-  title.textContent = "Learning Map｜學習地圖";
+  title.textContent = "Knowledge Path｜知識路徑";
 
   const description = document.createElement("p");
   description.className = "learning-map__description";
   description.textContent =
-    "本地圖提供鐵道號誌學習順序，使用者可再進入各主題查看詳細內容與互動示意。";
+    "本地圖整理鐵道號誌主題之間的閱讀順序，可對照設備、控制邏輯與工程實務。";
 
   intro.append(eyebrow, title, description);
 
@@ -1322,7 +1305,7 @@ function renderLearningMap() {
 
   const statusTitle = document.createElement("strong");
   statusTitle.className = "learning-map__status-title";
-  statusTitle.textContent = "Learning Path｜學習路徑";
+  statusTitle.textContent = "Knowledge Path｜知識路徑";
 
   const statusSub = document.createElement("span");
   statusSub.className = "learning-map__status-subtitle";
@@ -1438,7 +1421,7 @@ function renderLearningMap() {
 
   const pathTitle = document.createElement("h3");
   pathTitle.className = "learning-map__section-title";
-  pathTitle.textContent = "Recommended Path｜建議學習路徑";
+  pathTitle.textContent = "Topic Sequence｜主題順序";
 
   const pathList = document.createElement("div");
   pathList.className = "learning-map__path-list";
@@ -1475,13 +1458,13 @@ function renderLearningMap() {
   notes.className = "learning-map__info-card learning-map__notes";
   const notesTitle = document.createElement("h3");
   notesTitle.className = "learning-map__section-title";
-  notesTitle.textContent = "Learning Notes｜學習筆記";
+  notesTitle.textContent = "Knowledge Notes｜知識筆記";
   const notesList = document.createElement("ul");
   notesList.className = "learning-map__list";
   [
-    "建議依照以上順序循序學習。",
-    "可從下方「下一層擴充」進入各主題細項。",
-    "名詞中英對照可於主題頁面參考。",
+    "建議依照系統、設備、安全邏輯與工程實務的順序閱讀。",
+    "各主題可對照中文與英文名詞。",
+    "中英文名詞對照有助於閱讀工程文件與圖面標註。",
   ].forEach((text) => {
     const item = document.createElement("li");
     item.textContent = text;
@@ -1489,30 +1472,12 @@ function renderLearningMap() {
   });
   notes.append(notesTitle, notesList);
 
-  const nextLayer = document.createElement("section");
-  nextLayer.className = "learning-map__info-card learning-map__next-layer";
-  const nextLayerTitle = document.createElement("h3");
-  nextLayerTitle.className = "learning-map__section-title";
-  nextLayerTitle.textContent = "Next Layer｜下一層擴充";
-  const nextLayerList = document.createElement("ul");
-  nextLayerList.className = "learning-map__list";
-  [
-    "Document Map 可承接 SRS、ICD、FD、Test Procedure。",
-    "Testing Flow 可細分 FAT、SAT、SIT、Trial Run、Handover。",
-    "Glossary 可將 Handbook 中英文名詞轉為可搜尋工具。",
-  ].forEach((text) => {
-    const item = document.createElement("li");
-    item.textContent = text;
-    nextLayerList.append(item);
-  });
-  nextLayer.append(nextLayerTitle, nextLayerList);
-
-  infoGrid.append(notes, nextLayer);
+  infoGrid.append(notes);
 
   learningMapPanel.append(diagram, pathSection, infoGrid);
 
-  selectedTerm.textContent = "Learning Path｜學習路徑";
-  setStatus("Learning Path｜學習路徑", "green");
+  selectedTerm.textContent = "Knowledge Path｜知識路徑";
+  setStatus("Knowledge Path｜知識路徑", "green");
 }
 
 function renderBlocks() {
@@ -1669,7 +1634,7 @@ function renderLayout() {
 
   const eyebrow = document.createElement("p");
   eyebrow.className = "system-map__eyebrow";
-  eyebrow.textContent = "TAIWAN RAILWAY SIGNALLING UPGRADE STUDY";
+  eyebrow.textContent = "RAILWAY SIGNALLING KNOWLEDGE WEBSITE";
 
   const title = document.createElement("h2");
   title.className = "system-map__title";
@@ -1720,27 +1685,7 @@ function renderLayout() {
     <svg class="system-map__board-lines" viewBox="0 0 1280 900" role="presentation" aria-hidden="true">
       <path class="system-map__board-line system-map__board-line--control" d="M 420 138 L 730 138"></path>
       <path class="system-map__board-line system-map__board-line--control" d="M 730 138 L 1032 138"></path>
-      <path class="system-map__board-line system-map__board-line--control" d="M 340 180 L 340 258"></path>
-      <path class="system-map__board-line system-map__board-line--control" d="M 655 180 L 655 248 L 560 248"></path>
-      <path class="system-map__board-line system-map__board-line--control" d="M 655 180 L 655 248 L 846 248"></path>
-      <path class="system-map__board-line system-map__board-line--control" d="M 1032 180 L 1032 248 L 860 248"></path>
-
       <path class="system-map__board-line system-map__board-line--information" d="M 560 316 L 846 316"></path>
-      <path class="system-map__board-line system-map__board-line--information" d="M 420 348 L 420 446"></path>
-      <path class="system-map__board-line system-map__board-line--information" d="M 560 348 L 560 446"></path>
-      <path class="system-map__board-line system-map__board-line--information" d="M 718 348 L 718 446"></path>
-      <path class="system-map__board-line system-map__board-line--information" d="M 846 348 L 846 446"></path>
-      <path class="system-map__board-line system-map__board-line--information" d="M 996 348 L 996 446"></path>
-      <path class="system-map__board-line system-map__board-line--information" d="M 1118 348 L 1118 446"></path>
-
-      <path class="system-map__board-line system-map__board-line--physical" d="M 264 560 L 264 610"></path>
-      <path class="system-map__board-line system-map__board-line--physical" d="M 412 560 L 412 610"></path>
-      <path class="system-map__board-line system-map__board-line--physical" d="M 556 560 L 556 610"></path>
-      <path class="system-map__board-line system-map__board-line--physical" d="M 700 560 L 700 640 L 636 640"></path>
-      <path class="system-map__board-line system-map__board-line--physical" d="M 844 560 L 844 610"></path>
-      <path class="system-map__board-line system-map__board-line--physical" d="M 992 560 L 992 610"></path>
-      <path class="system-map__board-line system-map__board-line--physical" d="M 1138 560 L 1138 610"></path>
-      <path class="system-map__board-line system-map__board-line--physical" d="M 930 780 L 930 824"></path>
     </svg>
   `;
 
@@ -1802,7 +1747,7 @@ function renderLayout() {
             <strong>On-board ATP</strong><span>車載 ATP</span>
           </div>
 
-          <svg class="track-overview__svg" viewBox="0 0 1120 430" role="img" aria-label="Track overview diagram">
+          <svg class="track-overview__svg" viewBox="0 0 1220 440" role="img" aria-label="Track overview diagram">
             <defs>
               <linearGradient id="trackCircuitGlow" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stop-color="rgba(92, 136, 255, 0.18)"></stop>
@@ -1810,73 +1755,106 @@ function renderLayout() {
               </linearGradient>
             </defs>
 
-            <path class="track-overview__label-guide" d="M 88 142 L 88 198"></path>
-            <path class="track-overview__label-guide" d="M 236 142 L 236 224"></path>
-            <path class="track-overview__label-guide" d="M 406 142 L 406 222"></path>
-            <path class="track-overview__label-guide" d="M 590 142 L 590 192"></path>
-            <path class="track-overview__label-guide" d="M 748 142 L 748 224"></path>
-            <path class="track-overview__label-guide" d="M 930 142 L 930 168"></path>
-            <path class="track-overview__label-guide" d="M 1050 142 L 1050 204"></path>
-            <path class="track-overview__label-guide" d="M 628 332 L 628 286"></path>
-            <path class="track-overview__label-guide track-overview__label-guide--purple" d="M 924 332 L 924 278"></path>
+            <path class="track-overview__label-guide track-overview__label-guide--signal" d="M 108 102 L 108 226"></path>
+            <path class="track-overview__label-guide track-overview__label-guide--track" d="M 308 102 L 308 202"></path>
+            <path class="track-overview__label-guide track-overview__label-guide--axle" d="M 470 102 L 470 214"></path>
+            <path class="track-overview__label-guide track-overview__label-guide--turnout" d="M 700 102 L 700 224"></path>
+            <path class="track-overview__label-guide track-overview__label-guide--balise" d="M 852 102 L 852 228"></path>
+            <path class="track-overview__label-guide track-overview__label-guide--train" d="M 1038 102 L 1038 174"></path>
+            <path class="track-overview__label-guide track-overview__label-guide--crossing" d="M 1144 102 L 1144 208"></path>
+            <path class="track-overview__label-guide track-overview__label-guide--point-machine" d="M 690 352 L 690 286"></path>
+            <path class="track-overview__label-guide track-overview__label-guide--purple" d="M 1012 348 L 1012 292"></path>
 
-            <line class="track-overview__rail" x1="34" y1="222" x2="1086" y2="222"></line>
-            <line class="track-overview__rail track-overview__rail--secondary" x1="34" y1="248" x2="1086" y2="248"></line>
-            <line class="track-overview__rail track-overview__rail--branch" x1="516" y1="222" x2="690" y2="164"></line>
-            <line class="track-overview__rail track-overview__rail--branch-secondary" x1="516" y1="248" x2="690" y2="190"></line>
-            <line class="track-overview__rail" x1="690" y1="164" x2="814" y2="164"></line>
-            <line class="track-overview__rail track-overview__rail--secondary" x1="690" y1="190" x2="814" y2="190"></line>
+            <line class="track-overview__rail" x1="46" y1="224" x2="1176" y2="224"></line>
+            <line class="track-overview__rail track-overview__rail--secondary" x1="46" y1="248" x2="1176" y2="248"></line>
+            <line class="track-overview__rail track-overview__rail--branch" x1="548" y1="224" x2="720" y2="170"></line>
+            <line class="track-overview__rail track-overview__rail--branch-secondary" x1="548" y1="248" x2="720" y2="194"></line>
+            <line class="track-overview__rail" x1="720" y1="170" x2="844" y2="170"></line>
+            <line class="track-overview__rail track-overview__rail--secondary" x1="720" y1="194" x2="844" y2="194"></line>
 
-            <rect class="track-overview__track-circuit" x="156" y="208" width="164" height="54" rx="14"></rect>
+            <g class="track-overview__sleepers">
+              <line x1="88" y1="210" x2="88" y2="262"></line>
+              <line x1="126" y1="210" x2="126" y2="262"></line>
+              <line x1="164" y1="210" x2="164" y2="262"></line>
+              <line x1="202" y1="210" x2="202" y2="262"></line>
+              <line x1="240" y1="210" x2="240" y2="262"></line>
+              <line x1="278" y1="210" x2="278" y2="262"></line>
+              <line x1="316" y1="210" x2="316" y2="262"></line>
+              <line x1="354" y1="210" x2="354" y2="262"></line>
+              <line x1="392" y1="210" x2="392" y2="262"></line>
+              <line x1="430" y1="210" x2="430" y2="262"></line>
+              <line x1="468" y1="210" x2="468" y2="262"></line>
+              <line x1="506" y1="210" x2="506" y2="262"></line>
+              <line x1="544" y1="210" x2="544" y2="262"></line>
+              <line x1="582" y1="210" x2="582" y2="262"></line>
+              <line x1="620" y1="210" x2="620" y2="262"></line>
+              <line x1="658" y1="206" x2="682" y2="248"></line>
+              <line x1="696" y1="192" x2="720" y2="234"></line>
+              <line x1="734" y1="158" x2="734" y2="208"></line>
+              <line x1="772" y1="158" x2="772" y2="208"></line>
+              <line x1="810" y1="158" x2="810" y2="208"></line>
+              <line x1="848" y1="210" x2="848" y2="262"></line>
+              <line x1="886" y1="210" x2="886" y2="262"></line>
+              <line x1="924" y1="210" x2="924" y2="262"></line>
+              <line x1="962" y1="210" x2="962" y2="262"></line>
+              <line x1="1000" y1="210" x2="1000" y2="262"></line>
+              <line x1="1038" y1="210" x2="1038" y2="262"></line>
+              <line x1="1076" y1="210" x2="1076" y2="262"></line>
+              <line x1="1114" y1="210" x2="1114" y2="262"></line>
+            </g>
+
+            <rect class="track-overview__track-circuit" x="176" y="202" width="194" height="68" rx="16"></rect>
+            <line class="track-overview__track-circuit-boundary" x1="176" y1="204" x2="176" y2="268"></line>
+            <line class="track-overview__track-circuit-boundary" x1="370" y1="204" x2="370" y2="268"></line>
 
             <g class="track-overview__signal">
-              <rect x="72" y="160" width="30" height="62" rx="8"></rect>
-              <line x1="87" y1="222" x2="87" y2="272"></line>
-              <circle cx="87" cy="176" r="7"></circle>
-              <circle cx="87" cy="192" r="7" class="track-overview__signal-light track-overview__signal-light--amber"></circle>
-              <circle cx="87" cy="208" r="7" class="track-overview__signal-light track-overview__signal-light--red"></circle>
+              <rect x="80" y="154" width="32" height="66" rx="8"></rect>
+              <line x1="96" y1="220" x2="96" y2="274"></line>
+              <circle cx="96" cy="170" r="7"></circle>
+              <circle cx="96" cy="188" r="7" class="track-overview__signal-light track-overview__signal-light--amber"></circle>
+              <circle cx="96" cy="206" r="7" class="track-overview__signal-light track-overview__signal-light--red"></circle>
             </g>
 
             <g class="track-overview__axle-counter">
-              <circle cx="406" cy="232" r="9"></circle>
-              <circle cx="492" cy="232" r="9"></circle>
-              <line x1="406" y1="214" x2="406" y2="252"></line>
-              <line x1="492" y1="214" x2="492" y2="252"></line>
+              <circle cx="414" cy="229" r="8"></circle>
+              <circle cx="446" cy="229" r="8"></circle>
+              <line x1="414" y1="214" x2="414" y2="246"></line>
+              <line x1="446" y1="214" x2="446" y2="246"></line>
             </g>
 
             <g class="track-overview__point-machine-link">
-              <path d="M 616 246 L 630 246 L 630 266"></path>
+              <path d="M 640 246 L 654 246 L 654 266"></path>
             </g>
 
             <g class="track-overview__point-machine">
-              <rect x="612" y="266" width="36" height="40" rx="8"></rect>
-              <rect x="620" y="244" width="20" height="24" rx="6"></rect>
+              <rect x="632" y="266" width="40" height="42" rx="9"></rect>
+              <rect x="640" y="244" width="24" height="24" rx="6"></rect>
             </g>
 
-            <polygon class="track-overview__balise" points="732,226 764,226 758,248 726,248"></polygon>
+            <polygon class="track-overview__balise" points="776,228 808,228 802,250 770,250"></polygon>
 
             <g class="track-overview__train">
-              <path d="M 840 172 C 860 152, 884 146, 918 146 H 1036 C 1058 146, 1070 156, 1076 174 L 1076 242 C 1070 258, 1058 268, 1038 268 H 890 C 868 268, 850 262, 838 246 L 816 224 C 812 218, 812 210, 818 204 Z"></path>
-              <rect x="880" y="170" width="38" height="24" rx="6"></rect>
-              <rect x="924" y="170" width="38" height="24" rx="6"></rect>
-              <rect x="968" y="170" width="38" height="24" rx="6"></rect>
-              <rect x="1012" y="170" width="38" height="24" rx="6"></rect>
-              <circle cx="900" cy="270" r="12"></circle>
-              <circle cx="1028" cy="270" r="12"></circle>
+              <path d="M 870 174 C 890 152, 918 146, 952 146 H 1088 C 1112 146, 1126 156, 1132 176 L 1132 242 C 1126 258, 1112 268, 1088 268 H 938 C 914 268, 894 262, 882 248 L 850 224 C 846 218, 846 210, 852 204 Z"></path>
+              <rect x="912" y="170" width="40" height="24" rx="6"></rect>
+              <rect x="958" y="170" width="40" height="24" rx="6"></rect>
+              <rect x="1004" y="170" width="40" height="24" rx="6"></rect>
+              <rect x="1050" y="170" width="40" height="24" rx="6"></rect>
+              <circle cx="934" cy="270" r="12"></circle>
+              <circle cx="1072" cy="270" r="12"></circle>
             </g>
 
             <g class="track-overview__onboard">
-              <rect x="886" y="290" width="76" height="26" rx="10"></rect>
-              <line x1="924" y1="290" x2="924" y2="252"></line>
+              <rect x="920" y="292" width="82" height="28" rx="11"></rect>
+              <line x1="961" y1="292" x2="961" y2="254"></line>
             </g>
 
             <g class="track-overview__crossing">
-              <line x1="1038" y1="176" x2="1070" y2="208"></line>
-              <line x1="1070" y1="176" x2="1038" y2="208"></line>
-              <line x1="1042" y1="222" x2="1042" y2="314"></line>
-              <line x1="1072" y1="222" x2="1072" y2="314"></line>
-              <line x1="1042" y1="260" x2="1064" y2="238"></line>
-              <line x1="1072" y1="260" x2="1094" y2="238"></line>
+              <line x1="1104" y1="176" x2="1136" y2="208"></line>
+              <line x1="1136" y1="176" x2="1104" y2="208"></line>
+              <line x1="1118" y1="208" x2="1118" y2="282"></line>
+              <line x1="1146" y1="208" x2="1146" y2="282"></line>
+              <line x1="1120" y1="242" x2="1142" y2="220"></line>
+              <line x1="1150" y1="242" x2="1172" y2="220"></line>
             </g>
           </svg>
         </div>
@@ -2390,7 +2368,7 @@ function renderEtcs() {
     setDiagramCaption("ETCS Level 2｜無線授權更新", [
       "ETCS Level 2 由 RBC 透過無線通訊持續向列車傳送 Movement Authority。",
       "Eurobalise 主要提供位置校正與參考點，不再是主要資訊傳輸方式。",
-      "圖內只保留 RBC、Balise 與列車位置關係，避免說明文字壓在線條上。",
+      "Level 2 的授權資訊會隨列車位置與路線條件持續更新。",
     ]);
     setStatus("Level 2｜持續更新", "green");
   }
@@ -2506,7 +2484,7 @@ function renderAts() {
 
   setDiagramCaption("Automatic Train Supervision (ATS)｜列車自動監督", [
     "ATS 著重營運監督，不直接執行安全煞車。",
-    "圖內只保留監督功能節點，詳細說明放在右側內容區與下方學習筆記。",
+    "列車追蹤、時刻表、告警顯示與調度支援共同形成營運監督視角。",
   ]);
   setStatus("ATS Supervision｜列車監督", "yellow");
 }

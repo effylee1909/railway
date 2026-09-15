@@ -1948,6 +1948,15 @@ input[type="range"] {
   margin-top: 4px;
 }
 
+.handbook-section[hidden] {
+  display: none;
+}
+
+.nav-item[hidden],
+.module-panel[hidden] {
+  display: none;
+}
+
 .handbook-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2505,21 +2514,30 @@ input[type="range"] {
 
 .system-map__node--wayside-card {
   grid-template-columns: 1fr;
-  gap: 10px;
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+  align-content: start;
+  min-height: 188px;
   padding: 14px 14px 16px;
   border-color: rgba(255, 211, 90, 0.42);
 }
 
 .system-map__node--wayside-card .system-map__node-icon {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
   font-size: 0.74rem;
   justify-self: start;
+  align-self: start;
+}
+
+.system-map__node--wayside-card .system-map__node-body {
+  align-content: space-between;
+  min-height: 0;
 }
 
 .system-map__node--wayside-card .system-map__node-title {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   line-height: 1.25;
 }
 
@@ -2565,10 +2583,13 @@ input[type="range"] {
 
 .track-overview__canvas {
   position: relative;
-  width: 820px;
-  min-width: 820px;
-  min-height: 432px;
-  padding: 6px 0 0;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  min-height: 440px;
+  margin: 0 auto;
+  padding: 8px 40px 0 8px;
+  box-sizing: border-box;
 }
 
 .track-overview__svg {
@@ -2581,12 +2602,16 @@ input[type="range"] {
 .track-overview__label {
   position: absolute;
   display: grid;
-  gap: 4px;
+  gap: 5px;
   min-width: 0;
-  padding: 11px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  width: max-content;
+  max-width: 136px;
+  min-height: 58px;
+  padding: 10px 10px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 14px;
-  background: rgba(8, 14, 13, 0.9);
+  background: rgba(8, 14, 13, 0.92);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
   text-align: center;
   box-sizing: border-box;
   transform: translateX(-50%);
@@ -2603,68 +2628,77 @@ input[type="range"] {
 
 .track-overview__label strong {
   color: var(--text);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
+  font-weight: 700;
   line-height: 1.28;
 }
 
 .track-overview__label span {
   color: rgba(237, 246, 242, 0.86);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   line-height: 1.32;
 }
 
 .track-overview__label--signal {
-  top: 14px;
-  left: 7.8%;
-  width: 96px;
+  top: 20px;
+  left: 11%;
+  max-width: 86px;
+  border-color: rgba(94, 226, 141, 0.34);
 }
 
 .track-overview__label--track-circuit {
-  top: 14px;
-  left: 21.3%;
-  width: 120px;
+  top: 20px;
+  left: 27.5%;
+  max-width: 106px;
+  border-color: rgba(122, 168, 255, 0.34);
 }
 
 .track-overview__label--axle-counter {
-  top: 14px;
-  left: 40.1%;
-  width: 112px;
+  top: 20px;
+  left: 43%;
+  max-width: 92px;
+  border-color: rgba(255, 211, 90, 0.34);
 }
 
 .track-overview__label--turnout {
-  top: 14px;
-  left: 52.7%;
-  width: 134px;
+  top: 20px;
+  left: 58.5%;
+  max-width: 110px;
+  border-color: rgba(214, 220, 222, 0.24);
 }
 
 .track-overview__label--eurobalise {
-  top: 14px;
-  left: 66.8%;
-  width: 118px;
+  top: 20px;
+  left: 72.5%;
+  max-width: 96px;
+  border-color: rgba(255, 211, 90, 0.34);
 }
 
 .track-overview__label--train {
-  top: 14px;
-  left: 83%;
-  width: 96px;
+  top: 20px;
+  left: 85.2%;
+  max-width: 78px;
+  border-color: rgba(214, 220, 222, 0.24);
 }
 
 .track-overview__label--crossing {
-  top: 14px;
-  left: 91.5%;
-  width: 138px;
+  top: 20px;
+  left: 97.2%;
+  max-width: 114px;
+  border-color: rgba(255, 211, 90, 0.34);
 }
 
 .track-overview__label--point-machine {
-  top: 338px;
-  left: 56.3%;
-  width: 150px;
+  top: 334px;
+  left: 62.2%;
+  max-width: 116px;
+  border-color: rgba(255, 211, 90, 0.34);
 }
 
 .track-overview__label--onboard-atp {
-  top: 338px;
-  left: 82.5%;
-  width: 144px;
+  top: 334px;
+  left: 86%;
+  max-width: 120px;
   border-color: rgba(169, 108, 255, 0.34);
 }
 
@@ -2688,10 +2722,23 @@ input[type="range"] {
   stroke-width: 4;
 }
 
+.track-overview__sleepers line {
+  stroke: rgba(137, 147, 152, 0.36);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+}
+
 .track-overview__track-circuit {
   fill: rgba(92, 136, 255, 0.28);
   stroke: rgba(122, 168, 255, 0.36);
   stroke-width: 1.5;
+}
+
+.track-overview__track-circuit-boundary {
+  stroke: rgba(122, 168, 255, 0.62);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 8;
 }
 
 .track-overview__signal rect {
@@ -2788,9 +2835,29 @@ input[type="range"] {
 .track-overview__label-guide {
   fill: none;
   stroke: rgba(255, 255, 255, 0.24);
-  stroke-width: 2.4;
+  stroke-width: 1.6;
   stroke-linecap: round;
-  stroke-dasharray: 7 7;
+  stroke-dasharray: 5 6;
+}
+
+.track-overview__label-guide--signal {
+  stroke: rgba(94, 226, 141, 0.46);
+}
+
+.track-overview__label-guide--track {
+  stroke: rgba(122, 168, 255, 0.46);
+}
+
+.track-overview__label-guide--axle,
+.track-overview__label-guide--balise,
+.track-overview__label-guide--point-machine,
+.track-overview__label-guide--crossing {
+  stroke: rgba(255, 211, 90, 0.42);
+}
+
+.track-overview__label-guide--turnout,
+.track-overview__label-guide--train {
+  stroke: rgba(214, 220, 222, 0.3);
 }
 
 .track-overview__label-guide--purple {
@@ -2889,11 +2956,6 @@ input[type="range"] {
   .system-map__layer-content--wayside {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-
-  .track-overview__canvas {
-    width: 820px;
-    min-width: 820px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -2940,5 +3002,10 @@ input[type="range"] {
 
   .system-map__relationships-flow {
     grid-template-columns: 1fr;
+  }
+
+  .track-overview__canvas {
+    width: 980px;
+    min-width: 980px;
   }
 }
